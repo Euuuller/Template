@@ -1,199 +1,100 @@
-# Portfólio Profissional de Cientista de Dados
+# Portfólio de Projetos - Cientista de Dados
 
-Este é um template de portfólio profissional e responsivo, desenvolvido com HTML, CSS e JavaScript puro, otimizado para Cientistas de Dados. Ele inclui funcionalidades como efeito de digitação, navegação suave, animações de scroll e um sistema de tema claro/escuro (`all white` e `all black`).
+<p align="center">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+  <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" alt="Code Style: Prettier">
+  <img src="https://img.shields.io/badge/built%20with-Vite-646CFF.svg" alt="Built with Vite">
+</p>
 
-## Funcionalidades
+Este repositório contém o código-fonte do meu portfólio profissional, uma aplicação web estática projetada para apresentar minha jornada, habilidades e projetos na área de Ciência de Dados. O projeto foi desenvolvido com foco em design limpo, performance e uma experiência de usuário moderna e interativa.
 
--   **Design Responsivo**: Adapta-se a diferentes tamanhos de tela (desktop, tablet, mobile).
--   **Tema Claro/Escuro**: Alterna entre um tema claro (`all white`) e um tema escuro (`all black`) para melhor experiência do usuário.
--   **Efeito de Digitação**: Animação de texto dinâmico na seção Hero.
--   **Navegação Suave**: Rolagem suave para as seções da página.
--   **Animações de Scroll**: Elementos aparecem com animações elegantes ao rolar a página.
--   **Formulário de Contato Funcional**: Validação básica e feedback ao usuário.
--   **Estrutura de Projeto Limpa**: Organização clara de arquivos HTML, CSS e JavaScript.
--   **Otimizado para Performance**: Código leve e eficiente.
+**[➡️ Ver Demonstração Ao Vivo](https://euuuller.github.io/Template/)**
 
-## Estrutura do Projeto
+---
 
-```
-template-project/
-├── index.html
-├── README.md
-└── assets/
-    ├── css/
-    │   └── style.css
-    ├── js/
-    │   └── main.js
-    ├── images/
-    │   ├── profile.svg
-    │   ├── about-illustration.svg
-    │   ├── cv-placeholder.pdf
-    │   ├── skills/
-    │   │   ├── python.svg
-    │   │   ├── r.svg
-    │   │   ├── sql.svg
-    │   │   ├── power-bi.svg
-    │   │   ├── excel.svg
-    │   │   ├── tableau.svg
-    │   │   ├── git.svg
-    │   │   └── docker.svg
-    │   └── projects/
-    │       ├── project-1.svg
-    │       ├── project-2.svg
-    │       ├── project-3.svg
-    │       ├── project-4.svg
-    │       ├── project-5.svg
-    │       └── project-6.svg
-```
+<!--
+## 📸 Screenshot
 
-## Como Usar
+(Recomendo que você tire um print da sua página e coloque aqui!)
 
-### 1. Clonar o Repositório (ou baixar o ZIP)
+![Screenshot do Portfólio](./docs/screenshot.png)
 
-Se você estiver usando Git, clone o repositório:
+-->
 
-```bash
-git clone <URL_DO_SEU_REPOSITORIO>
-cd template-project
-```
+## ✨ Funcionalidades Principais
 
-Se você baixou o arquivo ZIP, descompacte-o em uma pasta de sua preferência.
+O portfólio não é apenas um mostruário de projetos, mas também uma demonstração de competências em desenvolvimento frontend:
 
-### 2. Customizar o Conteúdo
+- **Design Responsivo:** Interface totalmente adaptável para desktops, tablets e dispositivos móveis.
+- **Tema Claro/Escuro:** Alternância de tema para conforto visual do usuário, com persistência da preferência.
+- **Animações Interativas:** Efeito de digitação na seção principal e animações de fade-in ao rolar a página, criadas com JavaScript puro e `Intersection Observer API`.
+- **Arquitetura Modular:** Código CSS e JavaScript organizado em módulos para alta manutenibilidade, seguindo as melhores práticas do mercado.
+- **Ambiente de Desenvolvimento Moderno:** O projeto é configurado com ferramentas profissionais para garantir a qualidade e a consistência do código.
 
--   **`index.html`**: Edite o conteúdo textual, links de redes sociais, informações pessoais, detalhes sobre projetos e habilidades.
-    -   **Seu Nome**: Altere `Seu Nome Completo` na seção Hero.
-    -   **Profissão**: Edite o texto no efeito de digitação em `assets/js/main.js` (variável `APP_CONFIG.typing.strings`).
-    -   **Links Sociais**: Atualize os `href` dos ícones de redes sociais no cabeçalho e rodapé.
-    -   **Seções**: Preencha as seções `Sobre Mim`, `Habilidades`, `Projetos` e `Contato` com suas informações.
+## 🛠️ Stack de Tecnologias e Ferramentas
 
--   **`assets/css/style.css`**: 
-    -   **Cores**: As cores principais são definidas usando variáveis CSS no `:root` e `[data-theme="dark"]`. Altere-as para personalizar o tema.
-        ```css
-        :root { /* Tema Claro (all white) */
-            --color-primary: #3b82f6; /* Azul */
-            --color-secondary: #0ea5e9; /* Azul claro */
-            --color-accent: #10b981; /* Verde */
-            --color-background: #ffffff; /* Fundo branco */
-            --color-text-primary: #1a202c; /* Texto escuro */
-            --color-text-secondary: #4a5568; /* Texto cinza */
-            --color-card-background: #f8fafc; /* Fundo de card claro */
-            --color-border: #e2e8f0; /* Borda clara */
-            --color-shadow: rgba(0, 0, 0, 0.05);
-            --color-link-hover: var(--color-primary);
-            --color-button-bg: var(--color-primary);
-            --color-button-text: #ffffff;
-            --color-button-hover-bg: #2563eb;
-            --color-button-border: var(--color-primary);
-            --color-button-outline-text: var(--color-primary);
-            --color-button-outline-border: var(--color-primary);
-            --color-button-outline-hover-bg: var(--color-primary);
-            --color-button-outline-hover-text: #ffffff;
-            --color-form-bg: #ffffff;
-            --color-form-border: #cbd5e0;
-            --color-form-focus-border: var(--color-primary);
-            --color-form-message-success-bg: #d1fae5;
-            --color-form-message-success-text: #065f46;
-            --color-form-message-success-border: #a7f3d0;
-            --color-form-message-error-bg: #fee2e2;
-            --color-form-message-error-text: #991b1b;
-            --color-form-message-error-border: #fca5a5;
-            --color-footer-bg: #f8fafc;
-            --color-footer-text: #4a5568;
-            --color-social-icon: #4a5568;
-            --color-social-icon-hover: var(--color-primary);
-            --color-scroll-to-top-bg: var(--color-primary);
-            --color-scroll-to-top-hover-bg: #2563eb;
-        }
+Este projeto foi construído utilizando um conjunto de tecnologias modernas para garantir performance e uma ótima experiência de desenvolvimento.
 
-        [data-theme="dark"] { /* Tema Escuro (all black) */
-            --color-primary: #60a5fa; /* Azul mais claro para contraste */
-            --color-secondary: #38bdf8; /* Azul ciano */
-            --color-accent: #34d399; /* Verde menta */
-            --color-background: #000000; /* Fundo preto */
-            --color-text-primary: #e2e8f0; /* Texto claro */
-            --color-text-secondary: #a0aec0; /* Texto cinza claro */
-            --color-card-background: #1a202c; /* Fundo de card escuro */
-            --color-border: #2d3748; /* Borda escura */
-            --color-shadow: rgba(0, 0, 0, 0.3);
-            --color-link-hover: var(--color-primary);
-            --color-button-bg: var(--color-primary);
-            --color-button-text: #000000;
-            --color-button-hover-bg: #3b82f6;
-            --color-button-border: var(--color-primary);
-            --color-button-outline-text: var(--color-primary);
-            --color-button-outline-border: var(--color-primary);
-            --color-button-outline-hover-bg: var(--color-primary);
-            --color-button-outline-hover-text: #000000;
-            --color-form-bg: #1a202c;
-            --color-form-border: #4a5568;
-            --color-form-focus-border: var(--color-primary);
-            --color-form-message-success-bg: #166534;
-            --color-form-message-success-text: #d1fae5;
-            --color-form-message-success-border: #22c55e;
-            --color-form-message-error-bg: #7f1d1d;
-            --color-form-message-error-text: #fecaca;
-            --color-form-message-error-border: #ef4444;
-            --color-footer-bg: #1a202c;
-            --color-footer-text: #a0aec0;
-            --color-social-icon: #a0aec0;
-            --color-social-icon-hover: var(--color-primary);
-            --color-scroll-to-top-bg: var(--color-primary);
-            --color-scroll-to-top-hover-bg: #3b82f6;
-        }
-        ```
+- **Frontend:**
+  - HTML5 (Semântico)
+  - CSS3 (com Variáveis Customizadas para theming)
+  - JavaScript (ES6+ com sistema de Módulos)
 
--   **`assets/js/main.js`**: Ajuste as configurações do efeito de digitação (`APP_CONFIG.typing.strings`) ou outras lógicas se necessário.
+- **Build e Desenvolvimento:**
+  - **Vite:** Ferramenta de build ultrarrápida para o ambiente de desenvolvimento e otimização para produção.
+  - **Node.js:** Ambiente de execução para as ferramentas de desenvolvimento.
 
-### 3. Substituir Imagens e Ícones
+- **Qualidade e Padronização de Código:**
+  - **ESLint:** Para análise estática e identificação de padrões problemáticos no JavaScript.
+  - **Prettier:** Para formatação de código automática e consistente.
+  - **Stylelint:** Para garantir boas práticas e padrões no código CSS.
 
-As imagens e ícones SVG fornecidos são placeholders. Substitua-os pelos seus próprios:
+- **Automação:**
+  - **Husky & lint-staged:** Para executar os linters e formatadores automaticamente antes de cada commit, garantindo que apenas código de alta qualidade seja versionado.
 
--   **`assets/images/profile.svg`**: Sua foto de perfil.
--   **`assets/images/about-illustration.svg`**: Uma ilustração para a seção "Sobre Mim".
--   **`assets/images/skills/`**: Ícones para suas habilidades técnicas. Certifique-se de que os nomes dos arquivos correspondem aos usados no `index.html`.
--   **`assets/images/projects/`**: Imagens de capa para seus projetos. Certifique-se de que os nomes dos arquivos correspondem aos usados no `index.html`.
--   **`assets/images/cv-placeholder.pdf`**: Substitua pelo seu currículo em PDF e atualize o link no `index.html`.
+## 🚀 Executando o Projeto Localmente
 
-### 4. Testar Localmente
+Para explorar ou contribuir com o projeto, siga os passos abaixo.
 
-Abra o arquivo `index.html` diretamente no seu navegador ou use um servidor local (como `python3 -m http.server` ou Live Server no VS Code) para visualizar o portfólio e garantir que tudo está funcionando como esperado.
+**Pré-requisitos:**
 
-## Deploy no GitHub Pages
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (versão 18 ou superior recomendada)
 
-O GitHub Pages é uma ótima maneira de hospedar seu portfólio gratuitamente. Siga estes passos:
+**Passos:**
 
-1.  **Crie um Repositório no GitHub**: Vá para [GitHub](https://github.com/) e crie um novo repositório. Dê a ele um nome como `seu-usuario.github.io` (para um site pessoal) ou `nome-do-projeto` (para um site de projeto).
+1.  **Clone o repositório:**
 
-2.  **Inicialize o Git e Faça o Primeiro Commit**: No diretório `template-project` no seu computador:
-
-    ```bash
-    git init
-    git add .
-    git commit -m "Initial commit: Portfolio template"
+    ```sh
+    git clone https://github.com/Euuuller/Template.git
     ```
 
-3.  **Conecte ao Repositório Remoto**: Adicione o repositório que você criou no GitHub como remoto:
+2.  **Navegue até o diretório do projeto:**
 
-    ```bash
-    git remote add origin https://github.com/seu-usuario/seu-repositorio.git
-    git branch -M main
-    git push -u origin main
+    ```sh
+    cd Template
     ```
-    Substitua `seu-usuario` e `seu-repositorio` pelos seus dados.
 
-4.  **Configure o GitHub Pages**: 
-    -   No seu repositório GitHub, vá para **Settings** (Configurações).
-    -   No menu lateral, clique em **Pages**.
-    -   Em "Source" (Fonte), selecione a branch `main` (ou `master`, dependendo do seu repositório) e a pasta `/ (root)`.
-    -   Clique em **Save** (Salvar).
+3.  **Instale as dependências:**
 
-5.  **Aguarde o Deploy**: O GitHub Pages levará alguns minutos para construir e publicar seu site. Você verá um link para o seu site na seção Pages (geralmente `https://seu-usuario.github.io/seu-repositorio/` ou `https://seu-usuario.github.io/` se for um repositório pessoal).
+    ```sh
+    npm install
+    ```
 
-## Contribuições
+4.  **Inicie o servidor de desenvolvimento:**
+    ```sh
+    npm run dev
+    ```
 
-Sinta-se à vontade para usar, modificar e melhorar este template. Se encontrar algum bug ou tiver sugestões, por favor, abra uma issue ou envie um pull request no repositório original (se aplicável).
+Após executar o último comando, o Vite iniciará um servidor local (geralmente em `http://localhost:5173`) com _hot reload_, que atualiza a página automaticamente a cada alteração no código.
 
---- 
+## 📜 Scripts Disponíveis
 
-**Desenvolvido por Manus AI**
+- `npm run dev`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Gera a versão otimizada do site para produção na pasta `dist/`.
+- `npm run format`: Formata todo o código do projeto usando o Prettier.
+- `npm run lint`: Executa o ESLint e o Stylelint para encontrar possíveis erros no código.
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
