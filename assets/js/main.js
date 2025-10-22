@@ -5,24 +5,31 @@
  * ==========================================
  */
 
-import { APP_CONFIG } from './config.js';
-import { debounce } from './utils/debounce.js';
-import { initTheme } from './components/theme.js';
-import { initMobileMenu } from './components/mobileMenu.js';
-import { initNavigation, updateActiveNavLink } from './components/navigation.js';
-import { initTypingEffect, cleanupTypingEffect } from './components/typingEffect.js';
-import { initScrollAnimations, checkVisibleElements } from './components/scrollAnimations.js';
-import { initContactForm } from './components/contactForm.js';
-import { initPreloader } from './components/preloader.js';
-import { initScrollToTop } from './components/scrollToTop.js';
+import { APP_CONFIG } from './config.js'
+import { debounce } from './utils/debounce.js'
+import { initTheme } from './components/theme.js'
+import { initMobileMenu } from './components/mobileMenu.js'
+import { initNavigation, updateActiveNavLink } from './components/navigation.js'
+import {
+    initTypingEffect,
+    cleanupTypingEffect,
+} from './components/typingEffect.js'
+import {
+    initScrollAnimations,
+    checkVisibleElements,
+} from './components/scrollAnimations.js'
+import { initContactForm } from './components/contactForm.js'
+import { initPreloader } from './components/preloader.js'
+import { initScrollToTop } from './components/scrollToTop.js'
+import { initAboutCodeSnippet } from './components/codeSnippet.js'
 
 /**
  * Classe principal da aplicação para organizar a inicialização.
  */
 class App {
     constructor() {
-        this.isInitialized = false;
-        this.init();
+        this.isInitialized = false
+        this.init()
     }
 
     /**
@@ -30,9 +37,11 @@ class App {
      */
     init() {
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => this.initializeApp());
+            document.addEventListener('DOMContentLoaded', () =>
+                this.initializeApp()
+            )
         } else {
-            this.initializeApp();
+            this.initializeApp()
         }
     }
 
@@ -40,28 +49,31 @@ class App {
      * Inicializa todos os módulos e vincula eventos globais.
      */
     initializeApp() {
-        if (this.isInitialized) return;
+        if (this.isInitialized) return
 
-        console.log('🚀 Inicializando aplicação...');
+        console.log('🚀 Inicializando aplicação...')
         try {
             // Inicializa todos os componentes
-            initPreloader();
-            initTheme();
-            initMobileMenu();
-            initNavigation();
-            initTypingEffect();
-            initScrollAnimations();
-            initContactForm();
-            initScrollToTop();
+            initPreloader()
+            initTheme()
+            initMobileMenu()
+            initNavigation()
+            initTypingEffect()
+            initAboutCodeSnippet()
+            initScrollAnimations()
+            initContactForm()
+            initScrollToTop()
 
             // Vincula eventos globais
-            this.bindGlobalEvents();
+            this.bindGlobalEvents()
 
-            this.isInitialized = true;
-            console.log('✅ Aplicação inicializada com sucesso');
-
+            this.isInitialized = true
+            console.log('✅ Aplicação inicializada com sucesso')
         } catch (error) {
-            console.error('❌ Erro crítico na inicialização da aplicação:', error);
+            console.error(
+                '❌ Erro crítico na inicialização da aplicação:',
+                error
+            )
         }
     }
 
@@ -70,24 +82,25 @@ class App {
      */
     bindGlobalEvents() {
         const debouncedScrollHandler = debounce(() => {
-            updateActiveNavLink();
-            checkVisibleElements();
-        }, APP_CONFIG.animation.debounceDelay);
+            updateActiveNavLink()
+            checkVisibleElements()
+        }, APP_CONFIG.animation.debounceDelay)
 
-        window.addEventListener('scroll', debouncedScrollHandler);
+        window.addEventListener('scroll', debouncedScrollHandler)
 
         // Exemplo de cleanup (se necessário)
         window.addEventListener('beforeunload', () => {
-            cleanupTypingEffect();
-        });
+            cleanupTypingEffect()
+        })
     }
 }
 
 // Inicializa a aplicação
-new App();
+// eslint-disable-next-line no-unused-vars
+const app = new App()
 
 // Exposição para debug em ambiente de desenvolvimento
 if (window.location.hostname === 'localhost') {
-    window.APP_CONFIG = APP_CONFIG;
-    console.log('🔧 Modo de desenvolvimento ativo');
+    window.APP_CONFIG = APP_CONFIG
+    console.log('🔧 Modo de desenvolvimento ativo')
 }

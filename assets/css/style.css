@@ -7,33 +7,34 @@
  * 1. BASE
  * - Variáveis, Resets, Estilos Globais
  */
-@import url("./base/variables.css");
-@import url("./base/reset.css");
+@import './base/variables.css';
+@import './base/reset.css';
 
 /*
  * 2. LAYOUT
  * - Grid, Seções, Header, Footer
  */
-@import url("./layout/grid.css");
-@import url("./layout/sections.css");
-@import url("./layout/header.css");
-@import url("./layout/footer.css");
+@import './layout/grid.css';
+@import './layout/sections.css';
+@import './layout/header.css';
+@import './layout/footer.css';
 
 /*
  * 3. COMPONENTS
  * - Estilos de componentes reutilizáveis
  */
-@import url("./components/preloader.css");
-@import url("./components/buttons.css");
-@import url("./components/mobile-menu.css");
-@import url("./components/hero.css");
-@import url("./components/about.css");
-@import url("./components/skills.css");
-@import url("./components/projects.css");
-@import url("./components/contact.css");
+@import './components/preloader.css';
+@import './components/buttons.css';
+@import './components/mobile-menu.css';
+@import './components/hero.css';
+@import './components/about.css';
+@import './components/code-snippet.css';
+@import './components/skills.css';
+@import './components/projects.css';
+@import './components/contact.css';
 
 /*
  * 4. UTILITIES
  * - Classes utilitárias, animações, etc.
  */
-@import url("./utils.css");
+@import './utils.css';
