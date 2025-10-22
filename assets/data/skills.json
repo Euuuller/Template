@@ -32,13 +32,13 @@
         },
         {
             "name": "PostgreSQL",
-            "description": "Bancos de dados relacionais robustos para grandes volumes de dados.",
+            "description": "Banco de dados relacional robusto para grandes volumes de dados.",
             "icon_type": "devicon",
             "icon": "devicon-postgresql-plain colored"
         },
         {
             "name": "SQLite",
-            "description": "Bancos de dados leves para prototipagem e aplicações menores.",
+            "description": "Banco de dados leve e embutido para aplicações locais.",
             "icon_type": "devicon",
             "icon": "devicon-sqlite-plain colored"
         },
@@ -64,7 +64,7 @@
         },
         {
             "name": "Seaborn",
-            "description": "Visualizações estatísticas elegantes baseadas em Matplotlib.",
+            "description": "Visualizações estatísticas elegantes baseadas no Matplotlib.",
             "icon_type": "svg",
             "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><circle cx='64' cy='64' r='60' fill='#3776AB'/><circle cx='45' cy='45' r='8' fill='white'/><circle cx='83' cy='45' r='8' fill='white'/><circle cx='64' cy='83' r='8' fill='white'/></svg>"
         },
@@ -72,7 +72,7 @@
             "name": "Power BI",
             "description": "Business Intelligence e relatórios executivos interativos.",
             "icon_type": "svg",
-            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#F2C811'/><rect x='20' y='20' width='88' height='20' fill='#333'/><rect x='20' y='50' width='60' fill='#333'/><rect x='20' y='80' width='40' fill='#333'/></svg>"
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#F2C811'/><rect x='20' y='20' width='88' height='20' fill='#333'/><rect x='20' y='50' width='60' height='20' fill='#333'/><rect x='20' y='80' width='40' height='20' fill='#333'/></svg>"
         },
         {
             "name": "Tableau",
@@ -114,7 +114,7 @@
         },
         {
             "name": "PyTorch",
-            "description": "Framework flexível para pesquisa e desenvolvimento em IA.",
+            "description": "Framework de Deep Learning flexível e performático.",
             "icon_type": "devicon",
             "icon": "devicon-pytorch-original colored"
         },
@@ -164,7 +164,7 @@
         },
         {
             "name": "AWS",
-            "description": "Serviços de nuvem para processamento e armazenamento de dados.",
+            "description": "Serviços de nuvem para escalabilidade e infraestrutura.",
             "icon_type": "devicon",
             "icon": "devicon-amazonwebservices-original colored"
         },

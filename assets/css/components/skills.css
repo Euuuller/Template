@@ -50,6 +50,12 @@
     border-color: var(--primary-hover);
 }
 
+/* Acessibilidade: foco visível nas abas */
+.skills__tab:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
 .skills__content {
     position: relative;
 }
@@ -106,6 +112,13 @@
 }
 
 .skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgb(0 0 0 / 10%);
+    border-color: var(--color-primary);
+}
+
+/* Acessibilidade: foco nos cards como no hover */
+.skill-card:focus-visible {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgb(0 0 0 / 10%);
     border-color: var(--color-primary);

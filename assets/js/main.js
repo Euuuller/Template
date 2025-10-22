@@ -22,6 +22,7 @@ import { initContactForm } from './components/contactForm.js'
 import { initPreloader } from './components/preloader.js'
 import { initScrollToTop } from './components/scrollToTop.js'
 import { initAboutCodeSnippet } from './components/codeSnippet.js'
+import { initSkills } from './components/skills.js'
 
 /**
  * Classe principal da aplicação para organizar a inicialização.
@@ -61,6 +62,7 @@ class App {
             initTypingEffect()
             initAboutCodeSnippet()
             initScrollAnimations()
+            initSkills()
             initContactForm()
             initScrollToTop()
 

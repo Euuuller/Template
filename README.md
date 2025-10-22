@@ -94,6 +94,50 @@ Após executar o último comando, o Vite iniciará um servidor local (geralmente
 - `npm run build`: Gera a versão otimizada do site para produção na pasta `dist/`.
 - `npm run format`: Formata todo o código do projeto usando o Prettier.
 - `npm run lint`: Executa o ESLint e o Stylelint para encontrar possíveis erros no código.
+- `npm test`: Executa a suíte de testes com Vitest.
+- `npm run test:coverage`: Executa os testes e gera relatório de cobertura.
+
+## 🔧 Refatoração: Skills & Tools
+
+A seção "Skills & Tools" foi completamente refatorada para melhorar manutenção, acessibilidade e confiabilidade.
+
+- **Dados padronizados**: `assets/data/skills.json` com estrutura consistente, facilitando parsing e renderização.
+- **Módulo JS dedicado**: `assets/js/components/skills.js` cuida de:
+  - Renderização dos cartões de habilidades por categoria.
+  - Navegação por abas com suporte total a teclado (setas, Home/End, Enter/Space).
+  - Atributos ARIA e papéis (`role=tablist`, `role=tab`, `role=tabpanel`).
+- **Estilos acessíveis**: `assets/css/components/skills.css` recebeu estados de `:focus-visible` para abas e cartões.
+- **Integração**: `assets/js/main.js` importa e inicializa `initSkills()`.
+- **HTML limpo**: `index.html` não inclui mais o script legado `assets/js/skills.js` (apenas `main.js`).
+
+### Como testar
+
+- Rodar testes unitários e de integração:
+  ```sh
+  npm test -- --run
+  ```
+- Ambiente de testes configurado em `vite.config.js`:
+  - `test.environment = 'jsdom'`
+  - `test.setupFiles = './tests/setup.js'`
+
+### Como validar visualmente
+
+- Suba o servidor de desenvolvimento:
+  ```sh
+  npm run dev
+  ```
+- Acesse a URL mostrada no terminal (ex.: `http://localhost:5173/Template/`).
+
+## 🧪 Testes
+
+- **Unitários**: `tests/skills.unit.test.js` valida criação de cartões e inserção em grids.
+- **Integração**: `tests/skills.integration.test.js` cobre `initSkills`, roles/ARIA e navegação por teclado.
+
+## ✅ Compatibilidade e Desempenho
+
+- Verificado build de produção (`npm run build`) sem erros.
+- A navegação por abas funciona com mouse e teclado.
+- Estilos responsivos mantidos e foco visível para acessibilidade.
 
 ## 📄 Licença
 

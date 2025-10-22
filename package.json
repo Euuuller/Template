@@ -1,6 +1,7 @@
 {
     "name": "template",
     "version": "1.0.0",
+    "type": "module",
     "description": "Este é um template de portfólio profissional e responsivo, desenvolvido com HTML, CSS e JavaScript puro, otimizado para Cientistas de Dados. Ele inclui funcionalidades como efeito de digitação, navegação suave, animações de scroll e um sistema de tema claro/escuro (`all white` e `all black`).",
     "scripts": {
         "dev": "vite",
@@ -8,6 +9,8 @@
         "format": "prettier --write .",
         "lint": "eslint . && stylelint '**/*.css'",
         "lint:fix": "eslint . --fix && stylelint '**/*.css' --fix",
+        "test": "vitest",
+        "test:coverage": "vitest run --coverage",
         "prepare": "husky"
     },
     "repository": {
@@ -22,18 +25,23 @@
     },
     "homepage": "https://github.com/Euuuller/Template#readme",
     "devDependencies": {
+        "@testing-library/dom": "^9.3.3",
+        "@testing-library/jest-dom": "^6.4.8",
+        "@testing-library/user-event": "^14.5.2",
         "eslint": "^8.57.1",
         "eslint-config-prettier": "^10.1.8",
         "eslint-config-standard": "^17.1.0",
         "eslint-plugin-import": "^2.32.0",
         "eslint-plugin-promise": "^6.6.0",
         "husky": "^9.1.7",
+        "jsdom": "^24.1.0",
         "lint-staged": "^16.2.5",
         "prettier": "^3.6.2",
         "stylelint": "^14.16.1",
         "stylelint-config-prettier": "^9.0.5",
         "stylelint-config-standard": "^28.0.0",
-        "vite": "^7.1.11"
+        "vite": "^7.1.11",
+        "vitest": "^1.6.0"
     },
     "browserslist": [
         "> 0.5%",
