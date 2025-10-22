@@ -8,34 +8,43 @@
     gap: 1rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    position: relative;
+    animation: fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .skills__tab {
     background: var(--color-bg-secondary);
     border: 2px solid var(--color-border);
     color: var(--color-text-secondary);
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 12px;
-    font-weight: 500;
-    font-size: 0.85rem;
+    font-weight: 600;
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     white-space: nowrap;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    gap: 0.7rem;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 12%);
+    z-index: 1;
+    backdrop-filter: blur(10px);
 }
 
 .skills__tab i {
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    font-size: 1.3rem;
+    transition: all 0.4s ease;
 }
 
 .skills__tab span {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.02em;
 }
 
 .skills__tab::before {
@@ -44,38 +53,37 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: var(--color-primary);
+    height: 3px;
+    background: linear-gradient(90deg, white, rgb(255 255 255 / 80%));
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
+    z-index: 1;
 }
 
 .skills__tab:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-    background: linear-gradient(
-        135deg,
-        rgb(var(--color-primary-rgb) 0.15),
-        rgb(var(--color-primary-rgb) 0.05)
-    );
-    box-shadow: 0 6px 20px rgb(var(--color-primary-rgb) 0.25);
-    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    color: white;
+    background: var(--primary-color);
+    box-shadow: 0 10px 30px rgb(59 130 246 / 35%);
+    transform: translateY(-4px);
+    z-index: 2;
 }
 
 .skills__tab--active {
-    background: rgb(var(--color-primary-rgb) 0.1);
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-    box-shadow: 0 4px 12px rgb(var(--color-primary-rgb) 0.3);
-    transform: translateY(-1px);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 8px 22px rgb(59 130 246 / 45%);
+    transform: translateY(-3px);
+    z-index: 3;
 }
 
 .skills__tab--active i {
-    color: var(--color-primary);
+    color: white;
 }
 
 .skills__tab--active span {
-    color: var(--color-primary);
+    color: white;
 }
 
 .skills__tab--active::before {
@@ -87,17 +95,38 @@
 }
 
 .skills__tab:hover i {
-    opacity: 0;
-    transform: scale(0.8);
+    opacity: 1;
+    transform: scale(1);
+    color: white;
+    transition: all 0.4s ease;
 }
 
 .skills__tab:hover span {
-    color: var(--color-primary);
+    color: white;
     font-weight: 600;
 }
 
 .skills__tab:hover::before {
     transform: scaleX(1);
+}
+
+/* Efeito de brilho ao passar o mouse */
+.skills__tab::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 25px;
+    height: 200%;
+    background: rgb(255 255 255 / 40%);
+    transform: rotate(25deg);
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 0;
+}
+
+.skills__tab:hover::after {
+    opacity: 1;
+    left: 120%;
 }
 
 .skills__content {
@@ -205,20 +234,28 @@
     margin: 0;
 }
 
+/* Animação de entrada */
+@keyframes fade-in-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .skills__tabs {
-        gap: 0.4rem;
+        gap: 0.7rem;
     }
 
     .skills__tab {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-        gap: 0.4rem;
+        padding: 0.7rem 1.3rem;
+        font-size: 0.9rem;
+        gap: 0.6rem;
     }
 
     .skills__tab i {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .skills__grid {
@@ -227,30 +264,30 @@
     }
 
     .skill-card {
-        padding: 1.2rem;
+        padding: 1.3rem;
     }
 
     .skill-card__icon {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 1rem;
+        width: 52px;
+        height: 52px;
+        margin-bottom: 1.1rem;
     }
 
     .skill-card__icon i {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
 
     .skill-card__icon svg {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
     }
 
     .skill-card__title {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .skill-card__description {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -258,12 +295,15 @@
     .skills__tabs {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
 
     .skills__tab {
         width: 100%;
-        max-width: 200px;
+        max-width: 240px;
         text-align: center;
         justify-content: center;
+        padding: 1rem 1.6rem;
+        font-size: 1rem;
     }
 }
