@@ -20,7 +20,6 @@
         /* deeppink */ #f00 /* red to loop smoothly */
     );
     background-clip: text;
-    background-clip: text;
     color: transparent;
     animation: rainbow-animation 10s linear infinite;
     background-size: 400% 400%;

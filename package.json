@@ -7,8 +7,8 @@
         "dev": "vite",
         "build": "vite build",
         "format": "prettier --write .",
-        "lint": "eslint . && stylelint '**/*.css'",
-        "lint:fix": "eslint . --fix && stylelint '**/*.css' --fix",
+        "lint": "eslint . && stylelint \"**/*.css\"",
+        "lint:fix": "eslint . --fix && stylelint \"**/*.css\" --fix",
         "test": "vitest",
         "test:coverage": "vitest run --coverage",
         "prepare": "husky"
