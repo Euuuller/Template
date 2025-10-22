@@ -98,7 +98,6 @@
 .header__nav-link:focus-visible,
 .header__theme-toggle:focus-visible,
 .header__social-link:focus-visible,
-.skills__tab:focus-visible,
 .form-input:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;

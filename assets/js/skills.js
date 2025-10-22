@@ -1,88 +1,85 @@
-/**
- * FUNCIONALIDADE DAS ABAS DE HABILIDADES
- * Gerencia a navegação entre as diferentes categorias de habilidades
- */
+document.addEventListener('DOMContentLoaded', () => {
+    const SKILLS_FILE_PATH = 'assets/data/skills.json'
+    const tabsContainer = document.querySelector('.skills__tabs')
+    const contentContainer = document.querySelector('.skills__content')
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona todos os botões de aba e painéis
-    const tabButtons = document.querySelectorAll('.skills__tab')
-    const tabPanels = document.querySelectorAll('.skills__panel')
+    function createSkillCard(skill) {
+        const icon =
+            skill.icon_type === 'devicon'
+                ? `<i class="${skill.icon}"></i>`
+                : skill.icon
 
-    // Função para ativar uma aba específica
-    function activateTab(targetTab) {
-        // Remove a classe ativa de todos os botões e painéis
-        tabButtons.forEach((button) => {
-            button.classList.remove('skills__tab--active')
-        })
-
-        tabPanels.forEach((panel) => {
-            panel.classList.remove('skills__panel--active')
-        })
-
-        // Adiciona a classe ativa ao botão clicado
-        const activeButton = document.querySelector(`[data-tab="${targetTab}"]`)
-        if (activeButton) {
-            activeButton.classList.add('skills__tab--active')
-        }
-
-        // Adiciona a classe ativa ao painel correspondente
-        const activePanel = document.querySelector(
-            `[data-panel="${targetTab}"]`
-        )
-        if (activePanel) {
-            activePanel.classList.add('skills__panel--active')
-        }
+        return `
+      <div class="skill-card">
+        <div class="skill-card__icon">
+          ${icon}
+        </div>
+        <h3 class="skill-card__title">${skill.name}</h3>
+        <p class="skill-card__description">${skill.description}</p>
+      </div>
+    `
     }
 
-    // Adiciona event listeners aos botões das abas
-    tabButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-            const targetTab = this.getAttribute('data-tab')
-            activateTab(targetTab)
-        })
-    })
+    async function loadSkills() {
+        try {
+            const response = await fetch(SKILLS_FILE_PATH)
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+            const skillsData = await response.json()
 
-    // Animação de entrada dos cards quando uma aba é ativada
-    function animateCards(panel) {
-        const cards = panel.querySelectorAll('.skill-card')
-        cards.forEach((card, index) => {
-            card.style.opacity = '0'
-            card.style.transform = 'translateY(20px)'
-
-            setTimeout(() => {
-                card.style.transition = 'all 0.3s ease'
-                card.style.opacity = '1'
-                card.style.transform = 'translateY(0)'
-            }, index * 100)
-        })
-    }
-
-    // Observer para animar cards quando entram na viewport
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-    }
-
-    const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const panel = entry.target
-                if (panel.classList.contains('skills__panel--active')) {
-                    animateCards(panel)
+            // Populate panels with skills
+            for (const category in skillsData) {
+                const panel = contentContainer.querySelector(
+                    `[data-panel="${category}"]`
+                )
+                if (panel) {
+                    const grid = panel.querySelector('.skills__grid')
+                    if (grid) {
+                        grid.innerHTML = skillsData[category]
+                            .map(createSkillCard)
+                            .join('')
+                    }
                 }
             }
-        })
-    }, observerOptions)
 
-    // Observa todos os painéis
-    tabPanels.forEach((panel) => {
-        cardObserver.observe(panel)
-    })
+            // Setup tab switching
+            tabsContainer.addEventListener('click', (event) => {
+                const tab = event.target.closest('.skills__tab')
+                if (!tab) return
 
-    // Inicializa a primeira aba como ativa (caso não haja nenhuma ativa)
-    const activeTab = document.querySelector('.skills__tab--active')
-    if (!activeTab && tabButtons.length > 0) {
-        const firstTab = tabButtons[0].getAttribute('data-tab')
-        activateTab(firstTab)
+                // Deactivate current active tab and panel
+                const activeTab = tabsContainer.querySelector(
+                    '.skills__tab--active'
+                )
+                const activePanel = contentContainer.querySelector(
+                    '.skills__panel--active'
+                )
+
+                if (activeTab) {
+                    activeTab.classList.remove('skills__tab--active')
+                }
+                if (activePanel) {
+                    activePanel.classList.remove('skills__panel--active')
+                }
+
+                // Activate new tab and panel
+                tab.classList.add('skills__tab--active')
+                const newPanel = contentContainer.querySelector(
+                    `[data-panel="${tab.dataset.tab}"]`
+                )
+                if (newPanel) {
+                    newPanel.classList.add('skills__panel--active')
+                }
+            })
+        } catch (error) {
+            console.error('Failed to load skills:', error)
+            if (contentContainer) {
+                contentContainer.innerHTML =
+                    '<p>Error loading skills. Please try again later.</p>'
+            }
+        }
     }
+
+    loadSkills()
 })

@@ -1,0 +1,202 @@
+{
+    "languages": [
+        {
+            "name": "Python",
+            "description": "Linguagem principal para Data Science, Machine Learning e automação.",
+            "icon_type": "devicon",
+            "icon": "devicon-python-plain colored"
+        },
+        {
+            "name": "R",
+            "description": "Análise estatística avançada e visualização de dados.",
+            "icon_type": "devicon",
+            "icon": "devicon-r-original colored"
+        },
+        {
+            "name": "SQL",
+            "description": "Consultas complexas, otimização e manipulação de bancos de dados.",
+            "icon_type": "devicon",
+            "icon": "devicon-mysql-plain colored"
+        },
+        {
+            "name": "Jupyter",
+            "description": "Ambiente interativo para desenvolvimento de código e documentação.",
+            "icon_type": "devicon",
+            "icon": "devicon-jupyter-plain colored"
+        },
+        {
+            "name": "Pandas",
+            "description": "Biblioteca para manipulação, limpeza e análise de dados estruturados.",
+            "icon_type": "devicon",
+            "icon": "devicon-pandas-original colored"
+        },
+        {
+            "name": "PostgreSQL",
+            "description": "Bancos de dados relacionais robustos para grandes volumes de dados.",
+            "icon_type": "devicon",
+            "icon": "devicon-postgresql-plain colored"
+        },
+        {
+            "name": "SQLite",
+            "description": "Bancos de dados leves para prototipagem e aplicações menores.",
+            "icon_type": "devicon",
+            "icon": "devicon-sqlite-plain colored"
+        },
+        {
+            "name": "SQL Server",
+            "description": "Gerenciamento e consulta de dados em ambientes corporativos.",
+            "icon_type": "devicon",
+            "icon": "devicon-microsoftsqlserver-plain colored"
+        }
+    ],
+    "visualization": [
+        {
+            "name": "Matplotlib",
+            "description": "Visualizações estáticas personalizadas e gráficos científicos.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><circle cx='64' cy='64' r='60' fill='#FF6B35'/><text x='64' y='74' text-anchor='middle' fill='white' font-size='24' font-weight='bold'>M</text></svg>"
+        },
+        {
+            "name": "Plotly",
+            "description": "Gráficos interativos e dashboards dinâmicos para web.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#4C72B0'/><circle cx='32' cy='32' r='8' fill='white'/><circle cx='64' cy='48' r='8' fill='white'/><circle cx='96' cy='64' r='8' fill='white'/><circle cx='32' cy='96' r='8' fill='white'/><circle cx='96' cy='96' r='8' fill='white'/></svg>"
+        },
+        {
+            "name": "Seaborn",
+            "description": "Visualizações estatísticas elegantes baseadas em Matplotlib.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><circle cx='64' cy='64' r='60' fill='#3776AB'/><circle cx='45' cy='45' r='8' fill='white'/><circle cx='83' cy='45' r='8' fill='white'/><circle cx='64' cy='83' r='8' fill='white'/></svg>"
+        },
+        {
+            "name": "Power BI",
+            "description": "Business Intelligence e relatórios executivos interativos.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#F2C811'/><rect x='20' y='20' width='88' height='20' fill='#333'/><rect x='20' y='50' width='60' fill='#333'/><rect x='20' y='80' width='40' fill='#333'/></svg>"
+        },
+        {
+            "name": "Tableau",
+            "description": "Plataforma líder em visualização e análise de dados empresariais.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#E97627'/><polygon points='20,20 108,20 108,50 50,50 50,80 108,80 108,108 20,108' fill='white'/></svg>"
+        },
+        {
+            "name": "Excel",
+            "description": "Análise de dados, tabelas dinâmicas e automação com VBA.",
+            "icon_type": "devicon",
+            "icon": "devicon-excel-plain colored"
+        },
+        {
+            "name": "Streamlit",
+            "description": "Criação rápida de aplicações web para ciência de dados.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#E25A3C'/><path d='M20 20 L108 20 L108 108 L20 108 Z' fill='white'/><text x='64' y='74' text-anchor='middle' fill='#E25A3C' font-size='32' font-weight='bold'>S</text></svg>"
+        },
+        {
+            "name": "Dash",
+            "description": "Framework para criar aplicações analíticas interativas.",
+            "icon_type": "devicon",
+            "icon": "devicon-python-plain colored"
+        }
+    ],
+    "ml-stats": [
+        {
+            "name": "Scikit-learn",
+            "description": "Algoritmos de Machine Learning clássicos e pré-processamento.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><circle cx='64' cy='64' r='60' fill='#F7931E'/><circle cx='45' cy='45' r='6' fill='white'/><circle cx='83' cy='45' r='6' fill='white'/><circle cx='64' cy='83' r='6' fill='white'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='12'>sklearn</text></svg>"
+        },
+        {
+            "name": "TensorFlow",
+            "description": "Deep Learning, redes neurais e modelos de grande escala.",
+            "icon_type": "devicon",
+            "icon": "devicon-tensorflow-original colored"
+        },
+        {
+            "name": "PyTorch",
+            "description": "Framework flexível para pesquisa e desenvolvimento em IA.",
+            "icon_type": "devicon",
+            "icon": "devicon-pytorch-original colored"
+        },
+        {
+            "name": "XGBoost",
+            "description": "Gradient boosting otimizado para competições e produção.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#013243'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='16' font-weight='bold'>XG</text><text x='64' y='78' text-anchor='middle' fill='#FFD700' font-size='12'>Boost</text></svg>"
+        },
+        {
+            "name": "NumPy",
+            "description": "Computação numérica eficiente e operações com arrays.",
+            "icon_type": "devicon",
+            "icon": "devicon-numpy-original colored"
+        },
+        {
+            "name": "SciPy",
+            "description": "Algoritmos científicos: otimização e estatística avançada.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><circle cx='64' cy='64' r='60' fill='#8CAAE6'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='14' font-weight='bold'>Sci</text><text x='64' y='78' text-anchor='middle' fill='white' font-size='14' font-weight='bold'>Py</text></svg>"
+        },
+        {
+            "name": "Statsmodels",
+            "description": "Modelagem estatística, testes de hipóteses e análise econométrica.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#150458'/><circle cx='40' cy='40' r='8' fill='white'/><circle cx='88' cy='40' r='8' fill='white'/><circle cx='64' cy='88' r='8' fill='white'/><text x='64' y='110' text-anchor='middle' fill='white' font-size='10'>statsmodels</text></svg>"
+        },
+        {
+            "name": "NLTK",
+            "description": "Processamento de linguagem natural e análise de texto.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#76B900'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='14' font-weight='bold'>NL</text><text x='64' y='78' text-anchor='middle' fill='white' font-size='14' font-weight='bold'>TK</text></svg>"
+        }
+    ],
+    "software": [
+        {
+            "name": "Git",
+            "description": "Controle de versão e colaboração em projetos de código.",
+            "icon_type": "devicon",
+            "icon": "devicon-git-plain colored"
+        },
+        {
+            "name": "Docker",
+            "description": "Containerização e deploy de aplicações de machine learning.",
+            "icon_type": "devicon",
+            "icon": "devicon-docker-plain colored"
+        },
+        {
+            "name": "AWS",
+            "description": "Serviços de nuvem para processamento e armazenamento de dados.",
+            "icon_type": "devicon",
+            "icon": "devicon-amazonwebservices-original colored"
+        },
+        {
+            "name": "Linux",
+            "description": "Administração de sistemas e automação de processos.",
+            "icon_type": "devicon",
+            "icon": "devicon-linux-plain colored"
+        },
+        {
+            "name": "Apache Spark",
+            "description": "Processamento distribuído de big data e analytics.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#FF6600'/><polygon points='20,30 108,30 90,50 108,70 20,70 38,50' fill='white'/><circle cx='64' cy='90' r='8' fill='white'/></svg>"
+        },
+        {
+            "name": "Hadoop",
+            "description": "Ecossistema para armazenamento e processamento de big data.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#FDD835'/><circle cx='40' cy='40' r='12' fill='#333'/><circle cx='88' cy='40' r='12' fill='#333'/><circle cx='64' cy='88' r='12' fill='#333'/></svg>"
+        },
+        {
+            "name": "FastAPI",
+            "description": "Framework moderno para criação de APIs de machine learning.",
+            "icon_type": "devicon",
+            "icon": "devicon-fastapi-plain colored"
+        },
+        {
+            "name": "MLflow",
+            "description": "Gerenciamento do ciclo de vida de modelos de machine learning.",
+            "icon_type": "svg",
+            "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#017CEE'/><text x='64' y='74' text-anchor='middle' fill='white' font-size='32' font-weight='bold'>M</text></svg>"
+        }
+    ]
+}
