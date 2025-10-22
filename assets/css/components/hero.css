@@ -80,6 +80,8 @@
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto var(--space-8);
+    text-align: justify;
+    text-indent: 1.5cm;
 }
 
 @media (min-width: 992px) {
@@ -130,7 +132,11 @@
 .hero__image-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--accent-color)
+    );
     border-radius: var(--radius-full);
     animation: pulse-slow 3s ease-in-out infinite;
 }
@@ -146,10 +152,12 @@
 }
 
 @keyframes pulse-slow {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.8;
     }
+
     50% {
         transform: scale(1.05);
         opacity: 0.6;
