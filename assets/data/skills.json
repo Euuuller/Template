@@ -1,0 +1,166 @@
+{
+  "languages": [
+    {
+      "name": "Python",
+      "description": "Linguagem principal para Data Science, Machine Learning e automação.",
+      "icon_type": "svg_path",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+    },
+    {
+      "name": "R",
+      "description": "Análise estatística avançada e visualização de dados.",
+      "icon_type": "devicon",
+      "icon": "devicon-r-original colored"
+    },
+    {
+      "name": "SQL",
+      "description": "Consultas complexas, otimização e manipulação de bancos de dados.",
+      "icon_type": "devicon",
+      "icon": "devicon-mysql-plain colored"
+    },
+    {
+      "name": "Jupyter",
+      "description": "Ambiente interativo para desenvolvimento de código e documentação.",
+      "icon_type": "devicon",
+      "icon": "devicon-jupyter-plain colored"
+    },
+    {
+      "name": "Pandas",
+      "description": "Biblioteca para manipulação, limpeza e análise de dados estruturados.",
+      "icon_type": "svg_path",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg"
+    },
+    {
+      "name": "PostgreSQL",
+      "description": "Banco de dados relacional robusto para grandes volumes de dados.",
+      "icon_type": "devicon",
+      "icon": "devicon-postgresql-plain colored"
+    },
+    {
+      "name": "SQLite",
+      "description": "Banco de dados leve e embutido para aplicações locais.",
+      "icon_type": "devicon",
+      "icon": "devicon-sqlite-plain colored"
+    },
+    {
+      "name": "SQL Server",
+      "description": "Gerenciamento e consulta de dados em ambientes corporativos.",
+      "icon_type": "svg_path",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg"
+    }
+  ],
+  "visualization": [
+    {
+      "name": "Matplotlib",
+      "description": "Visualizações estáticas personalizadas e gráficos científicos.",
+      "icon_type": "svg_path",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg"
+    },
+    {
+      "name": "Plotly",
+      "description": "Gráficos interativos e dashboards dinâmicos para web.",
+      "icon_type": "svg_path",
+      "icon": "./assets/images/skills/Plotly.svg"
+    },
+    {
+      "name": "Seaborn",
+      "description": "Visualizações estatísticas elegantes baseadas no Matplotlib.",
+      "icon_type": "svg_path",
+      "icon": "./assets/images/skills/seaborn.svg"
+    },
+    {
+      "name": "Power BI",
+      "description": "Business Intelligence e relatórios executivos interativos.",
+      "icon_type": "svg",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"100\" height=\"100\" viewBox=\"0 0 48 48\"><path fill=\"#eda503\" d=\"M38,44H26c-0.552,0-1-0.448-1-1V5c0-0.552,0.448-1,1-1h12c0.552,0,1,0.448,1,1v38C39,43.552,38.552,44,38,44z\"></path><path fill=\"#ffca28\" d=\"M30,44H18c-0.552,0-1-0.448-1-1V15c0-0.552,0.448-1,1-1h12c0.552,0,1,0.448,1,1v28C31,43.552,30.552,44,30,44z\"></path><path fill=\"#ffe082\" d=\"M22,44H10c-0.552,0-1-0.448-1-1V25c0-0.552,0.448-1,1-1h12c0.552,0,1,0.448,1,1v18C23,43.552,22.552,44,22,44z\"></path></svg>"
+    },
+    {
+      "name": "Excel",
+      "description": "Análise de dados, tabelas dinâmicas e automação com VBA.",
+      "icon_type": "svg",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"100\" height=\"100\" viewBox=\"0 0 48 48\"><path fill=\"#169154\" d=\"M29,6H15.744C14.781,6,14,6.781,14,7.744v7.259h15V6z\"></path><path fill=\"#18482a\" d=\"M14,33.054v7.202C14,41.219,14.781,42,15.743,42H29v-8.946H14z\"></path><path fill=\"#0c8045\" d=\"M14 15.003H29V24.005000000000003H14z\"></path><path fill=\"#17472a\" d=\"M14 24.005H29V33.055H14z\"></path><g><path fill=\"#29c27f\" d=\"M42.256,6H29v9.003h15V7.744C44,6.781,43.219,6,42.256,6z\"></path><path fill=\"#27663f\" d=\"M29,33.054V42h13.257C43.219,42,44,41.219,44,40.257v-7.202H29z\"></path><path fill=\"#19ac65\" d=\"M29 15.003H44V24.005000000000003H29z\"></path><path fill=\"#129652\" d=\"M29 24.005H44V33.055H29z\"></path></g><path fill=\"#0c7238\" d=\"M22.319,34H5.681C4.753,34,4,33.247,4,32.319V15.681C4,14.753,4.753,14,5.681,14h16.638 C23.247,14,24,14.753,24,15.681v16.638C24,33.247,23.247,34,22.319,34z\"></path><path fill=\"#fff\" d=\"M9.807 19L12.193 19 14.129 22.754 16.175 19 18.404 19 15.333 24 18.474 29 16.123 29 14.013 25.07 11.912 29 9.526 29 12.719 23.982z\"></path></svg>"
+    },
+    {
+      "name": "Streamlit",
+      "description": "Criação rápida de aplicações web para ciência de dados.",
+      "icon_type": "svg_path",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg"
+    }
+  ],
+  "ml-stats": [
+    {
+      "name": "Scikit-learn",
+      "description": "Algoritmos de Machine Learning clássicos e pré-processamento.",
+      "icon_type": "svg",
+      "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><circle cx='64' cy='64' r='60' fill='#F7931E'/><circle cx='45' cy='45' r='6' fill='white'/><circle cx='83' cy='45' r='6' fill='white'/><circle cx='64' cy='83' r='6' fill='white'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='12'>sklearn</text></svg>"
+    },
+    {
+      "name": "TensorFlow",
+      "description": "Deep Learning, redes neurais e modelos de grande escala.",
+      "icon_type": "devicon",
+      "icon": "devicon-tensorflow-original colored"
+    },
+    {
+      "name": "PyTorch",
+      "description": "Framework de Deep Learning flexível e performático.",
+      "icon_type": "devicon",
+      "icon": "devicon-pytorch-original colored"
+    },
+    {
+      "name": "XGBoost",
+      "description": "Gradient boosting otimizado para competições e produção.",
+      "icon_type": "svg",
+      "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#013243'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='16' font-weight='bold'>XG</text><text x='64' y='78' text-anchor='middle' fill='#FFD700' font-size='12'>Boost</text></svg>"
+    },
+    {
+      "name": "NumPy",
+      "description": "Computação numérica eficiente e operações com arrays.",
+      "icon_type": "devicon",
+      "icon": "devicon-numpy-original colored"
+    },
+    {
+      "name": "SciPy",
+      "description": "Algoritmos científicos: otimização e estatística avançada.",
+      "icon_type": "svg",
+      "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><circle cx='64' cy='64' r='60' fill='#8CAAE6'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='14' font-weight='bold'>Sci</text><text x='64' y='78' text-anchor='middle' fill='white' font-size='14' font-weight='bold'>Py</text></svg>"
+    },
+    {
+      "name": "Statsmodels",
+      "description": "Modelagem estatística, testes de hipóteses e análise econométrica.",
+      "icon_type": "svg",
+      "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#150458'/><circle cx='40' cy='40' r='8' fill='white'/><circle cx='88' cy='40' r='8' fill='white'/><circle cx='64' cy='88' r='8' fill='white'/><text x='64' y='110' text-anchor='middle' fill='white' font-size='10'>statsmodels</text></svg>"
+    },
+    {
+      "name": "NLTK",
+      "description": "Processamento de linguagem natural e análise de texto.",
+      "icon_type": "svg",
+      "icon": "<svg viewBox='0 0 128 128' width='48' height='48'><rect width='128' height='128' fill='#76B900'/><text x='64' y='50' text-anchor='middle' fill='white' font-size='24' font-weight='bold'>N</text><text x='64' y='80' text-anchor='middle' fill='white' font-size='24' font-weight='bold'>L</text><text x='64' y='110' text-anchor='middle' fill='white' font-size='24' font-weight='bold'>T</text><text x='64' y='140' text-anchor='middle' fill='white' font-size='24' font-weight='bold'>K</text></svg>"
+    }
+  ],
+  "software-engineering": [
+    {
+      "name": "Git",
+      "description": "Controle de versão distribuído para gerenciamento de código.",
+      "icon_type": "devicon",
+      "icon": "devicon-git-plain colored"
+    },
+    {
+      "name": "Docker",
+      "description": "Containerização de aplicações para desenvolvimento e deploy.",
+      "icon_type": "devicon",
+      "icon": "devicon-docker-plain colored"
+    },
+    {
+      "name": "VS Code",
+      "description": "Editor de código leve e extensível para desenvolvimento.",
+      "icon_type": "devicon",
+      "icon": "devicon-vscode-plain colored"
+    },
+    {
+      "name": "GitHub",
+      "description": "Plataforma de hospedagem de código e colaboração.",
+      "icon_type": "devicon",
+      "icon": "devicon-github-plain colored"
+    }
+  ]
+}
