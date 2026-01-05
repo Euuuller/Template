@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- ========================================
+         META TAGS E CONFIGURAÇÕES BÁSICAS
+         ======================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfóólio profissional de Cientista de Dados - Template moderno e responsivo desenvolvido com HTML5, CSS3 e JavaScript puro">
+    <meta name="keywords" content="Cientista de Dados, Data Scientist, Portfólio, Projetos, Machine Learning, Análise de Dados, Python, SQL, Template">
+    <meta name="author" content="Template Profissional">
+    <meta name="robots" content="index, follow">
+    
+    <!-- ========================================
+         OPEN GRAPH TAGS PARA COMPARTILHAMENTO
+         ======================================== -->
+    <meta property="og:title" content="Portfólio Profissional - Cientista de Dados">
+    <meta property="og:description" content="Template moderno e responsivo para portfólio de Cientista de Dados">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seu-usuario.github.io/template-project">
+    <meta property="og:image" content="./assets/images/profile.svg">
+    
+    <!-- ========================================
+         TÍTULO DA PÁGINA
+         ======================================== -->
+    <title>Portfólio Profissional</title>
+    
+    <!-- ========================================
+         GOOGLE FONTS
+         ======================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- ========================================
+         DEVICON - ÍCONES PARA HABILIDADES
+         ======================================== -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"></noscript>
+    
+    <!-- ========================================
+         ESTILOS CUSTOMIZADOS
+         ======================================== -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- ========================================
+         PRELOADER - TELA DE CARREGAMENTO
+         ======================================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__spinner">
+            <div class="preloader__circle"></div>
+            <div class="preloader__circle"></div>
+            <div class="preloader__circle"></div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+         ======================================== -->
+    <div id="main-content" class="main-content">
+        
+        <!-- ========================================
+             HEADER - NAVEGAÇÃO PRINCIPAL
+             ======================================== -->
+        <header class="header" id="header">
+            <div class="container">
+                <div class="header__content">
+                    <!-- Logo/Brand -->
+                    <a href="#home" class="header__logo">
+                        <span class="header__logo-primary rainbow-text">Euuuller</span>
+                    </a>
+
+                    <!-- Navegação Desktop -->
+                    <nav class="header__nav" id="nav-menu">
+                        <ul class="header__nav-list">
+                            <li class="header__nav-item">
+                                <a href="#home" class="header__nav-link header__nav-link--active">Início</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#about" class="header__nav-link">Sobre</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#skills" class="header__nav-link">Habilidades</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#projects" class="header__nav-link">Projetos</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#contact" class="header__nav-link">Contato</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Controles do Header -->
+                    <div class="header__controls">
+                        <!-- Toggle Tema -->
+                        <button class="header__theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+                            <svg class="header__theme-icon header__theme-icon--light" id="theme-icon-light" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="m4.93 4.93 1.41 1.41"></path>
+                                <path d="m17.66 17.66 1.41 1.41"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="m6.34 17.66-1.41 1.41"></path>
+                                <path d="m19.07 4.93-1.41 1.41"></path>
+                            </svg>
+                            <svg class="header__theme-icon header__theme-icon--dark" id="theme-icon-dark" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Links Sociais -->
+                        <div class="header__social">
+                            <a href="https://github.com/Euuuller" target="_blank" rel="noopener noreferrer" class="header__social-link" aria-label="GitHub">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/euuuller" target="_blank" rel="noopener noreferrer" class="header__social-link" aria-label="LinkedIn">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect width="4" height="12" x="2" y="9"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="mailto:euller.santos.duarte@gmail.com" class="header__social-link" aria-label="Email">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Menu Mobile Toggle -->
+                        <button class="header__mobile-toggle" id="mobile-menu-toggle" aria-label="Abrir menu mobile">
+                            <span class="header__mobile-toggle-line"></span>
+                            <span class="header__mobile-toggle-line"></span>
+                            <span class="header__mobile-toggle-line"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========================================
+             MENU MOBILE
+             ======================================== -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+            <div class="mobile-menu__content">
+                <div class="mobile-menu__header">
+                    <a href="#home" class="mobile-menu__logo">
+                        <span class="mobile-menu__logo-primary rainbow-text">Euuuller</span>
+                    </a>
+                    <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Fechar menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <nav class="mobile-menu__nav">
+                    <ul class="mobile-menu__nav-list">
+                        <li class="mobile-menu__nav-item">
+                            <a href="#home" class="mobile-menu__nav-link mobile-menu__nav-link--active">Início</a>
+                        </li>
+                        <li class="mobile-menu__nav-item">
+                            <a href="#about" class="mobile-menu__nav-link">Sobre</a>
+                        </li>
+                        <li class="mobile-menu__nav-item">
+                            <a href="#skills" class="mobile-menu__nav-link">Habilidades</a>
+                        </li>
+                        <li class="mobile-menu__nav-item">
+                            <a href="#projects" class="mobile-menu__nav-link">Projetos</a>
+                        </li>
+                        <li class="mobile-menu__nav-item">
+                            <a href="#contact" class="mobile-menu__nav-link">Contato</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="mobile-menu__social">
+                    <a href="https://github.com/Euuuller" target="_blank" rel="noopener noreferrer" class="mobile-menu__social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/euuuller" target="_blank" rel="noopener noreferrer" class="mobile-menu__social-link" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect width="4" height="12" x="2" y="9"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="mailto:euller.santos.duarte@gmail.com" class="mobile-menu__social-link" aria-label="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             MAIN - CONTEÚDO PRINCIPAL
+             ======================================== -->
+        <main class="main">
+            
+            <!-- ========================================
+                 SEÇÃO HOME - HERO
+                 ======================================== -->
+            <section class="hero section" id="home">
+                <div class="container">
+                    <div class="hero__content">
+                        <div class="hero__text">
+                            <p class="hero__greeting">Olá, eu sou</p>
+                            <h1 class="hero__name">Euller dos Santos Rodrigues Duarte</h1>
+                            <h2 class="hero__title">
+                                <span class="hero__typed-text rainbow-text" id="typed-text">Cientista de Dados</span>
+                            </h2>
+                            <p class="hero__description">
+                                Olá, seja muito bem-vindo (a) ao meu portfólio de projetos de Ciência de Dados. Nessa página, eu demonstro minhas habilidades de resolver problemas de negócio utilizando conceitos e ferramentas da Ciência de Dados, através de projetos com dados públicos. Você vai encontrar também, habilidades, ferramentas e conceitos envolvendo a Ciência de Dados. Sinta-se à vontade para entrar em contato através dos links no final da página.
+                            </p>
+                            
+                            <div class="hero__actions">
+                                <a href="#projects" class="btn btn--primary">
+                                    Ver Projetos
+                                    <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 8v8"></path>
+                                        <path d="m8 12 4 4 4-4"></path>
+                                    </svg>
+                                </a>
+                                <a href="./docs/Curriculum.pdf" class="btn btn--secondary" download="Currículo Vitae.pdf">
+                                    Baixar Currículo
+                                    <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="hero__image">
+                            <div class="hero__image-container">
+                                <div class="hero__image-bg"></div>
+                                <img src="./assets/images/profile.jpeg" alt="Foto de perfil" class="hero__image-photo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#about" class="hero__scroll-down" aria-label="Rolar para baixo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"></path>
+                        <path d="m19 12-7 7-7-7"></path>
+                    </svg>
+                </a>
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO SOBRE MIM
+                 ======================================== -->
+            <section class="section section--alt" id="about">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Sobre Mim</h2>
+                        <p class="section-subtitle">Minha jornada na Ciência de Dados</p>
+                    </div>
+                    
+
+
+                        <div class="about__content">
+                        <div class="about__text">
+                            <p class="about__paragraph">
+                                Sou graduando em Engenharia Elétrica pelo Instituto Federal de Educação, Ciência e Tecnologia do Maranhão e venho direcionando minha formação para a área de Ciência de Dados. Tenho me dedicado ao estudo de linguagens de programação, ferramentas analíticas, Métricas de Negócios e fundamentos estatísticos, sempre com ênfase no pensamento crítico e na resolução de problemas reais.
+                            </p>
+                            <p class="about__paragraph">
+                                Atualmente, desenvolvo projetos práticos utilizando dados públicos, aplicando técnicas de análise, visualização e modelagem para transformar informações em ideias relevantes. Estou em busca de uma oportunidade para atuar profissionalmente como Cientista de Dados, contribuindo para a melhoria da tomada de decisão nas empresas por meio da construção de soluções orientadas a dados.
+                            </p>
+                        </div>
+                        
+                                <div class="about__code">
+                                <div class="code-snippet code-snippet--fixed">
+                                    <div class="code-snippet__header">
+                                        <span class="dot dot--red"></span>
+                                        <span class="dot dot--yellow"></span>
+                                        <span class="dot dot--green"></span>
+                                        <span class="code-snippet__title">machine_learning.py</span>
+                                    </div>
+                                    <div class="code-snippet__body">
+                                        <pre class="code-snippet__pre" id="typed-code"></pre>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO HABILIDADES
+                 ======================================== -->
+            <section class="section" id="skills">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Habilidades Técnicas</h2>
+                        <p class="section-subtitle">Ferramentas e tecnologias que trabalho</p>
+                    </div>
+                    
+                    <!-- Tabs Navigation -->
+                    <div class="skills__tabs" role="tablist">
+                        <button class="skills__tab" data-tab="languages" role="tab">
+                            Linguagens & BDs
+                        </button>
+                        <button class="skills__tab" data-tab="visualization" role="tab">
+                            Visualização
+                        </button>
+                        <button class="skills__tab" data-tab="ml-stats" role="tab">
+                            ML & Estatística
+                        </button>
+                        <button class="skills__tab" data-tab="software-engineering" role="tab">
+                            Engenharia de Software
+                        </button>
+                    </div>
+                    
+                    <!-- Tab Content -->
+                    <div class="skills__content">
+                        <!-- Linguagens & BDs Panel -->
+                        <div class="skills__panel" data-panel="languages" role="tabpanel">
+                            <div class="skills__grid">
+                                <!-- Skills will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- Visualização Panel -->
+                        <div class="skills__panel" data-panel="visualization" role="tabpanel">
+                            <div class="skills__grid">
+                                <!-- Skills will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- ML & Estatística Panel -->
+                        <div class="skills__panel" data-panel="ml-stats" role="tabpanel">
+                            <div class="skills__grid">
+                                <!-- Skills will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- Engenharia de Software Panel -->
+                        <div class="skills__panel" data-panel="software-engineering" role="tabpanel">
+                            <div class="skills__grid">
+                                <!-- Skills will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO PROJETOS
+                 ======================================== -->
+            <section class="section section--alt" id="projects">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Projetos em Destaque</h2>
+                        <p class="section-subtitle">Em breve irei apresentar alguns dos meus projetos mais relevantes! "Os Cards são ilustrativos"</p>
+                    </div>
+                    
+                    <div class="projects__grid">
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <img src="./assets/images/projects/project-1.svg" alt="Análise de Vendas" class="project-card__img" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Análise de Vendas</h3>
+                                <p class="project-card__description">
+                                    Dashboard interativo para análise de performance de vendas com insights 
+                                    sobre sazonalidade, produtos mais vendidos e previsão de demanda.
+                                </p>
+                                <a href="#" class="project-card__link">
+                                    Ver Projeto
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7"></path>
+                                        <path d="M7 7h10v10"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <img src="./assets/images/projects/project-2.svg" alt="Modelo de Churn" class="project-card__img" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Modelo de Churn</h3>
+                                <p class="project-card__description">
+                                    Modelo de machine learning para predição de churn de clientes, 
+                                    permitindo ações proativas de retenção e aumento da receita.
+                                </p>
+                                <a href="#" class="project-card__link">
+                                    Ver Projeto
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7"></path>
+                                        <path d="M7 7h10v10"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <img src="./assets/images/projects/project-3.svg" alt="Segmentação de Clientes" class="project-card__img" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Segmentação de Clientes</h3>
+                                <p class="project-card__description">
+                                    Análise de clustering para segmentação de clientes baseada em 
+                                    comportamento de compra e características demográficas.
+                                </p>
+                                <a href="#" class="project-card__link">
+                                    Ver Projeto
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7"></path>
+                                        <path d="M7 7h10v10"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <img src="./assets/images/projects/project-4.svg" alt="Análise de Sentimentos" class="project-card__img" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Análise de Sentimentos</h3>
+                                <p class="project-card__description">
+                                    Processamento de linguagem natural para análise de sentimentos 
+                                    em reviews de produtos e feedback de clientes.
+                                </p>
+                                <a href="#" class="project-card__link">
+                                    Ver Projeto
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7"></path>
+                                        <path d="M7 7h10v10"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <img src="./assets/images/projects/project-5.svg" alt="Previsão de Preços" class="project-card__img" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Previsão de Preços</h3>
+                                <p class="project-card__description">
+                                    Modelo de regressão para previsão de preços de imóveis baseado 
+                                    em características do imóvel e dados de mercado.
+                                </p>
+                                <a href="#" class="project-card__link">
+                                    Ver Projeto
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7"></path>
+                                        <path d="M7 7h10v10"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="project-card__image">
+                                <img src="./assets/images/projects/project-6.svg" alt="Dashboard Executivo" class="project-card__img" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Dashboard Executivo</h3>
+                                <p class="project-card__description">
+                                    Dashboard executivo com KPIs principais da empresa, 
+                                    permitindo tomada de decisão baseada em dados em tempo real.
+                                </p>
+                                <a href="#" class="project-card__link">
+                                    Ver Projeto
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7"></path>
+                                        <path d="M7 7h10v10"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <div class="projects__cta">
+                        <a href="https://github.com/Euuuller" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            Ver Todos os Projetos
+                            <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO CONTATO
+                 ======================================== -->
+            <section class="section" id="contact">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Entre em Contato</h2>
+                        <p class="section-subtitle">Vamos conversar sobre oportunidades e projetos</p>
+                    </div>
+                    
+                    <div class="contact__content">
+                        <div class="contact__grid">
+                            <div class="contact__info">
+                                <h3 class="contact__info-title">Informações de Contato</h3>
+                                <div class="contact__card">
+                                    <div class="contact__card-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 4h16v16H4z"></path>
+                                            <path d="M22 6 12 13 2 6"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="contact__card-body">
+                                        <span class="contact__card-label">Email</span>
+                                        <a href="mailto:euller.santos.duarte@gmail.com" class="contact__card-value">euller.santos.duarte@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact__card">
+                                    <div class="contact__card-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 16.92V21a1 1 0 0 1-1.11 1 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2 3.11 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.67.36 1.32.69 1.93a1 1 0 0 1-.24 1L7.5 8.5a15.05 15.05 0 0 0 6 6l1.82-1.82a1 1 0 0 1 1-.24c.6.33 1.26.57 1.93.69a1 1 0 0 1 .75 1V21z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="contact__card-body">
+                                        <span class="contact__card-label">Telefone</span>
+                                        <a href="tel:+5511999999999" class="contact__card-value">+55 (99) 99216-8287</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact__card">
+                                    <div class="contact__card-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="contact__card-body">
+                                        <span class="contact__card-label">Localização</span>
+                                        <span class="contact__card-value">Açailândia, MA</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Nota curta abaixo da localização -->
+                                <div class="contact__note" role="note" aria-label="Nota de contato">
+                                    <p class="contact__note-text">Disponível para trabalhos e parcerias.</p>
+                                </div>
+                            </div>
+
+                            <form class="contact__form" id="contact-form">
+                            <div class="contact__form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Nome *</label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Assunto *</label>
+                                <input type="text" id="subject" name="subject" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Mensagem *</label>
+                                <textarea id="message" name="message" class="form-input form-textarea" rows="6" required></textarea>
+                            </div>
+                            
+                            <div class="contact__form-submit">
+                                <button type="submit" class="btn btn--primary">
+                                    Enviar Mensagem
+                                    <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 2L11 13"></path>
+                                        <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ========================================
+             FOOTER - RODAPÉ
+             ======================================== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__brand">
+                        <a href="#home" class="footer__logo">
+                            <span class="footer__logo-primary rainbow-text">Euuuller</span>
+                        </a>
+                        <p class="footer__description">
+                            Análise de dados para geração de insights e suporte a decisões estratégicas!
+                        </p>
+                    </div>
+                    
+                    <div class="footer__nav">
+                        <h4 class="footer__nav-title">Navegação</h4>
+                        <ul class="footer__nav-list">
+                            <li class="footer__nav-item">
+                                <a href="#home" class="footer__nav-link">Início</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#about" class="footer__nav-link">Sobre</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#skills" class="footer__nav-link">Habilidades</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#projects" class="footer__nav-link">Projetos</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a href="#contact" class="footer__nav-link">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__social">
+                        <h4 class="footer__social-title">Redes Sociais</h4>
+                        <div class="footer__social-links">
+                            <a href="https://github.com/Euuuller" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/euuuller" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect width="4" height="12" x="2" y="9"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="mailto:euller.santos.duarte@gmail.com" class="footer__social-link" aria-label="Email">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer__bottom">
+                    <p class="footer__copyright">
+                        © 2025 Euller dos Santos Rodrigues Duarte. Todos os direitos reservados.
+                    </p>
+                    <button class="footer__scroll-top" id="scroll-to-top" aria-label="Voltar ao topo">
+                        Voltar ao Topo
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19V5"></path>
+                            <path d="m5 12 7-7 7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
