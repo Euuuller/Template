@@ -1,0 +1,31 @@
+/**
+ * ==========================================
+ * ARQUIVO PRINCIPAL DE ESTILOS - OTIMIZADO
+ * ==========================================
+ */
+
+/* Base Styles */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+
+/* Layout Styles */
+@import url('./layout/grid.css');
+@import url('./layout/sections.css');
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+
+/* Component Styles */
+@import url('./components/hero.css');
+@import url('./components/about.css');
+@import url('./components/skills.css');
+@import url('./components/projects.css');
+@import url('./components/contact.css');
+@import url('./components/buttons.css');
+@import url('./components/mobile-menu.css');
+@import url('./components/preloader.css');
+@import url('./components/code.css');
+@import url('./components/rainbow.css');
+@import url('./components/image-optimization.css');
+
+/* Utility Styles */
+@import url('./utils.css');
