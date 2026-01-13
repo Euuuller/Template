@@ -4,7 +4,10 @@
  * ==========================================
  */
 
-// Conteúdo do snippet em HTML com marcação de cores
+/**
+ * Conteúdo do snippet em HTML com marcação de cores
+ * @type {string[]}
+ */
 const codeString = [
     '<span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd',
     '<span class="text-purple-400">from</span> sklearn.ensemble <span class="text-purple-400">import</span> <span class="text-cyan-400">RandomForestRegressor</span>',
@@ -24,47 +27,79 @@ const codeString = [
 ].join('\n')
 
 /**
+ * Configurações do efeito de digitação
+ * @type {Object}
+ */
+const TYPING_CONFIG = {
+    typeSpeed: 25,
+    pauseAfterComplete: 3000,
+    cursorClass: 'code-cursor-active'
+};
+
+let typingTimeoutId = null;
+let targetElement = null;
+
+/**
+ * Limpa o timeout de digitação
+ */
+function cleanupTyping() {
+    if (typingTimeoutId) {
+        clearTimeout(typingTimeoutId);
+        typingTimeoutId = null;
+    }
+}
+
+/**
  * Inicializa o snippet com efeito de digitação na seção Sobre
  */
 export function initAboutCodeSnippet() {
     try {
-        const target = document.getElementById('typed-code')
-        if (!target) return
+        targetElement = document.getElementById('typed-code');
+        
+        if (!targetElement) {
+            console.warn('Elemento de código digitado não encontrado');
+            return;
+        }
 
-        const cursorClass = 'code-cursor-active'
-        target.classList.add(cursorClass)
+        targetElement.classList.add(TYPING_CONFIG.cursorClass);
 
-        const typeSpeed = 25
-        const pauseAfterComplete = 3000
-
-        let idx = 0
-        let timeoutId = null
+        let idx = 0;
 
         const typeNext = () => {
             if (idx <= codeString.length) {
-                target.innerHTML = codeString.substring(0, idx)
-                idx += 1
-                timeoutId = setTimeout(typeNext, typeSpeed)
+                targetElement.innerHTML = codeString.substring(0, idx);
+                idx += 1;
+                typingTimeoutId = setTimeout(typeNext, TYPING_CONFIG.typeSpeed);
             } else {
                 // Remover cursor após terminar
-                target.classList.remove(cursorClass)
+                targetElement.classList.remove(TYPING_CONFIG.cursorClass);
                 // Reinicia após uma pausa
-                setTimeout(() => {
-                    idx = 0
-                    target.innerHTML = ''
-                    target.classList.add(cursorClass)
-                    typeNext()
-                }, pauseAfterComplete)
+                typingTimeoutId = setTimeout(() => {
+                    idx = 0;
+                    targetElement.innerHTML = '';
+                    targetElement.classList.add(TYPING_CONFIG.cursorClass);
+                    typeNext();
+                }, TYPING_CONFIG.pauseAfterComplete);
             }
-        }
+        };
 
-        typeNext()
+        typeNext();
 
         // Cleanup on navigation/unmount
-        window.addEventListener('beforeunload', () => {
-            if (timeoutId) clearTimeout(timeoutId)
-        })
+        window.addEventListener('beforeunload', cleanupTyping);
+        
     } catch (error) {
-        console.error('Erro ao inicializar o snippet de código:', error)
+        console.error('Erro ao inicializar o snippet de código:', error);
+    }
+}
+
+/**
+ * Limpa recursos do módulo de código
+ */
+export function cleanupCodeSnippet() {
+    cleanupTyping();
+    if (targetElement) {
+        targetElement.classList.remove(TYPING_CONFIG.cursorClass);
+        targetElement = null;
     }
 }

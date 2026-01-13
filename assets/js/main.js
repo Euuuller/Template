@@ -17,7 +17,7 @@ import { initScrollAnimations, checkVisibleElements } from './components/scrollA
 import { initContactForm } from './components/contactForm.js';
 import { initPreloader } from './components/preloader.js';
 import { initScrollToTop } from './components/scrollToTop.js';
-import { initAboutCodeSnippet } from './components/code.js';
+import { initAboutCodeSnippet, cleanupCodeSnippet } from './components/code.js';
 import { initSkills } from './components/skills.js';
 
 /**
@@ -108,6 +108,7 @@ class App {
         window.addEventListener('beforeunload', () => {
             cleanupTypingEffect();
             cleanupImageOptimization();
+            cleanupCodeSnippet();
             this.cleanup();
         });
     }

@@ -99,7 +99,7 @@
     left: 0; 
     right: 0; 
     height: 4px; 
-    background: linear-gradient( 90deg, var(--color-primary), var(--color-secondary) ); 
+    background: linear-gradient( 90deg, var(--primary-color), var(--accent-color) ); 
     transform: scaleX(0); 
     transition: transform 0.3s ease; 
 }
@@ -111,14 +111,14 @@
 .skill-card:hover { 
     transform: translateY(-8px); 
     box-shadow: 0 20px 40px rgb(0 0 0 / 10%); 
-    border-color: var(--color-primary); 
+    border-color: var(--primary-color); 
 }
 
 /* Acessibilidade: foco nos cards como no hover */ 
 .skill-card:focus-visible { 
     transform: translateY(-8px); 
     box-shadow: 0 20px 40px rgb(0 0 0 / 10%); 
-    border-color: var(--color-primary); 
+    border-color: var(--primary-color); 
 }
 
 .skill-card__icon { 
@@ -136,7 +136,7 @@
 
 .skill-card__icon i { 
     font-size: 48px; 
-    color: var(--color-primary); 
+    color: var(--primary-color); 
 }
 
 .skill-card__icon svg { 

@@ -26,6 +26,7 @@
 @import url('./components/code.css');
 @import url('./components/rainbow.css');
 @import url('./components/image-optimization.css');
+@import url('./components/particles.css');
 
 /* Utility Styles */
 @import url('./utils.css');

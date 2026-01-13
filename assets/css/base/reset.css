@@ -28,6 +28,8 @@ body {
    ========================================== */
 
 .main-content {
+    position: relative;
+    z-index: 10;
     opacity: 0;
     transition: opacity var(--transition-slow);
 }
