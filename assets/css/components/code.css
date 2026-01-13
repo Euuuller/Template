@@ -2,14 +2,19 @@
    COMPONENTE: Code Snippet
    ========================================== */
 
-   .code-snippet {
-    border: 2px solid #000; /* borda preta no modo claro */
+.code-snippet {
+    border: 2px solid #000;
+    /* borda preta no modo claro */
     border-radius: var(--radius-lg);
-    background: transparent; /* fundo transparente */
+    background: transparent;
+    /* fundo transparente */
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    min-height: 430px; /* altura sugerida para composição visual */
+    min-height: 490px;
+    /* altura sugerida para composição visual */
+    width: 100%;
+    /* ocupa toda a largura disponível */
 }
 
 /* Borda branca no modo escuro */
@@ -21,7 +26,8 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    border-bottom: 2px solid #000; /* borda preta no modo claro */
+    border-bottom: 2px solid #000;
+    /* borda preta no modo claro */
     background: transparent;
     padding: var(--space-3) var(--space-4);
 }
@@ -110,22 +116,15 @@
     color: #6b7280;
 }
 
-/* Largura fixa para o componente de snippet de código */
+/* Largura do componente de snippet de código */
 .code-snippet--fixed {
-    width: 550px; /* ajuste aqui a largura desejada */
+    width: 100%;
+    /* ocupa toda a largura disponível */
     max-width: 100%;
-    margin: 0 auto; /* centraliza dentro do container */
 }
 
 /* Garantir que o conteúdo interno ocupe toda a largura do bloco */
 .code-snippet--fixed .code-snippet__body,
 .code-snippet--fixed .code-snippet__pre {
     width: 100%;
-}
-
-/* Responsivo: em telas menores, ocupar toda a largura disponível */
-@media (max-width: 768px) {
-    .code-snippet--fixed {
-        width: 100%;
-    }
 }

@@ -10,15 +10,15 @@
     --accent-color: #0ea5e9;
     --color-primary: #3b82f6;
     --color-secondary: #0ea5e9;
-    
+
     /* Cores de Texto - Tema Claro */
     --text-primary: #000000;
-    --text-secondary: #333333;
-    --text-tertiary: #666666;
-    --text-muted: #999999;
+    --text-secondary: #000000;
+    --text-tertiary: #000000;
+    --text-muted: #666666;
     --text-inverse: #ffffff;
     --color-text-primary: #000000;
-    --color-text-secondary: #333333;
+    --color-text-secondary: #000000;
 
     /* Cores de Fundo - Tema Claro (ALL WHITE) */
     --bg-primary: #ffffff;
@@ -99,12 +99,12 @@
 [data-theme="dark"] {
     /* Cores de Texto - Tema Escuro */
     --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-tertiary: #999999;
-    --text-muted: #666666;
+    --text-secondary: #ffffff;
+    --text-tertiary: #ffffff;
+    --text-muted: #999999;
     --text-inverse: #000000;
     --color-text-primary: #ffffff;
-    --color-text-secondary: #cccccc;
+    --color-text-secondary: #ffffff;
 
     /* Cores de Fundo - Tema Escuro (ALL BLACK) */
     --bg-primary: #000000;
