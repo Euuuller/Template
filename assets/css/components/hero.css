@@ -8,6 +8,7 @@
     align-items: center;
     padding-top: 80px;
     padding-bottom: var(--space-20);
+    position: relative;
     /* background-color removido para mostrar partículas */
 }
 
@@ -133,9 +134,45 @@
 .hero__image-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(to right,
+            #f00,
+            /* red */
+            #ff4500,
+            /* orangered */
+            #ff7f00,
+            /* orange */
+            #ffbf00,
+            /* gold */
+            #ff0,
+            /* yellow */
+            #adff2f,
+            /* greenyellow */
+            #0f0,
+            /* green */
+            #00ff7f,
+            /* springgreen */
+            #0ff,
+            /* cyan */
+            #007fff,
+            /* deepskyblue */
+            #00f,
+            /* blue */
+            #4b0082,
+            /* indigo */
+            #8a2be2,
+            /* blueviolet */
+            #8b00ff,
+            /* violet */
+            #c71585,
+            /* mediumvioletred */
+            #ff1493,
+            /* deeppink */
+            #f00
+            /* red to loop smoothly */
+        );
+    background-size: 400% 400%;
     border-radius: var(--radius-full);
-    animation: pulse-slow 3s ease-in-out infinite;
+    animation: pulse-slow 3s ease-in-out infinite, rainbow-animation 10s linear infinite;
 }
 
 .hero__image-photo {
