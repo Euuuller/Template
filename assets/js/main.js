@@ -51,8 +51,7 @@ class App {
         try {
             // Preload de imagens críticas
             const criticalImages = [
-                './assets/images/profile.svg',
-                './assets/images/about-illustration.svg'
+                './assets/images/profile.jpeg'
             ];
             preloadCriticalImages(criticalImages);
 

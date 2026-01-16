@@ -4,7 +4,7 @@
       "name": "Python",
       "description": "Linguagem principal para Data Science, Machine Learning e automação.",
       "icon_type": "svg_path",
-      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+      "icon": "./assets/images/skills/python.svg"
     },
     {
       "name": "R",
@@ -84,7 +84,7 @@
       "name": "Streamlit",
       "description": "Criação rápida de aplicações web para ciência de dados.",
       "icon_type": "svg_path",
-      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg"
+      "icon": "./assets/images/skills/streamlit.svg"
     }
   ],
   "ml-stats": [
