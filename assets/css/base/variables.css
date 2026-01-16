@@ -3,23 +3,23 @@
    ========================================== */
 
 :root {
-    /* Cores Primárias - Tema Claro */
-    --primary-color: #3b82f6;
-    --primary-hover: #2563eb;
-    --primary-rgb: 59, 130, 246;
-    --accent-color: #0ea5e9;
+    /* Cores Primárias - Tema Claro (Preto) */
+    --primary-color: #000000;
+    --primary-hover: #333333;
+    --primary-rgb: 0, 0, 0;
+    --accent-color: #333333;
     /* Aliases para compatibilidade (deprecated - usar --primary-color e --accent-color) */
     --color-primary: var(--primary-color);
     --color-secondary: var(--accent-color);
 
     /* Cores de Texto - Tema Claro */
     --text-primary: #000000;
-    --text-secondary: #000000;
-    --text-tertiary: #000000;
+    --text-secondary: #404040; /* Ajustado para contraste com Primary (Preto) */
+    --text-tertiary: #666666;
     --text-muted: #666666;
     --text-inverse: #ffffff;
     --color-text-primary: #000000;
-    --color-text-secondary: #000000;
+    --color-text-secondary: #404040;
 
     /* Cores de Fundo - Tema Claro (ALL WHITE) */
     --bg-primary: #ffffff;
@@ -98,14 +98,20 @@
    ========================================== */
 
 [data-theme="dark"] {
+    /* Cores Primárias - Tema Escuro (Branco) */
+    --primary-color: #ffffff;
+    --primary-hover: #e0e0e0;
+    --primary-rgb: 255, 255, 255;
+    --accent-color: #e0e0e0;
+
     /* Cores de Texto - Tema Escuro */
     --text-primary: #ffffff;
-    --text-secondary: #ffffff;
-    --text-tertiary: #ffffff;
+    --text-secondary: #d4d4d4; /* Ajustado para contraste com Primary (Branco) */
+    --text-tertiary: #a3a3a3;
     --text-muted: #999999;
     --text-inverse: #000000;
     --color-text-primary: #ffffff;
-    --color-text-secondary: #ffffff;
+    --color-text-secondary: #d4d4d4;
 
     /* Cores de Fundo - Tema Escuro (ALL BLACK) */
     --bg-primary: #000000;
