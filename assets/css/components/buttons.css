@@ -50,3 +50,63 @@
 .btn:hover .btn__icon {
     transform: translateX(2px);
 }
+
+/* ==========================================
+   BOTÕES RAINBOW (Personalizados)
+   ========================================== */
+
+.btn--rainbow {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    color: var(--text-primary); /* Consistência com ícones do cabeçalho */
+    border: none;
+    min-width: 200px; /* Padronizar tamanho */
+    overflow: hidden; /* Garantir que o conteúdo não vaze */
+}
+
+.btn--rainbow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 2px; /* Espessura da borda */
+    border-radius: inherit;
+    background: linear-gradient(
+        to right,
+        #f00,
+        #ff4500,
+        #ff7f00,
+        #ffbf00,
+        #ff0,
+        #adff2f,
+        #0f0,
+        #00ff7f,
+        #0ff,
+        #007fff,
+        #00f,
+        #4b0082,
+        #8a2be2,
+        #8b00ff,
+        #c71585,
+        #ff1493,
+        #f00
+    );
+    background-size: 400% 400%;
+    animation: rainbow-animation 3s linear infinite; /* Animação mais rápida para suavidade */
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.btn--rainbow:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Ajuste para modo escuro/claro se necessário, mas var(--text-primary) deve cuidar disso */
