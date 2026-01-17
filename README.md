@@ -1,10 +1,10 @@
-# 📊 Data Science Portfolio
+# 📊 Data Science & Data Analytics Portfolio
 
 <div align="center">
 
 ![Portfolio Preview](./assets/images/image.png)
 
-**Portfólio web desenvolvido do zero para apresentar meus projetos de Ciência de Dados**
+**Portfólio web desenvolvido do zero para apresentar meus projetos como Analista de Dados**
 
 [![Live Demo](https://img.shields.io/badge/demo-live-success?style=for-the-badge)](https://euuuller.github.io/Portfolio/)
 [![GitHub Stars](https://img.shields.io/github/stars/Euuuller/Portfolio?style=for-the-badge)](https://github.com/Euuuller/Portfolio/stargazers)
@@ -16,32 +16,70 @@
 
 ---
 
+## 📚 Sumário
+
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Motivação](#-motivação)
+- [Principais Funcionalidades](#-principais-funcionalidades)
+- [Foco em Análise de Dados](#-foco-em-análise-de-dados)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Como Usar](#-como-usar)
+- [Personalização](#-personalização)
+- [Habilidades de Analista de Dados Evidenciadas](#-habilidades-de-analista-de-dados-evidenciadas)
+- [Roadmap](#-roadmap)
+- [Licença](#-licença)
+- [Autor](#-autor)
+
+---
+
 ## 🎯 Sobre o Projeto
 
-Este é meu **portfólio pessoal de Ciência de Dados**, desenvolvido completamente por mim para apresentar meus projetos, habilidades técnicas e experiência profissional de forma moderna e interativa.
+Este é meu **portfólio pessoal focado em Análise de Dados e Ciência de Dados**, desenvolvido completamente por mim para apresentar meus projetos, habilidades técnicas e trajetória profissional de forma moderna e interativa.
 
-O site foi construído do zero utilizando HTML, CSS e JavaScript puro, demonstrando minhas capacidades não apenas em análise de dados, mas também em desenvolvimento web front-end. Através deste projeto, busco apresentar minha trajetória profissional e os trabalhos que realizei nas áreas de análise de dados, machine learning e visualização de dados.
+O site foi construído do zero utilizando HTML, CSS e JavaScript puro, demonstrando minhas capacidades como Analista de Dados em:
+- apresentar resultados de forma clara e visual
+- organizar informações de forma objetiva para recrutadores
+- estruturar um portfólio técnico alinhado às demandas de mercado
 
-### 💡 Motivação
+Além disso, o projeto também evidencia conhecimentos em desenvolvimento web front-end, essenciais para publicar dashboards, análises e projetos de dados na web.
+
+## 💡 Motivação
 
 Criei este portfólio para:
-- ✅ Centralizar todos os meus projetos de Data Science em um único lugar
-- ✅ Demonstrar habilidades técnicas além da análise de dados (desenvolvimento web)
+- ✅ Centralizar todos os meus projetos de Análise e Ciência de Dados em um único lugar
+- ✅ Demonstrar habilidades técnicas além da análise de dados (como desenvolvimento web e deploy)
 - ✅ Apresentar meu trabalho de forma profissional para recrutadores e empresas
 - ✅ Praticar desenvolvimento front-end e design de interfaces
-- ✅ Ter um espaço personalizado que represente minha identidade profissional
+- ✅ Ter um espaço personalizado que represente minha identidade profissional como Analista de Dados
 
-### ✨ Principais Funcionalidades
+## ✨ Principais Funcionalidades
 
-- 🌓 **Tema Claro/Escuro** - Alternância suave com detecção automática de preferência do sistema
-- 📱 **Design Responsivo** - Experiência otimizada para desktop, tablet e mobile
-- ⚡ **Performance** - Carregamento rápido com JavaScript vanilla e CSS moderno
-- 🎨 **Animações Suaves** - Efeitos de digitação, scroll e hover para melhor UX
-- 📊 **Skills Dinâmicas** - Tecnologias carregadas via JSON para fácil manutenção
-- ♿ **Acessível** - HTML semântico e atributos ARIA
-- 🔍 **SEO Otimizado** - Meta tags e Open Graph configurados
+- 🌓 **Tema Claro/Escuro** com detecção automática de preferência do sistema
+- 📱 **Design Responsivo** para desktop, tablet e mobile
+- ⚡ **Alta Performance** com JavaScript vanilla e CSS moderno
+- 🎨 **Animações Suaves** (scroll, hover, digitação) para melhor experiência
+- 📊 **Skills Dinâmicas** carregadas via JSON para fácil manutenção
+- ♿ **Acessibilidade** com HTML semântico e atributos ARIA
+- 🔍 **SEO Otimizado** com meta tags e Open Graph configurados
 
-## 🛠️ Tecnologias Utilizadas
+## � Foco em Análise de Dados
+
+Este portfólio foi pensado especificamente para o contexto de **Analista de Dados**, destacando:
+
+- **Projetos de análise exploratória de dados (EDA)** com foco em geração de insights
+- **Visualizações e dashboards** que facilitam a tomada de decisão
+- **Projetos com SQL, Python e bibliotecas de análise** (como Pandas, NumPy, Matplotlib/Seaborn, etc.)
+- **Estudos de caso** conectados a problemas de negócio reais
+- **Storytelling com dados**, organizando problemas, abordagem, resultados e próximos passos
+
+Cada projeto listado no portfólio é descrito de forma que recrutadores consigam entender rapidamente:
+- qual problema foi atacado
+- quais dados foram utilizados
+- quais técnicas foram aplicadas
+- quais foram os principais resultados e aprendizados
+
+## �🛠️ Tecnologias Utilizadas
 
 ### Frontend
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
@@ -53,28 +91,32 @@ Criei este portfólio para:
 ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white)
 
+---
+
 ## 📁 Estrutura do Projeto
 
 ```
 Portfolio/
 ├── 📂 assets/
 │   ├── 📂 css/
-│   │   ├── 📂 base/         # Variáveis, reset, tipografia
-│   │   ├── 📂 components/   # Componentes reutilizáveis
-│   │   └── 📂 layout/       # Layout e seções
+│   │   ├── 📂 base/
+│   │   ├── 📂 components/
+│   │   └── 📂 layout/
 │   ├── 📂 data/
-│   │   └── skills.json      # Dados das habilidades técnicas
-│   ├── 📂 images/           # Imagens e recursos visuais
+│   │   └── skills.json
+│   ├── 📂 images/
 │   └── 📂 js/
-│       ├── 📂 components/   # Módulos JavaScript
-│       ├── 📂 utils/        # Funções utilitárias
-│       └── main.js          # Ponto de entrada
+│       ├── 📂 components/
+│       ├── 📂 utils/
+│       └── main.js
 ├── 📂 docs/
-│   └── Curriculum.pdf       # Currículo em PDF
-├── index.html               # Página principal
+│   └── Curriculum.pdf
+├── index.html
 ├── README.md
 └── LICENSE
 ```
+
+---
 
 ## 🚀 Como Usar
 
@@ -86,103 +128,107 @@ Portfolio/
 
 ### Instalação
 
-1. **Clone o repositório**
+1. Clone o repositório:
 ```bash
 git clone https://github.com/Euuuller/Portfolio.git
 cd Portfolio
 ```
 
-2. **Abra no navegador**
+2. Abra no navegador:
 ```bash
 # Com Python
 python -m http.server 8000
 
-# Ou simplesmente abra o index.html
+# Ou abra o arquivo index.html diretamente
 ```
 
-3. **Acesse** `http://localhost:8000`
+3. Acesse `http://localhost:8000`
 
-### Personalização
+---
 
-#### 1. Informações Pessoais
-Edite o arquivo `index.html`:
+## 🎨 Personalização
+
+### 1. Informações Pessoais
+
+Edite o arquivo `index.html` para ajustar nome, bio e links sociais:
+
 ```html
-<!-- Atualize nome, bio, links sociais -->
 <h1>Seu Nome</h1>
 <p>Sua descrição profissional</p>
 ```
 
-#### 2. Skills e Tecnologias
-Modifique `assets/data/skills.json`:
+### 2. Skills e Tecnologias
+
+Modifique `assets/data/skills.json` para refletir suas habilidades como Analista de Dados:
+
 ```json
 {
   "categories": [
     {
       "name": "Linguagens",
       "skills": [
-        {"name": "Python", "icon": "python"},
-        {"name": "R", "icon": "r"}
+        { "name": "Python", "icon": "python" },
+        { "name": "SQL", "icon": "database" }
       ]
     }
   ]
 }
 ```
 
-#### 3. Estilos e Cores
-Ajuste as variáveis em `assets/css/base/variables.css`:
-```css
-:root {
-  --primary-color: #seu-codigo-hex;
-  --secondary-color: #seu-codigo-hex;
-}
-```
+### 3. Estilos e Cores
 
-#### 4. Adicionar Projetos
-Atualize a seção de projetos no `index.html` e adicione screenshots em `assets/images/projects/`
+Ajuste as variáveis em `assets/css/base/variables.css` para alinhar com sua identidade visual.
 
-## 📦 Deploy
+### 4. Projetos
 
-### GitHub Pages (Recomendado)
+Atualize a seção de projetos no `index.html` e adicione screenshots em `assets/images/projects/`, destacando:
+- nome do projeto
+- problema de negócio
+- principais insights/resultados
+- principais tecnologias usadas
 
-1. Vá em **Settings** > **Pages** no seu repositório
-2. Em **Source**, selecione a branch `main` e pasta `/ (root)`
-3. Clique em **Save**
-4. Seu site estará disponível em: `https://[seu-usuario].github.io/Portfolio/`
+---
 
-### Outras Opções
+## 🧠 Habilidades de Analista de Dados Evidenciadas
 
-- **Netlify**: Drag and drop da pasta do projeto
-- **Vercel**: Conecte seu repositório GitHub
-- **Firebase Hosting**: `firebase deploy`
+Este portfólio foi desenhado para mostrar, na prática, habilidades importantes para atuação como Analista de Dados, como:
 
-## 🤝 Contribuindo
+- Análise exploratória de dados (EDA) e geração de insights
+- Manipulação e limpeza de dados
+- Criação de visualizações claras e objetivas
+- Organização de projetos de dados com foco em reprodutibilidade
+- Comunicação de resultados para diferentes públicos (técnico e não técnico)
+- Publicação de projetos na web para facilitar o acesso de recrutadores e gestores
 
-Contribuições são sempre bem-vindas! Para contribuir:
+Nos projetos exibidos no site, essas habilidades aparecem em forma de:
+- dashboards e gráficos interativos
+- relatórios e estudos de caso
+- códigos organizados em notebooks e scripts
 
-1. Faça um Fork do projeto
-2. Crie uma Branch para sua Feature (`git checkout -b feature/NovaFeature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Push para a Branch (`git push origin feature/NovaFeature`)
-5. Abra um Pull Request
+---
 
 ## 📝 Roadmap
 
-- [ ] Adicionar blog para artigos de Data Science
-- [ ] Implementar sistema de filtros para projetos
-- [ ] Integrar Google Analytics
-- [ ] Adicionar seção de certificações
-- [ ] Criar versão em inglês
-- [ ] Implementar modo de alto contraste
+- [ ] Adicionar blog para artigos de Data Science e Análise de Dados
+- [ ] Implementar sistema de filtros para projetos (por tema e tecnologia)
+- [ ] Integrar Google Analytics para acompanhar acesso ao portfólio
+- [ ] Adicionar seção de certificações e cursos
+- [ ] Criar versão em inglês do portfólio
+- [ ] Implementar modo de alto contraste para acessibilidade avançada
+
+---
 
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
+---
+
 ## 👤 Autor
 
 **Euller dos Santos**
 
-Estudante de Engenharia Elétrica com especialização em Ciência de Dados no IFMA. Apaixonado por transformar dados em insights valiosos e resolver problemas reais através de análises.
+Estudante de Engenharia Elétrica com especialização em Ciência de Dados no IFMA, em transição de carreira para atuar como **Analista de Dados**. Apaixonado por transformar dados em insights valiosos e resolver problemas reais através de análises.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/euuuller)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:euller.santos.duarte@gmail.com)
@@ -192,7 +238,7 @@ Estudante de Engenharia Elétrica com especialização em Ciência de Dados no I
 
 <div align="center">
 
-**⭐ Se este projeto foi útil, considere dar uma estrela!**
+**⭐ Se este projeto te ajudou ou te inspirou, considere dar uma estrela!**
 
 Feito com ❤️ por [Euller dos Santos](https://github.com/Euuuller)
 
