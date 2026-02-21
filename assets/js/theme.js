@@ -16,17 +16,40 @@ export function initTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
+        // Target the SVG or the i element for animation
+        const currentIcon = themeToggle.querySelector('svg') || themeToggle.querySelector('i');
+        if (currentIcon) {
+            currentIcon.classList.add('animate-spin-once');
+        }
+
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateIcon(newTheme);
+
+        setTimeout(() => {
+            updateIcon(newTheme);
+            setTimeout(() => {
+                icon.classList.remove('animate-spin-once');
+            }, 300);
+        }, 300);
     });
 
     function updateIcon(theme) {
-        if (!icon) return;
-        if (theme === 'dark') {
-            icon.className = 'ri-moon-line';
-        } else {
-            icon.className = 'ri-sun-line';
+        if (!themeToggle) return;
+
+        // Remove old icon content
+        themeToggle.innerHTML = '';
+
+        // Create new icon element for Lucide
+        const newIcon = document.createElement('i');
+        newIcon.setAttribute('data-lucide', theme === 'dark' ? 'moon' : 'sun');
+        newIcon.className = 'theme-icon';
+
+        themeToggle.appendChild(newIcon);
+
+        // Tells Lucide to render the new icon
+        if (window.lucide) {
+            lucide.createIcons();
         }
     }
+
 }

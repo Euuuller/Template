@@ -7,10 +7,10 @@
     --success: #10b981;
 
     /* Dark Theme (Default) */
-    --bg-dark: #020617;
-    /* Slate 950 */
-    --bg-dark-secondary: #0f172a;
-    /* Slate 900 */
+    --bg-dark: #000000;
+    /* Pure Black */
+    --bg-dark-secondary: #0a0a0a;
+    /* Very Dark Gray for depth */
     --text-dark: #f8fafc;
     /* Slate 50 */
     --text-dark-muted: #94a3b8;

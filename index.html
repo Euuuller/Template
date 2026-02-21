@@ -13,8 +13,12 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Icons (Remix Icon) -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/image/favicon.svg">
+
+    <!-- Icons (Remix Icon & Lucide) -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- CSS Dependencies -->
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -25,6 +29,7 @@
     <link rel="stylesheet" href="assets/css/skills.css">
     <link rel="stylesheet" href="assets/css/projects.css">
     <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 
     <style>
         /* Small layout tweaks */
@@ -53,16 +58,19 @@
                     <li><a href="#projetos" class="nav-link">Projetos</a></li>
                     <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
-
-                <div class="header-actions">
-                    <button class="theme-toggle" aria-label="Alterar Tema">
-                        <i class="ri-moon-line"></i>
-                    </button>
-                    <a href="https://github.com/euller-ds" target="_blank" class="btn-github">
-                        GitHub
-                    </a>
-                </div>
             </nav>
+
+            <div class="header-actions">
+                <button class="action-btn theme-toggle" aria-label="Alterar Tema">
+                    <i data-lucide="moon" class="theme-icon"></i>
+                </button>
+                <a href="assets/cv.pdf" target="_blank" class="action-btn cv-btn" aria-label="Ver Currículo">
+                    <i data-lucide="file-text"></i>
+                </a>
+                <a href="https://github.com/euuuller" target="_blank" class="action-btn github-btn" aria-label="GitHub">
+                    <i data-lucide="github"></i>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -525,7 +533,8 @@
                     <div class="contact-info">
                         <div class="contact-text">
                             <h3>Canais de Contato</h3>
-                            <p>Sinta-se à vontade para me adicionar nas redes ou enviar um email direto.</p>
+                            <p>Sinta-se à vontade para me adicionar nas redes ou enviar um email direto. Será um prazer
+                                entrar em contato com você!</p>
                         </div>
 
                         <div class="contact-list">
@@ -607,7 +616,21 @@
         </section>
     </main>
 
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Euller dos Santos Rodrigues Duarte. Todos os direitos reservados.</p>
+                <p class="footer-credits">Feito com muito amor <i class="ri-heart-fill"></i> e café <i
+                        class="ri-cup-line"></i></p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+    </script>
     <script type="module" src="assets/js/main.js"></script>
 </body>
 

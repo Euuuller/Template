@@ -8,7 +8,7 @@ export function initTypingEffect() {
     // Clear initial content
     textElement.innerHTML = '';
 
-    const phrases = ['<Data Analyst/>', '<Analista de Dados/>', '<Eng. Elétrica/>'];
+    const phrases = ['Data Analyst', 'Analista de Dados', 'Eng. Elétrica'];
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
