@@ -1,0 +1,295 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/sections/header.css
+ * 
+ * PROPÓSITO:
+ * Define sidebar/header de navegação (barra superior)
+ * Fixado no topo, acompanha scroll
+ * Contém: logo, menu nav, tema toggle
+ * 
+ * CARACTERÍSTICAS:
+ * - position: fixed (parado no topo)
+ * - Glassmorphism effect (blur background)
+ * - Responsive (menu mobile hidden)
+ * - Dark/light theme aware
+ * =====================================
+ */
+
+/**
+ * .header - Barra de navegação principal
+ */
+.header {
+    /**
+     * position: fixed deixa parado no topo
+     * Enquanto página scrolla, header permanece visível
+     */
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    /**
+     * Tamanho: occupies entire width, fixed height
+     */
+    width: 100%;
+    height: var(--header-height); /* 70px */
+    
+    /**
+     * Background semi-transparente (glassmorphism)
+     * rgba(0, 0, 0, 0.7) = preto 70% opacity (dark mode padrão)
+     */
+    background: rgba(0, 0, 0, 0.7);
+    
+    /**
+     * GLASSMORPHISM EFFECT:
+     * backdrop-filter: blur(12px) = desfoca o background atrás
+     * Efeito moderno, premium, glass-like
+     * -webkit- prefix para Safari/Chrome
+     */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /**
+     * z-index muito alto (100)
+     * Header fica ACIMA de todo conteúdo
+     * Nada pode ficar na frente
+     */
+    z-index: 100;
+    
+    /**
+     * Borda inferior sutil
+     * rgba(255, 255, 255, 0.05) = branco 5% opacity
+     * Simples linha separadora
+     */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    
+    /**
+     * Flex para centralizar conteúdo verticalmente
+     */
+    display: flex;
+    align-items: center;
+}
+
+/**
+ * Light theme override
+ */
+[data-theme="light"] .header {
+    /**
+     * Background em light: quase-branco translúcido
+     */
+    background: rgba(248, 250, 252, 0.7);
+    
+    /**
+     * Borda em light: preto fraco
+     */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/**
+ * .header .container - layout de 3 colunas
+ */
+.header .container {
+    /**
+     * Grid com 3 colunas:
+     * [Logo] [Nav center] [Actions]
+     * 1fr auto 1fr = esquerda conteúdo, meio auto, direita conteúdo
+     */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
+
+/**
+ * .logo - Logo e nome do site
+ */
+.logo {
+    /**
+     * justify-self: start coloca no canto esquerdo
+     */
+    justify-self: start;
+    
+    /**
+     * Flex para logo + nome lado a lado
+     */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* 8px entre elementos */
+    
+    /**
+     * Tamanho forte
+     */
+    font-size: 1.4rem;
+    font-weight: 800; /* Extra bold */
+    font-family: var(--font-display); /* Outfit */
+    color: var(--text-main);
+}
+
+/**
+ * .logo span - Destaque em cor primária
+ * <span class="logo"><span>Eu</span>lle</span>
+ */
+.logo span {
+    /**
+     * Primeira letra em cor primária (azul)
+     * Cria marca visual
+     */
+    color: var(--primary);
+}
+
+/**
+ * .nav - Container de navegação
+ */
+.nav {
+    /**
+     * justify-self: center coloca no meio da grid
+     */
+    justify-self: center;
+    
+    /**
+     * Flex centraliza itens
+     */
+    display: flex;
+    align-items: center;
+}
+
+/**
+ * .nav-list - Lista de links
+ */
+.nav-list {
+    /**
+     * Flex separa itens horizontalmente
+     */
+    display: flex;
+    
+    /**
+     * Espaço entre links
+     */
+    gap: 2rem; /* 32px entre cada link */
+}
+
+/**
+ * .nav-link - Link individual
+ */
+.nav-link {
+    /**
+     * Tamanho um pouco menor
+     */
+    font-size: 0.95rem;
+    
+    /**
+     * Peso: semibold
+     */
+    font-weight: 600;
+    
+    /**
+     * Cor: herda do main text (tema-aware)
+     */
+    color: var(--text-main);
+    
+    /**
+     * Opacidade inicial: 70% (menos proeminente)
+     * Ativa quando hover
+     */
+    opacity: 0.7;
+    
+    /**
+     * Transição suave ao hover
+     */
+    transition: all 0.3s ease;
+}
+
+/**
+ * Hover: link fica mais visível
+ */
+.nav-link:hover {
+    /**
+     * Opacidade máxima (100%)
+     */
+    opacity: 1;
+    
+    /**
+     * Cor muda para primária (azul)
+     */
+    color: var(--primary);
+}
+
+/**
+ * .theme-toggle - Botão troca de tema
+ */
+.theme-toggle:hover {
+    /**
+     * Cor especial no hover
+     * #fbbf24 = Tailwind amber-400 (tons do sol)
+     * Dá feel de "light mode"
+     */
+    color: #fbbf24;
+}
+
+/**
+ * LayoutInternals e animação do ícone
+ */
+.animate-spin-once {
+    /**
+     * Animation: do base/animations.css
+     * rotateScale = gira 360° enquanto some e reaparece
+     * 0.6s duration
+     * cubic-bezier = easing suave
+     */
+    animation: rotateScale 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/**
+ * .header-actions - Botões lado direito
+ */
+.header-actions {
+    /**
+     * justify-self: end coloca na direita
+     */
+    justify-self: end;
+    
+    /**
+     * Flex para botões lado a lado
+     */
+    display: flex;
+    align-items: center;
+    
+    /**
+     * Espaço entre botões
+     */
+    gap: 0.8rem; /* 13px */
+    
+    /**
+     * Animation: do base/animations.css
+     * fadeInUp = aparece enquanto sobe
+     * 0.8s = um pouco lento, elegante
+     * backwards = começa do estado inicial (não flecha no load)
+     */
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+/**
+ * ========================================
+ * RESPONSIVE DESIGN
+ * ========================================
+ */
+@media (max-width: 768px) {
+    /**
+     * Em tablets/mobile, muda layout
+     */
+    .header .container {
+        /**
+         * Muda de 3 colunas para 2:
+         * [Logo] [Actions]
+         * Menu nav some (hidden)
+         */
+        grid-template-columns: 1fr auto;
+    }
+
+    /**
+     * Menu nav escondido em mobile
+     * Menu mobile somente com hamburger
+     */
+    .nav {
+        display: none;
+    }
+}

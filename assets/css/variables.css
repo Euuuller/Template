@@ -1,58 +1,290 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/variables.css
+ * 
+ * PROPÓSITO:
+ * Define TODAS as variáveis CSS (custom properties) usadas no projeto.
+ * Funciona como "single source of truth" para:
+ * - Cores (primária, secundária, temas light/dark)
+ * - Fontes tipográficas
+ * - Espaçamento (gaps, heights, widths)
+ * - Tempos de transição e animação
+ * 
+ * BENEFÍCIOS DO SISTEMA DE VARIÁVEIS:
+ * 1. MANUTENÇÃO: Mudar cor global é 1 linha aqui
+ * 2. CONSISTÊNCIA: Toda página usa mesmos valores
+ * 3. RESPONSIVIDADE: Pode mudar variáveis por breakpoint
+ * 4. TEMÁTICA: Suporta múltiplos temas (light/dark)
+ * 5. PERFORMANCE: CSS reutiliza valores em vez de hardcoded
+ * 
+ * ESTRUTURA:
+ * :root { ... }           → Variáveis globais padrão
+ * [data-theme="light"] { ... } → Override para tema light
+ * [data-theme="dark"] { ... }  → Override para tema dark
+ * 
+ * COMO USAR:
+ * Em qualquer propriedade CSS:
+ * color: var(--text-main);
+ * background: var(--bg-surface);
+ * transition: all var(--transition-base);
+ * =====================================
+ */
+
 :root {
-    /* Colors - Derived from Reference */
+    /**
+     * ================================
+     * SEÇÃO 1: CORES BASE
+     * ================================
+     * Cores primitivas usadas como base para temas
+     * Não usadas diretamente, servem como referência
+     */
+    
+    /* Cor Primária - Azul usado em botões, links, etc */
     --primary: #3b82f6;
-    /* Blue 500 */
+    /* #3b82f6 = Tailwind Blue 500 (tom intermediário) */
+    
+    /* Cor Secundária - Verde para sucesso, destaque */
     --secondary: #10b981;
-    /* Emerald 500 */
+    /* #10b981 = Tailwind Emerald 500 */
+    
+    /* Cor de Sucesso - Verde (mesmo que secundária neste design) */
     --success: #10b981;
+    /* Pode ser diferente em outros designs */
 
-    /* Dark Theme (Default) */
+
+    /**
+     * ================================
+     * SEÇÃO 2: CORES TEMA DARK
+     * ================================
+     * Background e texto para tema escuro (padrão)
+     * Usa hard colors que serão overridden por [data-theme="dark"]
+     */
+    
+    /* Background principal do tema dark */
     --bg-dark: #000000;
-    /* Pure Black */
+    /* #000000 = Preto puro (máximo contraste) */
+    
+    /* Background secundário para cards, containers */
     --bg-dark-secondary: #0a0a0a;
-    /* Very Dark Gray for depth */
+    /* #0a0a0a = Quase preto (cria profundidade vs bg-dark) */
+    
+    /* Texto principal em tema dark */
     --text-dark: #f8fafc;
-    /* Slate 50 */
+    /* #f8fafc = Branco com muito leve tom azul (Slate 50, menos harsh) */
+    
+    /* Texto muted/secundário em tema dark */
     --text-dark-muted: #94a3b8;
-    /* Slate 400 */
+    /* #94a3b8 = Cinza médio (Slate 400, subtil mas legível) */
 
-    /* Light Theme */
+
+    /**
+     * ================================
+     * SEÇÃO 3: CORES TEMA LIGHT
+     * ================================
+     * Background e texto para tema claro
+     * Será aplicado quando user seleciona light theme
+     */
+    
+    /* Background principal do tema light */
     --bg-light: #f8fafc;
+    /* #f8fafc = Quase branco com tom azul leve (Slate 50) */
+    
+    /* Background secundário em tema light */
     --bg-light-secondary: #ffffff;
+    /* #ffffff = Branco puro para cards/containers */
+    
+    /* Texto principal em tema light */
     --text-light: #0f172a;
+    /* #0f172a = Quase preto com tom azul (Slate 900, contraste máximo) */
+    
+    /* Texto muted em tema light */
     --text-light-muted: #475569;
+    /* #475569 = Cinza médio (Slate 600, menos prominent) */
 
-    /* Fonts */
+
+    /**
+     * ================================
+     * SEÇÃO 4: FONTES TIPOGRÁFICAS
+     * ================================
+     * Fontes importadas do Google Fonts via index.html
+     * Fallbacks incluídos para segurança
+     */
+    
+    /* Font familia regular (corpo do texto, parágrafos) */
     --font-sans: 'Inter', sans-serif;
+    /* Inter: moderna, muito legível em telas, ótima para UX */
+    
+    /* Font familia para display (headers, títulos grandes) */
     --font-display: 'Outfit', sans-serif;
+    /* Outfit: geométrica, moderna, excelente para chamadas */
+    
+    /* Font monospaced (código, valores técnicos) */
     --font-mono: 'JetBrains Mono', monospace;
+    /* JetBrains Mono: programming font, caracteres distintos */
 
-    /* Spacing */
+
+    /**
+     * ================================
+     * SEÇÃO 5: ESPAÇAMENTO
+     * ================================
+     * Alturas, larguras e dimensões layout
+     * Mantém consistência em grid spacings
+     */
+    
+    /* Altura do header (nav bar top) */
     --header-height: 70px;
+    /* Usado para: padding-top body, offset de scroll links */
+    
+    /* Largura máxima do container (content wrapper) */
     --container-max-width: 1200px;
+    /* Todos sections usam max-width ou container com esse valor */
 
-    /* Transitions */
+
+    /**
+     * ================================
+     * SEÇÃO 6: TEMPOS DE TRANSIÇÃO
+     * ================================
+     * Durações para efeitos de animação
+     * Mantém aplicação sentir responsiva e suave
+     */
+    
+    /* Transição rápida (hover buttons, quick fades) */
     --transition-fast: 0.2s ease;
+    /* 200ms: perceptível mas não lento, ideal para :hover */
+    
+    /* Transição base (muitas transições standard) */
     --transition-base: 0.4s ease;
+    /* 400ms: velocidade principal da aplicação */
 }
 
+/**
+ * ================================
+ * OVERRIDE: TEMA LIGHT
+ * ================================
+ * Quando user seleciona light mode (ou data-theme="light")
+ * CSS substitui as variáveis de cor
+ * 
+ * MECANISMO:
+ * HTML: <html data-theme="light">
+ * Selector: [data-theme="light"]
+ * Esse bloco se torna "css ativo" (cascata maior que :root)
+ * 
+ * PADRÃO USADO:
+ * --bg-main, --text-main: variáveis derivadas
+ * Isso permite usar 2 nomes de variável em vez de hardcode
+ * Exemplo: color: var(--text-main) funciona em ambos temas
+ */
 [data-theme="light"] {
+    /* Background principal = bg light (inverted from dark) */
     --bg-main: var(--bg-light);
+    
+    /* Background de surface (cards) = light secondary */
     --bg-surface: var(--bg-light-secondary);
+    
+    /* Texto principal = dark text (inverted) */
     --text-main: var(--text-light);
+    
+    /* Texto muted = light muted */
     --text-muted: var(--text-light-muted);
+    
+    /* Cor do grid background (muito sutil em light) */
     --grid-color: rgba(59, 130, 246, 0.05);
-    /* Blue subtle grid */
+    /* rgba: Azul primário com 5% opacity = muito sutil */
+    
+    /* Cor de borda (sutil em light) */
     --border-color: rgba(15, 23, 42, 0.1);
+    /* rgba: Tom azul escuro com 10% opacity */
 }
 
+/**
+ * ================================
+ * OVERRIDE: TEMA DARK (Padrão)
+ * ================================
+ * Quando user seleciona dark mode ou é padrão
+ * CSS substitui variáveis de cor pelo tema dark
+ * 
+ * SELETORES:
+ * [data-theme="dark"] → Explícito (user escolheu dark)
+ * :root:not([data-theme="light"]) → Padrão (nem light foi set)
+ * Isso garante que dark é padrão se nada foi selecionado
+ */
 [data-theme="dark"],
 :root:not([data-theme="light"]) {
+    /* Background principal = bg dark (padrão) */
     --bg-main: var(--bg-dark);
+    
+    /* Background de surface = dark secondary (levemente mais claro) */
     --bg-surface: var(--bg-dark-secondary);
+    
+    /* Texto principal = dark texto (branco) */
     --text-main: var(--text-dark);
+    
+    /* Texto muted = dark muted (cinza) */
     --text-muted: var(--text-dark-muted);
+    
+    /* Cor do grid background (muito sutil em dark) */
     --grid-color: rgba(255, 255, 255, 0.03);
-    /* Very subtle white grid */
+    /* rgba: Branco com 3% opacity = quase invisível */
+    
+    /* Cor de borda (sutil em dark) */
     --border-color: rgba(255, 255, 255, 0.1);
+    /* rgba: Branco com 10% opacity = sutil linha */
 }
+
+/**
+ * MATRIZ DE VARIÁVEIS UTILIZÁVEIS:
+ * 
+ * Variáveis que podem ser usadas em ANY arquivo CSS:
+ * 
+ * CORES (automáticas por tema):
+ * --bg-main           → Background principal (muda por tema)
+ * --bg-surface        → Fundo de cards/containers (muda por tema)
+ * --text-main         → Texto principal (muda por tema)
+ * --text-muted        → Texto secundário (muda por tema)
+ * --primary           → Cor primária (constante)
+ * --secondary         → Cor secundária (constante)
+ * --success           → Cor de sucesso (constante)
+ * --grid-color        → Cor da grid (muda por tema)
+ * --border-color      → Cor de bordas (muda por tema)
+ * 
+ * FONTES:
+ * --font-sans         → Fonte regular (Inter)
+ * --font-display      → Fonte títulos (Outfit)
+ * --font-mono         → Fonte code (JetBrains Mono)
+ * 
+ * LAYOUT:
+ * --header-height     → 70px (offset para scroll)
+ * --container-max-width → 1200px (max width)
+ * 
+ * ANIMAÇÃO:
+ * --transition-fast   → 0.2s (hovers rápidos)
+ * --transition-base   → 0.4s (transições normais)
+ * 
+ * EXEMPLOS DE USO:
+ * 
+ * 1. Cor que muda por tema:
+ *    body { background: var(--bg-main); color: var(--text-main); }
+ *    → Dark mode: preto com texto branco
+ *    → Light mode: quase branco com texto escuro
+ * 
+ * 2. Cor fixa:
+ *    button { background: var(--primary); }
+ *    → Sempre azul, independente de tema
+ * 
+ * 3. Animação:
+ *    a { transition: color var(--transition-fast); }
+ *    → 200ms quando user hover
+ * 
+ * 4. Layout:
+ *    .container { max-width: var(--container-max-width); margin: 0 auto; }
+ *    → 1200px max universalmente
+ * 
+ * 5. Múltiplas variáveis:
+ *    .card {
+ *        background: var(--bg-surface);
+ *        color: var(--text-main);
+ *        border: 1px solid var(--border-color);
+ *        transition: all var(--transition-base);
+ *    }
+ *    → Card responsivo a tema com transição suave
+ */

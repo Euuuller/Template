@@ -1,0 +1,184 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/layout/spacing.css
+ * 
+ * PROPÓSITO:
+ * Define spacing (espaçamento) responsivo de seções.
+ * Ajusta padding/marging conforme tamanho da tela.
+ * 
+ * NOTA IMPORTANTE:
+ * reset.css já define base sections
+ * Este arquivo ADD media queries para responsividade
+ * 
+ * PADRÃO:
+ * Desktop: 100px padding, 100vh mínimo
+ * Tablet: 60px padding, height auto
+ * Mobile: 40px padding, height auto
+ * 
+ * LÓGICA:
+ * Telas grandes: espaço vertical amplo
+ * Telas pequenas: espaço vertical reduzido (conteúdo importante)
+ * =====================================
+ */
+
+/**
+ * ========================================
+ * SEÇÃO - BASE (redeclarada de reset.css)
+ * ========================================
+ * Re-declara <section> com valores padrão
+ * Serve como base para media queries abaixo
+ * 
+ * NOTA:
+ * Isso está em reset.css também
+ * Repetição aqui é intencional (clarity)
+ * Media queries vão OVERRIDE isso
+ */
+section {
+    /**
+     * Padding vertical em seção (sem horizontal)
+     * 100px 0 = 100px top/bottom, 0 left/right
+     * 
+     * EFEITO:
+     * Espaço vertical amplo entre seções
+     * Cada seção tem respiro
+     * Conteúdo não fica apertado
+     */
+    padding: 100px 0;
+    
+    /**
+     * Altura mínima = 1 viewport inteiro
+     * 100vh = 100 vertical height units
+     * Se tela tem 800px, seção tem 800px mínimo
+     * 
+     * RESULTADO:
+     * Cada seção preenche tela inteira (em desktop)
+     * Paginação "one section per scroll"
+     * Efeito profissional
+     */
+    min-height: 100vh;
+    
+    /**
+     * Modo flexbox para alinhamento
+     */
+    display: flex;
+    
+    /**
+     * Centra horizontalmente (eixo X)
+     */
+    justify-content: center;
+    
+    /**
+     * Centra verticalmente (eixo Y)
+     */
+    align-items: center;
+    
+    /**
+     * Isolamento de render
+     */
+    contain: content;
+}
+
+/**
+ * ========================================
+ * RESPONSIVE: TABLET (768px e menor)
+ * ========================================
+ * Ajustes para telas medianas (tablets)
+ * 
+ * ALTERAÇÕES:
+ * - padding: reduz de 100px para 60px
+ * - min-height: muda de 100vh para auto
+ */
+@media (max-width: 768px) {
+    section {
+        /**
+         * Reduz padding vertical
+         * 100px → 60px (40% menos)
+         * 
+         * RAZÃO:
+         * Telas menores têm menos espaço vertical
+         * 100px em tela 768px = 25% da altura
+         * Em desktop 1920px = 5% da altura
+         * Ajuste mantém proporção visual
+         */
+        padding: 60px 0;
+        
+        /**
+         * Muda altura mínima para "auto"
+         * auto = altura do conteúdo (sem enforçar min-height)
+         * 
+         * ANTES (min-height: 100vh):
+         * Seção ocupava 100% da tela
+         * Conteúdo pequeno → seção toda em branco
+         * 
+         * DEPOIS (min-height: auto):
+         * Seção ocupa só o que precisa
+         * Conteúdo pequeno → seção pequena
+         * Mais eficiente em mobile
+         */
+        min-height: auto;
+    }
+}
+
+/**
+ * ========================================
+ * RESPONSIVE: MOBILE PEQUENO (480px e menor)
+ * ========================================
+ * Ajustes para telas muito pequenas (celulares antigos)
+ * 
+ * ALTERAÇÃO:
+ * - padding: reduz para 40px (mínimo)
+ */
+@media (max-width: 480px) {
+    section {
+        /**
+         * Padding mínimo
+         * 60px → 40px
+         * 
+         * BREAKPOINT:
+         * 480px é tela muito pequena
+         * (celular muito antigo, raro hoje)
+         * Tudo reduz ao mínimo
+         */
+        padding: 40px 0;
+        
+        /* min-height mantém auto de media query anterior */
+    }
+}
+
+/**
+ * =====================================
+ * RESUMO DE SPACING RESPONSIVO
+ * =====================================
+ * 
+ * BREAKPOINT           | PADDING | MIN-HEIGHT
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * Desktop (>768px)     | 100px   | 100vh
+ * Tablet (768px)       | 60px    | auto
+ * Mobile pequeno(480px)| 40px    | auto
+ * 
+ * VISUAL:
+ * 
+ * DESKTOP:
+ * ┌─────────────────────┐
+ * │                     │ ←100px padding
+ * │  Seção Content      │
+ * │  (100vh mínimo)     │
+ * │                     │ ←100px padding
+ * └─────────────────────┘
+ * 
+ * TABLET:
+ * ┌─────────────────────┐
+ * │                     │ ←60px padding
+ * │  Seção Content      │
+ * │  (auto height)      │
+ * │                     │ ←60px padding
+ * └─────────────────────┘
+ * 
+ * MOBILE:
+ * ┌───────────────────┐
+ * │                 │ ←40px padding
+ * │  Seção Content  │
+ * │  (auto height)  │
+ * │                 │ ←40px padding
+ * └───────────────────┘
+ */

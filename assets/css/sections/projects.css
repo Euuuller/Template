@@ -1,0 +1,548 @@
+/* =======================================
+   PROJECTS SECTION - PORTFOLIO CARDS
+   ======================================= */
+
+/* 
+   VISÃO GERAL:
+   Este arquivo define toda a estética da seção de projetos.
+   Exibe uma grade de cards de projetos com efeitos hover sofisticados.
+   
+   ESTRUTURA PRINCIPAL:
+   .projects (container)
+   └── .projects-grid (grid com auto-fit)
+       └── .project-card (card individual)
+           ├── .project-image-container (imagem com zoom)
+           │   └── .project-category (badge de categoria)
+           │   └── .project-overlay (ícones de ação)
+           └── .project-content (conteúdo textual)
+   
+   BENEFÍCIOS DO DESIGN:
+   - Cards responsivos que se adaptam de 1-3 colunas
+   - Overlay interativo que aparece no hover (opacity + visibility)
+   - Zoom suave de imagem com efeito blur + escurecimento
+   - Tags de tecnologia dinâmicas
+   - Stats de projeto com ícones
+*/
+
+/* ================================
+   SEÇÃO PROJECTS - CONTAINER
+   ================================ */
+
+.projects {
+    /* Valores herdados de layout/spacing.css */
+    padding: 100px 0; /* 100px top/bottom, 0 left/right (gerenciado por .container) */
+    position: relative; /* Base para overlays e positioning absoluto dos filhos */
+}
+
+/* ================================
+   GRID PROJECTS - LAYOUT RESPONSIVO
+   ================================ */
+
+.projects-grid {
+    /* Grid automático com auto-fit para responsividade */
+    display: grid;
+    
+    /* repeat(auto-fit, minmax(280px, 1fr)):
+       - auto-fit: Cria quantas colunas forem possíveis
+       - minmax(280px, 1fr): Cada coluna tem mínimo 280px, expande até 1fr
+       - EFEITO: Em desktop (1200px): 4 colunas | Tablet (768px): 2 colunas | Mobile: 1 coluna
+       
+       EXPLICAÇÃO DE AUTO-FIT vs AUTO-FILL:
+       - auto-fit: Remove colunas vazias (card ocupa espaço extra)
+       - auto-fill: Mantém colunas vazias (card não expande)
+       
+       Usamos auto-fit para que cards se expandam e preencham espaço em telas pequenas.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    
+    /* Espaço entre cards (horizontal e vertical) */
+    gap: 1.5rem; /* 24px de espaço entre cada card */
+    
+    /* Espaço acima da grid (abaixo do título "Projetos") */
+    margin-top: 40px;
+}
+
+/* ================================
+   PROJECT CARD - CONTAINER PRINCIPAL
+   ================================ */
+
+.project-card {
+    /* Cor de fundo do card (grey escuro em dark mode) */
+    background: var(--bg-surface); /* hsl(0, 0%, 15%) em dark mode */
+    
+    /* Borda sutil com transparência */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Apenas 5% de opacidade branca */
+    
+    /* Cantos bem arredondados */
+    border-radius: 24px; /* Seguindo design system de components/button.css */
+    
+    /* Clipa conteúdo fora dos cantos arredondados */
+    overflow: hidden; /* Importante para que imagem de hover respeite border-radius */
+    
+    /* Transição suave para TODAS as propriedades */
+    transition: all var(--transition-base); /* 0.3s ease (definido em variables.css) */
+    
+    /* Layout flexbox para estruturar conteúdo verticalmente */
+    display: flex; /* Transforma em flex container */
+    flex-direction: column; /* Coloca itens em coluna (imagem acima, conteúdo abaixo) */
+    height: 100%; /* Preenche altura total do grid item (força alinhamento em grids) */
+    
+    /* ESTRUTURA DO FLEXBOX:
+       .project-card (flex container, col)
+       ├── .project-image-container (altura fixa 180px)
+       └── .project-content (flex-grow: 1, ocupa espaço restante)
+               └── .project-footer (aparece embaixo)
+    */
+}
+
+/* EFEITO HOVER DO CARD */
+.project-card:hover {
+    /* Levanta o card para cima quando passa mouse */
+    transform: translateY(-10px); /* Move 10px para cima (eixo Y negativo) */
+    
+    /* Borda muda de cor para azul quando hover */
+    border-color: rgba(59, 130, 246, 0.3); /* Azul primário com 30% opacidade */
+    
+    /* Sombra maior e mais escura (efeito de profundidade) */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    /* offset-y: 20px, blur: 40px, cor: 40% black */
+    /* Cria efeito de "card flutuante" */
+}
+
+/* ================================
+   PROJECT IMAGE CONTAINER
+   ================================ */
+
+.project-image-container {
+    /* Positioning absoluto para elementos dentro */
+    position: relative; /* Contexto para .project-category e .project-overlay (absolute/inset: 0) */
+    
+    /* Altura fixa da área de imagem */
+    height: 180px; /* Mantém proporção consistente em todos cards */
+    
+    /* Clipa imagem que transborda */
+    overflow: hidden; /* Importante para border-radius do pai + zoom smooth */
+}
+
+.project-image-container img {
+    /* Imagem preenche todo container */
+    width: 100%;
+    height: 100%;
+    
+    /* Recorta imagem mantendo proporção */
+    object-fit: cover; /* Como background-size: cover */
+    
+    /* Transição suave para zoom sem delays */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    /* cubic-bezier customizado para easeInOutQuad (suave no começo e fim) */
+}
+
+/* ZOOM E DESATURAÇÃO NO HOVER */
+.project-card:hover .project-image-container img {
+    /* Aumenta imagem 10% ao passar mouse */
+    transform: scale(1.1); /* 1.0 = tamanho normal, 1.1 = 10% maior */
+    
+    /* Aplicar dois filtros:
+       1. blur(4px) - Desenfoque suave (efeito artístico)
+       2. brightness(0.6) - Reduz brilho para 60% (efeito de escurecimento)
+    */
+    filter: blur(4px) brightness(0.6);
+    
+    /* EFEITO VISUAL GERAL:
+       Imagem cresce, desfoca e escurece para destacar overlay com ícones.
+       Mantém foco nos botões de ação (demo/github).
+    */
+}
+
+/* ================================
+   PROJECT CATEGORY BADGE
+   ================================ */
+
+.project-category {
+    /* Posicionamento absoluto sobre a imagem */
+    position: absolute; /* Relativo a .project-image-container (position: relative) */
+    top: 1.5rem; /* 24px do topo */
+    left: 1.5rem; /* 24px da esquerda */
+    
+    /* Fundo glassmorphism */
+    background: rgba(0, 0, 0, 0.6); /* 60% de transparência preta */
+    backdrop-filter: blur(10px); /* Blur do fundo atrás (efeito vidro) */
+    
+    /* Padding interno para o texto */
+    padding: 6px 14px; /* Vertical: 6px, Horizontal: 14px */
+    
+    /* Cantos arredondados em forma de pílula */
+    border-radius: 99px; /* Valor grande = forma de pílula */
+    
+    /* Fonte monospace para categoria (tech) */
+    font-family: var(--font-mono); /* JetBrains Mono */
+    font-size: 0.7rem; /* 11.2px - bem pequeno */
+    font-weight: 700; /* Bold para destacar */
+    color: #fff; /* Texto branco */
+    text-transform: uppercase; /* Tudo em MAIÚSCULAS */
+    letter-spacing: 1px; /* Espaço extra entre letras */
+    
+    /* Borda sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 10% branco */
+    
+    /* Camada acima do overlay (z-index: 3) */
+    z-index: 2; /* Fica acima de elemento normal, abaixo de overlay */
+    
+    /* EXEMPLO:
+       Se categoria é "FEATURED", exibe como: [ FEATURED ]
+       Com borda sutil branca e fundo semi-transparente com blur
+    */
+}
+
+/* ================================
+   PROJECT OVERLAY - ÍCONES DE AÇÃO
+   ================================ */
+
+.project-overlay {
+    /* Posicionamento absoluto cobrindo toda imagem */
+    position: absolute;
+    inset: 0; /* Shorthand para top/right/bottom/left: 0 (cobre 100%) */
+    
+    /* Flexbox para centrar ícones */
+    display: flex;
+    flex-direction: column; /* Ícones em coluna, texto abaixo */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    gap: 1.5rem; /* 24px entre ícones e texto */
+    
+    /* Invisível por padrão */
+    opacity: 0; /* Transparente totalmente */
+    visibility: hidden; /* Não interage (melhor que display: none) */
+    
+    /* Transição suave de visibilidade */
+    transition: all 0.4s ease; /* Afeta opacity, visibility, transform (se tiver) */
+    
+    /* Camada topo */
+    z-index: 3; /* Acima da badge (z-index: 2) e overlay normal */
+    
+    /* ESTADO PADRÃO:
+       Overlay invisível sobre a imagem.
+       Quando .project-card:hover, muda para opacity: 1 e visibility: visible.
+    */
+}
+
+.project-card:hover .project-overlay {
+    /* Fica visível e interativo no hover */
+    opacity: 1; /* 100% opaco */
+    visibility: visible; /* Recebe eventos de mouse */
+}
+
+/* CONTAINER DOS ÍCONE */
+.overlay-icons {
+    /* Layout flexbox para botões lado a lado */
+    display: flex;
+    gap: 1rem; /* 16px entre cada ícone */
+    
+    /* EFEITO VISUAL:
+       [DEMO] ⟡ [GITHUB]
+       Com 16px de espaço entre eles
+    */
+}
+
+/* ÍCONE INDIVIDUAL (BOTÃO CIRCULAR) */
+.overlay-icon {
+    /* Dimensões quadradas para criar círculo */
+    width: 45px;
+    height: 45px;
+    
+    /* Cor de fundo = cor primária (azul) */
+    background: var(--primary); /* #3B82F6 em dark mode */
+    
+    /* Torna quadrado em círculo */
+    border-radius: 50%;
+    
+    /* Centraliza ícone dentro do círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Texto/ícone branco */
+    color: white;
+    font-size: 1.2rem; /* Ícone de 19.2px (lucide icons) */
+    
+    /* Transição para hover */
+    transition: all 0.3s ease; /* background-color, transform */
+    
+    /* ESTRUTURA:
+       Botão circular de 45x45px com ícone centralizado
+       Ícones típicos: demonstração (play) e GitHub (github icon)
+    */
+}
+
+.overlay-icon:hover {
+    /* Aumenta ícone ao passar mouse */
+    transform: scale(1.1); /* 10% maior */
+    
+    /* Muda cor de fundo para secundária */
+    background: var(--secondary); /* Cor variável secundária */
+    
+    /* EFEITO:
+       Ícone fica um pouco maior e muda de cor quando hover
+       Feedback visual que é clicável
+    */
+}
+
+/* TEXTO ABAIXO DOS ÍCONES */
+.overlay-text {
+    /* Fundo glassmorphism */
+    background: rgba(255, 255, 255, 0.1); /* 10% branco semi-transparente */
+    backdrop-filter: blur(5px); /* Blur do fundo */
+    
+    /* Padding interno */
+    padding: 8px 16px; /* Vertical: 8px, Horizontal: 16px */
+    
+    /* Cantos arredondados */
+    border-radius: 8px;
+    
+    /* Tipografia */
+    font-size: 0.85rem; /* 13.6px */
+    color: white;
+    
+    /* Borda sutil */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* 20% branco */
+    
+    /* EXEMPLO:
+       Se clicou em demo: [ Demo do Projeto ]
+       Se clicou em github: [ Ver no GitHub ]
+    */
+}
+
+/* ================================
+   PROJECT CONTENT - ÁREA TEXTUAL
+   ================================ */
+
+.project-content {
+    /* Padding interno */
+    padding: 1.5rem; /* 24px em todos os lados */
+    
+    /* Texto centralizado */
+    text-align: center;
+    
+    /* Crescer para preencher espaço disponível (entre imagem e footer) */
+    flex-grow: 1;
+    
+    /* Layout flexbox para estruturar título + descrição + tags */
+    display: flex;
+    flex-direction: column;
+    
+    /* ESTRUTURA FLEXBOX:
+       .project-content (col, flex-grow: 1)
+       ├── .project-title
+       ├── .project-description
+       └── .project-tags
+       
+       flex-grow: 1 garante que o footer fica sempre no rodapé do card.
+    */
+}
+
+/* TÍTULO DO PROJETO */
+.project-title {
+    /* Fonte display para destaque */
+    font-family: var(--font-display); /* Outfit */
+    font-size: 1.3rem; /* 20.8px */
+    font-weight: 700; /* Bold */
+    
+    /* Cor primária (azul) */
+    color: var(--primary); /* #3B82F6 */
+    
+    /* Espaço abaixo do título */
+    margin-bottom: 0.8rem; /* 12.8px */
+    
+    /* Altura de linha para múltiplas palavras */
+    line-height: 1.2; /* 120% da altura da fonte */
+    
+    /* EXEMPLO VISUAL:
+       "Aplicativo de Tarefas"
+       Em cor azul primária
+    */
+}
+
+/* DESCRIÇÃO DO PROJETO */
+.project-description {
+    /* Cor mutada (cinza) para contrastar com título */
+    color: var(--text-muted); /* hsl(0, 0%, 60%) em dark mode */
+    
+    /* Fonte menor */
+    font-size: 0.95rem; /* 15.2px */
+    
+    /* Espaço abaixo */
+    margin-bottom: 1.5rem; /* 24px antes das tags */
+    
+    /* Altura de linha para melhor legibilidade */
+    line-height: 1.6; /* 160% da altura da fonte (melhor para parágrafos) */
+    
+    /* EXEMPLO:
+       "Aplicativo completo de tarefas com suporte a múltiplas listas,
+        prioridades e notificações em tempo real."
+    */
+}
+
+/* ================================
+   PROJECT TAGS - TECNOLOGIAS USADAS
+   ================================ */
+
+.project-tags {
+    /* Layout flexbox para tags lado a lado com wrap */
+    display: flex;
+    flex-wrap: wrap; /* Tags passam para próxima linha se necessário */
+    justify-content: center; /* Centraliza tags */
+    gap: 0.5rem; /* 8px entre cada tag */
+    
+    /* Espaço abaixo (antes do footer) */
+    margin-bottom: 2rem; /* 32px para separar de footer */
+    
+    /* EXEMPLO VISUAL:
+       [ React ] [ Node.js ] [ MongoDB ]
+       Com wrap automático em telas menores
+    */
+}
+
+.tag {
+    /* Padding interno */
+    padding: 4px 12px; /* Vertical: 4px, Horizontal: 12px */
+    
+    /* Fundo quase transparente */
+    background: rgba(255, 255, 255, 0.03); /* Apenas 3% branco */
+    
+    /* Borda sutil */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* 8% branco */
+    
+    /* Cantos arredondados em forma de pílula */
+    border-radius: 99px;
+    
+    /* Texto pequeno */
+    font-size: 0.75rem; /* 12px */
+    
+    /* Cor mutada */
+    color: var(--text-muted);
+    
+    /* Transição para hover */
+    transition: all 0.3s ease;
+    
+    /* ESTADO PADRÃO:
+       Tags com fundo quase invisível, apenas borda sutil
+       Parecem "etiquetas" discretas
+    */
+}
+
+.project-card:hover .tag {
+    /* No hover do card, tags ganham cor */
+    border-color: var(--primary); /* Borda fica azul */
+    color: var(--text-main); /* Texto fica branco/claro */
+    
+    /* EFEITO CASCADE:
+       Quando passa mouse no card, todas as tags mudam de cor
+       Coordenação visual com outros elementos
+    */
+}
+
+/* ================================
+   PROJECT FOOTER - STATS E AÇÕES
+   ================================ */
+
+.project-footer {
+    /* Padding */
+    padding: 1.2rem 1.5rem; /* Vertical: 1.2rem, Horizontal: 1.5rem */
+    
+    /* Separador visual */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Borda sutil separando conteúdo */
+    
+    /* Fundo levemente mais escuro */
+    background: rgba(0, 0, 0, 0.1); /* 10% de preto (mais escuro que card) */
+    
+    /* PROPÓSITO:
+       Seção final do card com stats (forks, stars) e botões de ação
+    */
+}
+
+/* STATS (ESTATÍSTICAS) */
+.project-stats {
+    /* Layout flexbox para stats lado a lado */
+    display: flex;
+    justify-content: center; /* Centraliza stats */
+    gap: 1.5rem; /* 24px entre cada stat */
+    
+    /* Espaço abaixo */
+    margin-bottom: 1.5rem; /* 24px antes dos botões */
+    
+    /* Tipografia */
+    font-size: 0.85rem; /* 13.6px */
+    color: var(--text-muted); /* Cor mutada */
+    
+    /* EXEMPLO VISUAL:
+       ⭐ 234 forks   📌 157 stars   👁️ 89 watchers
+    */
+}
+
+/* ITEM DE STAT INDIVIDUAL */
+.stat-item {
+    /* Layout flexbox para ícone + número */
+    display: flex;
+    align-items: center; /* Centraliza ícone com número */
+    gap: 0.5rem; /* 8px entre ícone e número */
+    
+    /* ESTRUTURA:
+       [ícone] [número]
+    */
+}
+
+.stat-item i {
+    /* Ícone (de Lucide ou Remix Icons) */
+    color: var(--primary); /* Azul primário */
+    
+    /* Ícones herdam tamanho de font-size do parent .project-stats (0.85rem) */
+}
+
+/* ================================
+   ACTION BUTTONS - DEMO E GITHUB
+   ================================ */
+
+.project-actions {
+    /* Layout flexbox para botões lado a lado */
+    display: flex;
+    gap: 1rem; /* 16px entre botões */
+    justify-content: center; /* Centraliza botões */
+    
+    /* Botões aqui devem usar classes .btn-demo ou .btn-project */
+    /* De components/button.css */
+    
+    /* EXEMPLO:
+       [Demo]  [GitHub]
+       Dois botões com 16px de espaço
+    */
+}
+
+/* ================================
+   RESPONSIVENESS - TABLETS/MOBILE
+   ================================ */
+
+@media (max-width: 768px) {
+    /* Em tablets, reduz para 1 coluna */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Antes: repeat(auto-fit, minmax(280px, 1fr))
+           Depois: 1fr (apenas 1 coluna)
+           
+           EFEITO: Cards ocupam 100% da largura em mobile
+        */
+    }
+
+    .project-card {
+        /* Limita largura máxima em mobile */
+        max-width: 400px; /* Não ultrapassa 400px mesmo se container maior */
+        /* Garante que card não fica muito largo */
+        
+        /* Centraliza na tela */
+        margin: 0 auto; /* Margem automática horizontal = centered */
+        
+        /* EFEITO VISUAL:
+           Em mobile, card ocupa no máx 400px de largura
+           Com margem automática (centered)
+        */
+    }
+}

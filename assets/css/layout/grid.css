@@ -1,0 +1,240 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/layout/grid.css
+ * 
+ * PROPÓSITO:
+ * Define sistema de grid (grid layout) da página.
+ * Estabelece container padrão que todos sections usam.
+ * 
+ * CONTÉM:
+ * 1. .container → wrapper padrão de conteúdo
+ * 2. .bg-grid → padrão de grid background (decorativo)
+ * 3. Media queries para responsividade
+ * 
+ * APLICAÇÃO:
+ * Cada <section> contém <div class="container">
+ * Container garante max-width, padding, centralização
+ * Toda página segue mesmo padrão de largura
+ * 
+ * EXEMPLO HTML:
+ * <section id="about">
+ *     <div class="container">
+ *         <!-- Conteúdo limitado a 1200px -->
+ *     </div>
+ * </section>
+ * =====================================
+ */
+
+/**
+ * ========================================
+ * CONTAINER - WRAPPER PADRÃO
+ * ========================================
+ * Classe principal para limitar largura de conteúdo
+ * Usada em TODA seção da página
+ * 
+ * FUNÇÕES:
+ * 1. Limita largura máxima (1200px)
+ * 2. Centraliza no meio da tela
+ * 3. Adiciona padding lateral (responsivo)
+ */
+.container {
+    /**
+     * Largura máxima do conteúdo
+     * var(--container-max-width) = 1200px
+     * 
+     * DESKTOP (1920px viewport):
+     * Container ocupa 1200px
+     * (deixa 360px de espaço em branco lateral)
+     * 
+     * TABLET (768px viewport):
+     * Container quer 1200px, mas container = 100% do viewport
+     * Fica "squeezed" em 768px
+     * (por isso responsividade importa)
+     */
+    max-width: var(--container-max-width);
+    
+    /**
+     * Centraliza horizontalmente
+     * margin: 0 auto faz:
+     * - top/bottom margin: 0
+     * - left/right margin: auto (divide espaço em branco)
+     * 
+     * RESULTADO:
+     * Elemento fica no meio da tela
+     * Espaço esquerdo = espaço direito
+     */
+    margin: 0 auto;
+    
+    /**
+     * Padding interno (dentro do container)
+     * 0 1.5rem significa:
+     * - top/bottom: 0
+     * - left/right: 1.5rem (24px em cada lado)
+     * 
+     * FUNÇÃO:
+     * Em telas pequeninhas (mobile)
+     * texto não fica colado nas bordas
+     * Breathing room de 24px de cada lado
+     */
+    padding: 0 1.5rem;
+    
+    /**
+     * Força container acompanhar 100% do espaço do pai
+     * Sem width: 100%, em telas pequenas fica errado
+     * 
+     * WIDTH: 100% = tamanho máximo disponível
+     * max-width: 1200px = capa máxima
+     * Resultado: menor dos dois é aplicado
+     * 
+     * MOBILE (500px):
+     * width: 100% = 500px
+     * max-width: 1200px = não entra
+     * Resultado: 500px
+     * 
+     * DESKTOP (1920px):
+     * width: 100% = 1920px
+     * max-width: 1200px = aplicado
+     * Resultado: 1200px (limitado)
+     */
+    width: 100%;
+}
+
+/**
+ * ========================================
+ * BG GRID - PADRÃO DECORATIVO DE FUNDO
+ * ========================================
+ * Cria padrão de grid visual atrás de tudo
+ * Elemento decorativo que melhora UX visualmente
+ * 
+ * EFEITO:
+ * Pequenos quadrados de grid preenchendo fundo
+ * Muito sutil (variável --grid-color com baixa opacidade)
+ * Dá profundidade, interesse visual
+ */
+.bg-grid {
+    /**
+     * position: fixed deixa elemento fixo
+     * Enquanto página faz scroll, grid fica parado
+     * 
+     * ALTERNATIVAS:
+     * position: absolute → grid se move com página
+     * position: fixed → grid parado na viewport (mais legal)
+     */
+    position: fixed;
+    
+    /**
+     * Posição no canto superior esquerdo
+     * top: 0 (topo da viewport)
+     * left: 0 (esquerda da viewport)
+     */
+    top: 0;
+    left: 0;
+    
+    /**
+     * Tamanho do grid
+     * Cobre 100% da viewport (tela inteira)
+     */
+    width: 100%;
+    height: 100%;
+    
+    /**
+     * Índice de camadas (z-index)
+     * z-index: -1 coloca grid ATRÁS de tudo
+     * 
+     * COMPARAÇÃO:
+     * z-index: -1 → atrás (de fundo)
+     * z-index: 0 → normal
+     * z-index: 1 → na frente
+     * z-index: 10 → muito na frente
+     * 
+     * RESULTADO:
+     * Grid fica atrás de todo conteúdo
+     * Não interfere, é puro visual
+     */
+    z-index: -1;
+    
+    /**
+     * Tamanho do padrão do grid
+     * 20px 20px = quadrados de 20x20 pixels
+     * Ajust para deixar mais ou menos "grain"
+     */
+    background-size: 20px 20px;
+    
+    /**
+     * O padrão visual é criado com 2 linear-gradients
+     * Primeira cria linhas verticais
+     * Segunda cria linhas horizontais
+     * Juntas formam grid
+     */
+    background-image:
+        /* LINHA VERTICAL */
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+        /* De esquerda para direita:
+           1px de cor grid, resto transparente
+           Cria coluna fina de cor */
+        
+        /* LINHA HORIZONTAL */
+        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+        /* De cima para baixo:
+           1px de cor grid, resto transparente
+           Cria linha fina de cor */
+    
+    /**
+     * Estrutura final:
+     * Verticais + Horizontais = padrão de grid (quadrados)
+     * 
+     * VISUAL:
+     * ┌─┬─┬─┐
+     * ├─┼─┼─┤  ← Linhas (horizontal + vertical)
+     * ├─┼─┼─┤
+     * └─┴─┴─┘
+     */
+    
+    /**
+     * Eventos de mouse não afetam grid
+     * pointer-events: none significa:
+     * "Se user clica aqui, ignore esse element"
+     * 
+     * PORQUE:
+     * Grid é decorativo, nunca deve mudar comportamento
+     * Buttons/links atrás do grid devem funcionar normalmente
+     * Sem pointer-events, grid bloquearia cliques
+     */
+    pointer-events: none;
+}
+
+/**
+ * ========================================
+ * RESPONSIVE: TABLET (1024px e menor)
+ * ========================================
+ * Ajustes para telas menores (tablets)
+ */
+@media (max-width: 1024px) {
+    .container {
+        /**
+         * Reduz padding em telas menores
+         * 1.5rem → 1rem (24px → 16px)
+         * 
+         * OTIMIZAÇÃO:
+         * Em tablets, espaço é premium
+         * Menos padding = mais conteúdo visível
+         */
+        padding: 0 1rem;
+    }
+}
+
+/**
+ * ========================================
+ * RESPONSIVE: MOBILE (768px e menor)
+ * ========================================
+ * Ajustes para telas muito pequenas (celulares)
+ */
+@media (max-width: 768px) {
+    .container {
+        /**
+         * Mantém mesmo padding de tablet
+         * (1rem funciona bem em mobile também)
+         */
+        padding: 0 1rem;
+    }
+}

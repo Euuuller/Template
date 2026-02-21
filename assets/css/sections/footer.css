@@ -1,0 +1,175 @@
+/* =======================================
+   FOOTER SECTION - RODAPÉ COM CRÉDITOS
+   ======================================= */
+
+/* 
+   VISÃO GERAL:
+   Seção de rodapé minimalista com créditos e ícones animados.
+   
+   ESTRUTURA PRINCIPAL:
+   .footer (container)
+   └── .footer-bottom (área de créditos)
+       └── .footer-credits (texto com ícones)
+           ├── .ri-heart-fill (❤️ heartBeat animation)
+           └── .ri-cup-line (☕ coffeeSteam animation)
+   
+   ANIMAÇÕES USADAS:
+   - heartBeat (1.5s): Coração pulsando
+   - coffeeSteam (2s): Vapor de café/fumaça
+   Ambas definidas em base/animations.css
+   
+   BENEFÍCIOS DO DESIGN:
+   - Minimalista e elegante
+   - Ícones animados para adicionar vida
+   - Espaço compacto (2rem de padding)
+   - Responsive: ajusta para mobile
+   - Acessível com texto alternativo nos ícones
+*/
+
+/* ================================
+   FOOTER - CONTAINER PRINCIPAL
+   ================================ */
+
+.footer {
+    /* Contexto para positioned elements */
+    position: relative;
+    
+    /* Padding reduzido (footer compacto) */
+    padding: 2rem 0; /* 32px top/bottom, 0 left/right (gerenciado por .container) */
+    
+    /* Fundo secundário (ligeiramente mais escuro que main) */
+    background: var(--bg-secondary); /* hsl(0, 0%, 10%) em dark mode */
+    
+    /* Borda divisória acima do footer */
+    border-top: 1px solid var(--border-color); /* hsl(0, 0%, 18%) */
+    
+    /* Garante que nada transborda */
+    overflow: hidden;
+    
+    /* CONTEXTO VISUAL:
+       Seção final separada por borda
+       Fundo mais escuro diferencia footer do restante
+       Padding compacto mantém proporção visual
+    */
+}
+
+/* ================================
+   FOOTER BOTTOM - ÁREA DE CRÉDITOS
+   ================================ */
+
+.footer-bottom {
+    /* Texto centralizado */
+    text-align: center;
+    
+    /* Cor mutada para footer (menos proeminente) */
+    color: var(--text-secondary); /* hsl(0, 0%, 50%) em dark mode */
+    
+    /* LAYOUT:
+       Texto centralizado com cor discreta
+       Permite que footer não compita com conteúdo principal
+    */
+}
+
+/* ================================
+   FOOTER CREDITS - CRÉDITOS COM ÍCONES
+   ================================ */
+
+.footer-credits {
+    /* Espaço acima do texto de créditos */
+    margin-top: 0.5rem; /* 8px abaixo do conteúdo anterior */
+    
+    /* Fonte pequena */
+    font-size: 0.9rem; /* 14.4px */
+    
+    /* EXEMPLO DE CONTEÚDO:
+       Feito com ❤️ e ☕ por [Nome]
+       
+       Cada ícone pode ter animação individual
+    */
+}
+
+.footer-credits i {
+    /* Ícones (Remix Icons class: .ri-*) */
+    
+    /* Força ícone a ser inline-block */
+    display: inline-block; /* Importante para animations funcionarem */
+    
+    /* NOTA:
+       Cores e animações vêm de seletores mais específicos
+       (.ri-heart-fill, .ri-cup-line)
+    */
+}
+
+/* ================================
+   CORAÇÃO ANIMADO - HEARTBEAT
+   ================================ */
+
+.footer-credits .ri-heart-fill {
+    /* Cor vermelha do coração */
+    color: #ef4444; /* Vermelho brilhante */
+    
+    /* Animação de pulso */
+    animation: heartBeat 1.5s ease-in-out infinite;
+    
+    /* EFEITO VISUAL:
+       ❤️ (coração) pulsa 1.5 segundos continuamente
+       Efeito emocionante que adiciona vida ao footer
+       
+       @keyframes heartBeat (definido em base/animations.css):
+       0%  : scale(1) - Tamanho normal
+       25% : scale(1.3) - Aumenta para 130%
+       50% : scale(1) - Volta ao normal
+       100%: scale(1) - Permanece normal
+       
+       Resultado: Coração fica pulsando/batendo
+    */
+}
+
+/* ================================
+   CAFÉ ANIMADO - COFFESTEAM
+   ================================ */
+
+.footer-credits .ri-cup-line {
+    /* Cor marrom do café */
+    color: #92400e; /* Marrom escuro */
+    
+    /* Animação de vapor */
+    animation: coffeeSteam 2s ease-in-out infinite;
+    
+    /* EFEITO VISUAL:
+       ☕ (xícara) emite vapor animado
+       Anima por 2 segundos continuamente
+       
+       @keyframes coffeeSteam (definido em base/animations.css):
+       0%  : translateY(0) - Posição inicial
+       50% : translateY(-10px) - Sobe 10px (vapor subindo)
+       100%: translateY(-20px) - Continua subindo
+       
+       Resultado: Vapor sai da xícara
+    */
+}
+
+/* ================================
+   RESPONSIVENESS - TABLETS/MOBILE
+   ================================ */
+
+@media (max-width: 768px) {
+    .footer {
+        /* Reduz padding em mobile */
+        padding: 1.5rem 0; /* 24px em vez de 32px */
+        
+        /* EFEITO:
+           Footer compacto em telas pequenas
+           Economiza espaço na página
+           Mantém legibilidade
+        */
+    }
+    
+    /* NOTA:
+       Footer text, ícones e animações permanecem iguais
+       Apenas padding é reduzido
+       
+       Animações dos ícones continuam em 1.5s (heart) e 2s (coffee)
+       Não são afetadas por tamanho de tela
+    */
+}

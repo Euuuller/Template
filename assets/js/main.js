@@ -1,20 +1,88 @@
-import { initTheme } from './theme.js';
-import { initTypingEffect } from './typing.js';
+/**
+ * =====================================
+ * ARQUIVO: assets/js/main.js
+ * 
+ * PROPÓSITO:
+ * Ponto de entrada principal da aplicação JavaScript.
+ * Este arquivo é responsável por inicializar todos os módulos
+ * e features quando o DOM está pronto.
+ * 
+ * ESTRUTURA DO PROJETO JS:
+ * ├── core/          → Funções base (DOM, utils, constantes)
+ * ├── modules/       → Módulos funcionais (theme, typing, nav)
+ * ├── config/        → Configurações (theme-config.js)
+ * └── main.js        → Este arquivo (orquestrador)
+ * 
+ * FLUXO DE EXECUÇÃO:
+ * 1. DOMContentLoaded é disparado
+ * 2. initTheme() → ativa sistema de tema
+ * 3. initTypingEffect() → ativa efeito de digitação
+ * 4. initNavigation() → ativa navegação smooth scroll
+ * =====================================
+ */
 
+// Importa a função que gerencia tema (dark/light)
+// Localizado em: assets/js/modules/theme.js
+import { initTheme } from './modules/theme.js';
+
+// Importa a função que cria o efeito de digitação no hero
+// Localizado em: assets/js/modules/typing.js
+import { initTypingEffect } from './modules/typing.js';
+
+// Importa a função que configura navegação e smooth scroll
+// Localizado em: assets/js/modules/navigation.js
+import { initNavigation } from './modules/navigation.js';
+
+/**
+ * Event Listener: DOMContentLoaded
+ * 
+ * Dispara quando o DOM foi completamente carregado e parseado.
+ * Garante que todos os elementos HTML estao disponíveis
+ * antes de executar o JavaScript.
+ * 
+ * Ordem de inicialização:
+ * 1º - Sistema de tema (precisa estar ativo antes de outras coisas)
+ * 2º - Efeito de digitação (hero section)
+ * 3º - Navegação (permite smooth scroll)
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Theme System
+    // ========================================
+    // 1. INICIALIZAR SISTEMA DE TEMA
+    // ========================================
+    // Responsável por:
+    // - Detectar tema salvo (localStorage)
+    // - Aplicar tema ao documento
+    // - Adicionar listener ao botão de toggle
+    // - Animar transição entre temas
     initTheme();
 
-    // Initialize Hero Typing Effect
+    // ========================================
+    // 2. INICIALIZAR EFEITO DE DIGITAÇÃO
+    // ========================================
+    // Responsável por:
+    // - Criar efeito de typing na hero section
+    // - Alternar entre diferentes frases
+    // - Animar cursor piscante
+    // - Gerenciar velocidade de digitação
     initTypingEffect();
 
-    // Smooth scroll for anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    // ========================================
+    // 3. INICIALIZAR NAVEGAÇÃO
+    // ========================================
+    // Responsável por:
+    // - Detectar cliques em links âncora (#seção)
+    // - Realizar scroll suave até a seção
+    // - Previne comportamento padrão do navegador
+    initNavigation();
+
+    // ========================================
+    // LOG DE INICIALIZAÇÃO (OPCIONAL)
+    // ========================================
+    // Útil para debug e confirmação que tudo foi carregado
+    // Remova em produção se desejar
+    console.log('✓ Application initialized successfully');
+    // Mensagens de sucesso no console indicam:
+    // ✓ Todos os módulos foram carregados
+    // ✓ Todas as inicializações foram executadas
+    // ✓ Aplicação está pronta para uso
 });

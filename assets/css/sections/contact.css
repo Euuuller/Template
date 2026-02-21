@@ -1,0 +1,446 @@
+/* =======================================
+   CONTACT SECTION - FORMULÁRIO E INFO
+   ======================================= */
+
+/* 
+   VISÃO GERAL:
+   Seção de contato com layout 2-coluna:
+   - Esquerda: Informações de contato com ícones
+   - Direita: Formulário de mensagem
+   
+   ESTRUTURA PRINCIPAL:
+   .contact (container)
+   ├── .contact-container (grid 2-col)
+   │   ├── .contact-info (esquerda)
+   │   │   └── .contact-list
+   │   │       └── .contact-item (com ícone)
+   │   │
+   │   └── .contact-form (direita)
+   │       ├── .form-row (2-col layout)
+   │       │   ├── .form-group (nome)
+   │       │   └── .form-group (email)
+   │       │
+   │       └── .form-group (mensagem)
+   
+   BENEFÍCIOS DO DESIGN:
+   - Informações de contato acessíveis
+   - Formulário intuitivo com validação visual
+   - Ícones coloridos para cada tipo de contato
+   - Responsive: empilha em mobile/tablet
+   - Focus states com luz azul (acessibilidade)
+*/
+
+/* ================================
+   CONTACT SECTION - CONTAINER
+   ================================ */
+
+.contact {
+    /* Padding vertical padrão da seção */
+    padding: 100px 0; /* Herdado de layout/spacing.css */
+    
+    /* Contexto para positioned elements */
+    position: relative;
+    
+    /* Garante que overflow não transborde */
+    overflow: hidden;
+}
+
+/* ================================
+   CONTACT CONTAINER - GRID LAYOUT
+   ================================ */
+
+.contact-container {
+    /* Grid com 2 colunas desiguais */
+    display: grid;
+    
+    /* Coluna 1 (info): 1fr, Coluna 2 (form): 1.2fr (form maior) */
+    grid-template-columns: 1fr 1.2fr;
+    
+    /* Espaço grande entre colunas */
+    gap: 4rem; /* 64px entre info e formulário */
+    
+    /* Contexto para absolute positioning */
+    position: relative;
+    
+    /* LAYOUT VISUAL:
+       [INFO]            [FORMULÁRIO]
+       1fr              1.2fr
+       (48%) + gap + (52%) = 100%
+    */
+}
+
+/* ================================
+   CONTACT INFO SECTION (ESQUERDA)
+   ================================ */
+
+.contact-info {
+    /* Layout flexbox em coluna */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* 32px entre seções */
+}
+
+.contact-info h3 {
+    /* Fonte display para destaque */
+    font-family: var(--font-display); /* Outfit */
+    font-size: 1.8rem; /* 28.8px */
+    font-weight: 700; /* Bold */
+    
+    /* Espaço abaixo do título */
+    margin-bottom: 0.5rem; /* 8px */
+    
+    /* Título bem visível em cor clara */
+    /* Herda color de body (var(--text-main)) */
+}
+
+.contact-info p {
+    /* Descrição em cor mutada */
+    color: var(--text-muted); /* Cinza em dark mode */
+    
+    /* Tipografia */
+    font-size: 1rem; /* 16px */
+    line-height: 1.6; /* 160% para melhor legibilidade */
+    
+    /* Parágrafo explicatório sobre a seção */
+}
+
+/* ================================
+   CONTACT LIST - LISTA DE ITENS
+   ================================ */
+
+.contact-list {
+    /* Layout flexbox vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* 24px entre itens */
+    
+    /* Espaço acima (após descrição) */
+    margin-top: 1rem; /* 16px */
+}
+
+/* ================================
+   CONTACT ITEM - ÍCONE + DETALHES
+   ================================ */
+
+.contact-item {
+    /* Layout flexbox horizontal */
+    display: flex;
+    align-items: center; /* Alinha ícone com texto */
+    gap: 1.2rem; /* 19.2px entre ícone e detalhes */
+    
+    /* Transição para hover */
+    transition: transform var(--transition-fast); /* 0.2s ease */
+    
+    /* ESTRUTURA:
+       [ÍCONE_CIRCULAR] [Nome: valor]
+       Com 19.2px de espaço
+    */
+}
+
+.contact-item:hover {
+    /* Desliza o item ligeiramente para direita */
+    transform: translateX(10px); /* Move 10px para direita no eixo X */
+    
+    /* Feedback visual que é interativo */
+}
+
+/* ================================
+   CONTACT ICON - ÍCONE CIRCULAR
+   ================================ */
+
+.contact-icon {
+    /* Dimensões quadradas para círculo */
+    width: 48px;
+    height: 48px;
+    
+    /* Torna quadrado em círculo */
+    border-radius: 50%;
+    
+    /* Centraliza ícone dentro do círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Tamanho do ícone */
+    font-size: 1.4rem; /* 22.4px (lucide icons) */
+    
+    /* Fundo padrão (cinza escuro) */
+    background: var(--bg-surface);
+    
+    /* Borda sutil */
+    border: 1px solid var(--border-color); /* hsl(0, 0%, 18%) em dark mode */
+    
+    /* Não encolhe mesmo se houver espaço insuficiente */
+    flex-shrink: 0; /* Importante para manter tamanho fixo em flex */
+    
+    /* Transição de cor no hover */
+    transition: all var(--transition-fast); /* 0.2s ease */
+    
+    /* NOTA: Cores específicas vêm de .icon-email, .icon-linkedin, etc. */
+}
+
+/* ================================
+   ICON COLORS - CORES ESPECÍFICAS
+   ================================ */
+
+/* ÍCONE EMAIL (Vermelho) */
+.icon-email {
+    /* Cor do ícone em vermelho */
+    color: #f87171; /* Vermelho primário */
+    
+    /* Fundo com transparência do mesmo vermelho */
+    background: rgba(248, 113, 113, 0.1); /* 10% de vermelho */
+    
+    /* Borda com transparência */
+    border-color: rgba(248, 113, 113, 0.2); /* 20% de vermelho */
+    
+    /* EFEITO VISUAL:
+       Ícone vermelho com aura vermelha sutil no fundo
+    */
+}
+
+/* ÍCONE LINKEDIN (Azul) */
+.icon-linkedin {
+    /* Cor azul do LinkedIn */
+    color: #3b82f6; /* Azul primário do projeto */
+    
+    /* Fundo azul 10% */
+    background: rgba(59, 130, 246, 0.1);
+    
+    /* Borda azul 20% */
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* ÍCONE GITHUB (Branco/Cinza) */
+.icon-github {
+    /* Cor do texto (branco em dark mode) */
+    color: var(--text-main);
+    
+    /* Fundo padrão */
+    background: var(--bg-surface);
+    
+    /* Borda padrão */
+    border-color: var(--border-color);
+    
+    /* Herda do .contact-icon base */
+}
+
+/* ÍCONE MEDIUM (Laranja) */
+.icon-medium {
+    /* Cor laranja do Medium */
+    color: #f97316;
+    
+    /* Fundo laranja 10% */
+    background: rgba(249, 115, 22, 0.1);
+    
+    /* Borda laranja 20% */
+    border-color: rgba(249, 115, 22, 0.2);
+}
+
+/* ================================
+   CONTACT DETAILS - RÓTULO + VALOR
+   ================================ */
+
+.contact-details span {
+    /* Rótulo do contato (ex: "Email") */
+    display: block; /* Cada elemento em sua linha */
+    font-size: 0.85rem; /* 13.6px - pequeno */
+    color: var(--text-muted); /* Cinza */
+    font-weight: 500; /* Semi-bold */
+    
+    /* EXEMPLO:
+       Email
+    */
+}
+
+.contact-details strong {
+    /* Valor do contato (ex: "fulano@email.com") */
+    display: block; /* Em linha própria */
+    font-size: 1rem; /* 16px - normal */
+    color: var(--text-main); /* Branco/claro */
+    font-weight: 600; /* Bold */
+    
+    /* EXEMPLO:
+       fulano@example.com
+    */
+}
+
+/* ================================
+   CONTACT FORM SECTION (DIREITA)
+   ================================ */
+
+.contact-form {
+    /* Layout flexbox vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* 24px entre form-row e form-group textarea */
+    
+    /* ESTRUTURA:
+       .contact-form (col, flex)
+       ├── .form-row (2-col: nome + email)
+       └── .form-group (textarea: mensagem)
+    */
+}
+
+/* ================================
+   FORM ROW - LAYOUT 2-COLUNA
+   ================================ */
+
+.form-row {
+    /* Grid com 2 colunas iguais */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; /* 24px entre inputs */
+    
+    /* LAYOUT:
+       [NOME]          [EMAIL]
+       1fr      gap    1fr
+    */
+}
+
+/* ================================
+   FORM GROUP - CONJUNTO LABEL+INPUT
+   ================================ */
+
+.form-group {
+    /* Layout flexbox em coluna */
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem; /* 9.6px entre label e input */
+    
+    /* ESTRUTURA:
+       Label
+       Input/Textarea
+    */
+}
+
+.form-group label {
+    /* Label do campo */
+    font-size: 0.9rem; /* 14.4px */
+    font-weight: 500; /* Semi-bold */
+    color: var(--text-main); /* Texto principal (branco/claro) */
+    
+    /* Acessibilidade: label bem visível */
+}
+
+/* INPUT E TEXTAREA - ESTILOS COMUNS */
+.form-group input,
+.form-group textarea {
+    /* Fundo */
+    background: var(--bg-surface); /* Cinza escuro em dark mode */
+    
+    /* Borda */
+    border: 1px solid var(--border-color); /* Borda sutil */
+    
+    /* Cantos arredondados */
+    border-radius: 12px;
+    
+    /* Padding interno */
+    padding: 1rem; /* 16px em todos os lados */
+    
+    /* Cor do texto */
+    color: var(--text-main);
+    
+    /* Fonte */
+    font-family: var(--font-sans); /* Inter */
+    font-size: 0.95rem; /* 15.2px */
+    
+    /* Transição para focus */
+    transition: all var(--transition-fast); /* 0.2s ease para border, background, shadow */
+}
+
+/* PLACEHOLDER - Texto de hint */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    /* Cor mutada para placeholder */
+    color: var(--text-muted);
+    
+    /* Texto mais discreto que input vazio */
+}
+
+/* FOCUS STATE - Quando input está selecionado */
+.form-group input:focus,
+.form-group textarea:focus {
+    /* Remove outline padrão do browser */
+    outline: none;
+    
+    /* Borda muda para azul primário */
+    border-color: var(--primary); /* #3B82F6 */
+    
+    /* Fundo levemente azul */
+    background: rgba(59, 130, 246, 0.05); /* 5% azul */
+    
+    /* Light blue glow ao redor */
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); /* Glow de 4px com 10% azul */
+    
+    /* EFEITO VISUAL:
+       Input fica "iluminado" com luz azul
+       Feedback visual que está em foco
+       Acessibilidade: clara indicação de foco
+    */
+}
+
+/* TEXTAREA - Ajustes específicos */
+.form-group textarea {
+    /* Desabilita redimensionamento do usuário */
+    resize: none; /* Tamanho fixo */
+    
+    /* Altura mínima */
+    min-height: 120px;
+    
+    /* NOTA: Usa padding: 1rem do .form-group input/textarea */
+}
+
+/* ================================
+   RESPONSIVENESS - TABLET (992px)
+   ================================ */
+
+@media (max-width: 992px) {
+    .contact-container {
+        /* Muda para coluna única */
+        grid-template-columns: 1fr;
+        
+        /* Gap maior já que coluna inteira agora */
+        gap: 3rem; /* 48px em vez de 64px */
+        
+        /* Padding adicional no container */
+        padding: 2.5rem; /* 40px em todos os lados */
+        
+        /* EFEITO:
+           Em tablets, info aparece acima de form
+           Layout 1-coluna ao invés de 2-coluna
+        */
+    }
+}
+
+/* ================================
+   RESPONSIVENESS - MOBILE (640px)
+   ================================ */
+
+@media (max-width: 640px) {
+    /* Form row volta para 1 coluna */
+    .form-row {
+        grid-template-columns: 1fr; /* 1 coluna em vez de 2 */
+        
+        /* EFEITO:
+           [NOME]
+           [EMAIL]
+           Stack vertical ao invés de lado a lado
+        */
+    }
+
+    .contact-container {
+        /* Padding reduzido em mobile */
+        padding: 1.5rem; /* 24px em vez de 40px */
+        
+        /* Container fica mais arredondado */
+        border-radius: 24px; /* Estilo visual realçado em mobile */
+    }
+
+    .contact-info h3 {
+        /* Reduz tamanho de fonte em mobile */
+        font-size: 1.5rem; /* 24px em vez de 28.8px */
+        
+        /* Melhor encaixo em telas pequenas */
+    }
+}

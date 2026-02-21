@@ -1,0 +1,488 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/reset.css
+ * 
+ * PROPÓSITO:
+ * Normaliza estilos padrão do navegador para começar "do zero".
+ * Diferentes navegadores têm estilos padrão diferentes:
+ * - margins/paddings em headings, lists, paragraphs
+ * - scrollbars aparecendo
+ * - font smoothing inconsistente
+ * - comportamento de imagens
+ * 
+ * O CSS Reset garante que:
+ * 1. Começamos com "canvas em branco"
+ * 2. Comportamento consistente em todos navegadores
+ * 3. Controle total sobre styling
+ * 4. Performance otimizada com contain: paint
+ * 5. Scrollbar customizado (escondido)
+ * 
+ * ORDEM DE PRECEDÊNCIA:
+ * Este arquivo é importado PRIMEIRO em main.css
+ * Depois base/, layout/, components/, sections/ sobreescrevem
+ * 
+ * BENEFÍCIOS:
+ * - Previne "CSS surprises" de estilos padrão
+ * - Fonte lisa/antialiased em todas plataformas
+ * - Imagens otimizadas para performance
+ * - Smooth scroll nativo do navegador
+ * =====================================
+ */
+
+/**
+ * ========================================
+ * RESET UNIVERSAL (TODOS ELEMENTOS)
+ * ========================================
+ * * = seletor universal (todo elemento HTML)
+ * 
+ * Resetamos as 3 maiores fontes de inconsistência:
+ * 1. Margins/Paddings padrão
+ * 2. Box-sizing diferente entre navegadores
+ * 3. Font rendering inconsistente
+ */
+* {
+    /**
+     * Remove margin padrão
+     * 
+     * PROBLEMA SEM RESET:
+     * <h1> tem margin: 0.67em (padrão HTML5)
+     * <p> tem margin: 1em
+     * <ul> tem margin-left: 40px
+     * <blockquote> tem margin: 1em 40px
+     * Browser mostra espaços inesperados
+     * 
+     * SOLUÇÃO:
+     * margin: 0 remove TODOS esses padrões
+     * Developer explicitamente define margins quando quer
+     */
+    margin: 0;
+    
+    /**
+     * Remove padding padrão
+     * 
+     * PROBLEMA:
+     * <button> tem padding padrão (2px 6px)
+     * <input> tem padding padrão
+     * <textarea> tem padding
+     * 
+     * SOLUÇÃO:
+     * padding: 0 remove tudo, developer controla
+     */
+    padding: 0;
+    
+    /**
+     * Muda box-sizing para border-box
+     * 
+     * PROBLEMA (content-box padrão):
+     * width: 100px sem padding = caixa de 100px
+     * Mas se adiciona padding: 10px
+     * Total fica 100px + 20px padding = 120px de largura
+     * Muito confuso para layouts
+     * 
+     * SOLUÇÃO (border-box):
+     * width: 100px COM padding = caixa de 100px
+     * Padding é incluído na medida (mais intuitivo)
+     * Layouts ficam previsíveis
+     */
+    box-sizing: border-box;
+    
+    /**
+     * Suaviza fonte (antialiasing)
+     * 
+     * PROBLEMA:
+     * Fontes aparecem pixeladas/ásperas em navegadores
+     * Especialmente visível em:
+     * - Fonts de peso 300 (lights)
+     * - Resoluções altas (Retina)
+     * - Animações de texto
+     * 
+     * SOLUÇÃO WEBKIT (Chrome/Safari/Edge):
+     * -webkit-font-smoothing: antialiased
+     * Usa subpixel rendering, texto fica mais suave
+     */
+    -webkit-font-smoothing: antialiased;
+    
+    /**
+     * Suaviza fonte no Firefox/macOS
+     * 
+     * FIREFOX macOS ESPECÍFICO:
+     * -moz-osx-font-smoothing: grayscale
+     * Compatível com o antialiasing do webkit
+     * Garante consistência Firefox = Chrome em macOS
+     */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * ========================================
+ * HTML: COMPORTAMENTO RAIZ
+ * ========================================
+ * Estilos aplicados ao elemento <html> raiz
+ * Afetam comportamento de scroll e viewport
+ */
+html {
+    /**
+     * Scroll suave nativo do navegador
+     * 
+     * COMPORTAMENTO:
+     * SEM scroll-behavior: smooth
+     * - Clique em <a href="#about">
+     * - Jump instantâneo (brusco, não profissional)
+     * 
+     * COM scroll-behavior: smooth
+     * - Clique em <a href="#about">
+     * - Anima scroll durante ~500ms
+     * - Efeito profissional (UX melhor)
+     * 
+     * NOTA:
+     * Nosso navigation.js combina isso
+     * JavaScript chama scrollIntoView({behavior: 'smooth'})
+     * Resultado: scroll suave tanto com scroll normal quanto cliques
+     */
+    scroll-behavior: smooth;
+    
+    /**
+     * Esconde scrollbar em Firefox
+     * Scrollbar nativa de Firefox é feia, queremos custom
+     * scrollbar-width: none → remove scrollbar Firefox
+     */
+    scrollbar-width: none;
+    /* Firefox: scrollbar-width: none */
+    
+    /**
+     * Esconde scrollbar em IE/Edge antigos
+     * -ms-overflow-style: none → remove scrollbar IE/Edge
+     */
+    -ms-overflow-style: none;
+}
+
+/**
+ * ========================================
+ * ::-webkit-scrollbar (Chrome/Safari/Edge)
+ * ========================================
+ * Webkit engines (Chrome, Safari, Edge) usam pseudo-element
+ * ::-webkit-scrollbar para customizar aparência
+ * 
+ * Neste projeto: escondemos
+ * Alternativa: poderíamos estilizar com:
+ * 
+ * ::-webkit-scrollbar {
+ *     width: 10px;
+ *     background: var(--bg-surface);
+ * }
+ * ::-webkit-scrollbar-thumb {
+ *     background: var(--primary);
+ *     border-radius: 5px;
+ * }
+ */
+html::-webkit-scrollbar {
+    /**
+     * display: none esconde scrollbar em Webkit
+     * Alternativa a scrollbar-width para Firefox
+     * Garante que nenhum navegador mostra scrollbar padrão
+     */
+    display: none;
+}
+
+/**
+ * ========================================
+ * BODY: ESTILOS GLOBAIS
+ * ========================================
+ * <body> é container raiz de tudo visível
+ * Estilos aqui aplicam a toda página
+ */
+body {
+    /**
+     * Background color reactivo ao tema
+     * --bg-main muda com [data-theme="light"] ou [data-theme="dark"]
+     * 
+     * COMPORTAMENTO:
+     * Dark theme: #000000 (preto)
+     * Light theme: #f8fafc (quase branco)
+     */
+    background-color: var(--bg-main);
+    
+    /**
+     * Cor de texto principal
+     * --text-main também muda por tema
+     * 
+     * COMPORTAMENTO:
+     * Dark theme: #f8fafc (branco)
+     * Light theme: #0f172a (quase preto)
+     */
+    color: var(--text-main);
+    
+    /**
+     * Font family padrão para toda página
+     * --font-sans = 'Inter', sans-serif
+     * Inter: moderna, legível, ótima em telas
+     */
+    font-family: var(--font-sans);
+    
+    /**
+     * Altura de linha padrão
+     * 1.6 = 160% da altura da fonte (espaço entre linhas)
+     * 
+     * EXEMPLOS:
+     * font-size: 16px, line-height: 1.6 = 25.6px entre linhas
+     * Ótimo para legibilidade de texto grande (parágrafos)
+     * 
+     * RAZÃO:
+     * 1.6 foi cientificamente estabelecido como
+     * bom balanço entre legibilidade e compactação
+     * Nem muito espaço (desperdício), nem muito aperto
+     */
+    line-height: 1.6;
+    
+    /**
+     * Transição suave de cor ao mudar tema
+     * 
+     * PROCESS (mudança de tema):
+     * 1. User clica theme toggle
+     * 2. JavaScript muda [data-theme="dark"] → [data-theme="light"]
+     * 3. Variables.css muda --bg-main, --text-main
+     * 4. Esta transition: suaviza mudança em 0.4s (var(--transition-base))
+     * 5. Não é mudança instantânea/abrupta
+     * 
+     * VALORES:
+     * transition-duration: 0.4s
+     * transition-timing: ease (começa rápido, desacelera)
+     */
+    transition: background-color var(--transition-base), 
+                color var(--transition-base);
+    
+    /**
+     * Remove scrollbar horizontal
+     * overflow-x: hidden esconde scrollbar x
+     * 
+     * RAZÃO:
+     * Em layouts responsivos, às vezes elemento fica 101% wide
+     * Isso mostra scrollbar horizontal (ruim UX)
+     * overflow-x: hidden força sair da viewport sem scrollbar
+     * 
+     * IMPACTO:
+     * Se elemento fica maior que 100% viewport width
+     * Ele é cortado (clipped) em vez de scrollável
+     */
+    overflow-x: hidden;
+}
+
+/**
+ * ========================================
+ * UL: REMOVER BULLETS
+ * ========================================
+ * <ul> padrão mostra bullet points (•)
+ * <ol> padrão mostra números (1, 2, 3)
+ * Neste design, queremos listas sem bullets
+ */
+ul {
+    /**
+     * Remove bullets de <ul>
+     * 
+     * VALORES PADRÃO:
+     * ul { list-style: disc; }  → bullets
+     * ol { list-style: decimal; } → números
+     * 
+     * list-style: none remove ambos
+     */
+    list-style: none;
+}
+
+/**
+ * ========================================
+ * A: LINKS
+ * ========================================
+ * Define comportamento padrão de <a>
+ */
+a {
+    /**
+     * Remove underline padrão de links
+     * 
+     * PADRÃO HTML:
+     * Links têm text-decoration: underline
+     * Esse reset remove, design controla underline
+     * (Ex: components/button.css pode adicionar underline on hover)
+     */
+    text-decoration: none;
+    
+    /**
+     * Herda cor do pai
+     * 
+     * PADRÃO HTML:
+     * Links são azuis (#0000ff) por padrão
+     * color: inherit faz link herdar cor do elemento pai
+     * 
+     * RESULTADO:
+     * Em dark mode: link é branco (herda --text-main)
+     * Em light mode: link é preto (herda --text-main)
+     * Consistente com tema
+     */
+    color: inherit;
+    
+    /**
+     * Fade suave ao hover
+     * 
+     * COMPORTAMENTO:
+     * Quando muda cor no hover (CSS vai adicionar)
+     * Não muda instantaneamente
+     * Anima durante var(--transition-fast) = 0.2s
+     * 
+     * TIMING:
+     * 0.2s é rápido o suficiente para parecer responsivo
+     * Mas suave o suficiente para parecer polido
+     */
+    transition: var(--transition-fast);
+}
+
+/**
+ * ========================================
+ * IMG: IMAGENS
+ * ========================================
+ * Comportamento padrão de <img>
+ * Otimizações de performance e responsividade
+ */
+img {
+    /**
+     * Imagem nunca fica maior que container
+     * 
+     * PROBLEMA:
+     * <img src="1920x1080.jpg" width="50%"> em container 100px
+     * Imagem tenta ser 50% de...what? Body? Viewport?
+     * Fica muito grande, quebra layout
+     * 
+     * SOLUÇÃO:
+     * max-width: 100% garante imagem cabe em container pai
+     * Mantém aspect ratio (proporção original)
+     * Redimensiona responsivamente
+     */
+    max-width: 100%;
+    
+    /**
+     * display: block em vez de inline
+     * 
+     * PROBLEMA:
+     * <img> padrão é inline
+     * Inline pode deixar espaço em branco embaixo
+     * Causa gaps verticais (whitespace)
+     * 
+     * SOLUÇÃO:
+     * display: block remove espaço em branco
+     * Text baseline issues desaparecem
+     */
+    display: block;
+    
+    /**
+     * Otimização de performance: pintura lazy
+     * 
+     * NOVO CSS: content-visibility
+     * content-visibility: auto esconde conteúdo fora viewport
+     * Navegador não plota/renderiza o que user não vê
+     * 
+     * IMPACTO:
+     * Página com 50 imagens carrega 2x mais rápido
+     * Performance perceptível principalmente em mobile
+     * 
+     * SUPORTE:
+     * Chrome 85+, Edge 85+, Firefox (em teste)
+     * Older browsers ignoram (fallback: renderiza tudo)
+     */
+    content-visibility: auto;
+    
+    /**
+     * Otimização de performance: isolamento de rendering
+     * 
+     * NOVO CSS: contain: paint
+     * Navegador: "essa imagem é isolada, pinta sozinha"
+     * Pai não precisa rerendeizar se imagem muda
+     * 
+     * IMPACTO:
+     * Animações de imagem não causam reflow da página
+     * Especialmente útil em galerias, carrosséis
+     * 
+     * COMBINADO COM content-visibility:
+     * auto + contain: paint = máxima performance
+     * Navegador otimiza renderização bastante
+     */
+    contain: paint;
+}
+
+/**
+ * ========================================
+ * SECTION: LAYOUT PADRÃO SEÇÕES
+ * ========================================
+ * <section> é container principal de cada seção
+ * (hero, about, projects, contact, etc)
+ * 
+ * Cada seção tem mesma altura/alinhamento
+ */
+section {
+    /**
+     * Padding vertical em seções
+     * 
+     * padding: 100px 0 significa:
+     * - top: 100px
+     * - bottom: 100px
+     * - left: 0
+     * - right: 0 (deixa responsável ao content)
+     * 
+     * EFEITO:
+     * Espaço de respiro acima/abaixo de conteúdo
+     * Seções não ficam grudadas uma na outra
+     */
+    padding: 100px 0;
+    
+    /**
+     * Altura mínima = viewport full
+     * 
+     * min-height: 100vh significa:
+     * Seção ocupando NO MÍNIMO 100% da altura da tela
+     * Se conteúdo tiver menos, stretcha
+     * Se conteúdo for maior, cresce (não é max-height)
+     * 
+     * EFEITO VISUAL:
+     * Cada seção vê por completo em desktop
+     * Paginação natural (scroll de seção em seção)
+     * Em mobile: pode ser menor que 100vh (responsivo)
+     */
+    min-height: 100vh;
+    
+    /**
+     * Alinha conteúdo no centro (horizontal)
+     * display: flex é necessário para funcionar com justify-content
+     */
+    display: flex;
+    
+    /**
+     * Centra horizontalmente (eixo X)
+     * justify-content: center com flexbox
+     */
+    justify-content: center;
+    
+    /**
+     * Centra verticalmente (eixo Y)
+     * align-items: center com flexbox
+     * 
+     * RESULTADO:
+     * Conteúdo <div class="container"> fica centralizado
+     * Tanto horizontal quanto verticalmente
+     * Muito elegante e profissional
+     */
+    align-items: center;
+    
+    /**
+     * Otimização de performance: isolamento de conteúdo
+     * 
+     * contain: content significa:
+     * "Essa seção é isolada, não precisa checar elementos fora"
+     * 
+     * IMPACTO:
+     * Navegador pinta cada seção independente
+     * Mudanças em seção About não afetam Paint de Projects
+     * Performance muito melhor em páginas longas
+     * 
+     * CASOS DE USO:
+     * Perfeitamente para layout de seções discretas
+     * Cada <section> é "page within page"
+     */
+    contain: content;
+}

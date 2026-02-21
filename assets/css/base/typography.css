@@ -1,0 +1,323 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/base/typography.css
+ * 
+ * PROPÓSITO:
+ * Define classes de tipografia reutilizáveis em toda página.
+ * Não define <h1>, <h2>, <p> diretamente
+ * (Reset.css já normalizou isso)
+ * 
+ * CONTÉM:
+ * - Utility classes para gradientes de texto
+ * - Classes para trocar família de font
+ * - Componentes visuais de seções (headers, dividers)
+ * 
+ * UTILIZADOS EM:
+ * Todas <section> da página usam .section-header, .section-title, etc
+ * Muda entre seções é via SCSS nesting ou variables
+ * Mas base é sempre igual
+ * 
+ * ESCALÁVEL:
+ * Adicionar nova classe? Coloque aqui
+ * Pode ser usada em qualquer seção
+ * Evita repetição de CSS
+ * =====================================
+ */
+
+/**
+ * ========================================
+ * SEÇÃO 1: GRADIENT TEXT
+ * ========================================
+ * Cria efeito de texto com gradiente de cores
+ * Muito usado em títulos para dar destaque visual
+ */
+.text-gradient {
+    /**
+     * Cria gradient: azul (primary) até verde (secondary)
+     * linear-gradient(to right, ...) vai esquerda → direita
+     */
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    /* #3b82f6 (azul) → #10b981 (verde) */
+    
+    /**
+     * TRUQUE PARA GRADIENTE EM TEXTO:
+     * Background-clip: text corta background no shape das letras
+     * Mas texto fica invisível (text-fill-color)
+     * 
+     * PROCESSO:
+     * 1. Linear-gradient cria gradiente em background
+     * 2. -webkit-background-clip: text recorta ao redor do text
+     * 3. -webkit-text-fill-color: transparent torna texto "vazio"
+     * 4. Resultado: gradiente visível, texto invisível
+     * 5. User vê só a cor do gradient (em forma de letras)
+     */
+    -webkit-background-clip: text;
+    /* Webkit: Chrome, Safari, New Edge */
+    
+    /**
+     * Torna cor das letras transparente
+     * -webkit prefix para navegadores webkit
+     * Deixa só o gradiente do background aparecer
+     */
+    -webkit-text-fill-color: transparent;
+    /* Webkit: torna texto invisível, deixa background aparecer */
+    
+    /**
+     * background-clip padrão (sem webkit)
+     * Para navegadores que suportam sem -webkit
+     * Firefox suporta background-clip: text
+     */
+    background-clip: text;
+}
+
+/**
+ * ========================================
+ * SEÇÃO 2: FONT FAMILY UTILITIES
+ * ========================================
+ * Classes para trocar font family
+ * Útil quando precisa diferente font em um elemento
+ */
+
+/**
+ * Alterna para font display (Outfit)
+ * 
+ * USO:
+ * <h1 class="font-display">Título</h1>
+ * 
+ * CASO DE USO:
+ * Headings geralmente já têm font-display em reset.css
+ * Mas se precisa forçar em <span> ou <div>, usa essa clase
+ */
+.font-display {
+    font-family: var(--font-display);
+    /* var(--font-display) = 'Outfit', sans-serif */
+}
+
+/**
+ * Alterna para font monospace (JetBrains Mono)
+ * 
+ * USO:
+ * <span class="font-mono">const code = true;</span>
+ * 
+ * CASO DE USO:
+ * Mostrar código, snippets, valores técnicos
+ * Monospace mantém alinhamento (cada caractere = mesma largura)
+ */
+.font-mono {
+    font-family: var(--font-mono);
+    /* var(--font-mono) = 'JetBrains Mono', monospace */
+}
+
+/**
+ * ========================================
+ * SEÇÃO 3: SEÇÃO HEADER (COMPONENTE PADRÃO)
+ * ========================================
+ * Container wrapper para cabeçalho de seções
+ * Agrupa título, subtítulo, e divisor visual
+ * 
+ * USO HTML:
+ * <div class="section-header">
+ *     <h2 class="section-title">Sobre Mim</h2>
+ *     <p class="section-subtitle">Um pouco sobre backgrounds</p>
+ *     <div class="section-divider"></div>
+ * </div>
+ */
+.section-header {
+    /**
+     * Alinha tudo no centro (horizontalmente)
+     * text-align: center afeta filhos textos
+     */
+    text-align: center;
+    
+    /**
+     * Espaço embaixo do header (antes do conteúdo)
+     * 60px de gap antes da próxima seção
+     */
+    margin-bottom: 60px;
+    
+    /**
+     * Flexbox para alinhar elementos verticalmente
+     * display: flex permite usar flex properties
+     */
+    display: flex;
+    
+    /**
+     * Direção vertical (de cima para baixo)
+     * flex-direction: column faz filhos em coluna
+     * (vs row padrão que seria lado-a-lado)
+     * 
+     * LAYOUT:
+     * [Título]
+     * [Subtítulo]
+     * [Divisor]
+     * (Cada um em linha própria)
+     */
+    flex-direction: column;
+    
+    /**
+     * Centraliza filhos horizontalmente
+     * align-items: center com flex-direction: column
+     * Centraliza em eixo X
+     * 
+     * Combine isso com text-align: center
+     * Para elementos ser 100% centrados
+     */
+    align-items: center;
+}
+
+/**
+ * Título da seção (h2, h3)
+ * 
+ * APARÊNCIA:
+ * Font: Outfit (display, moderno)
+ * Tamanho: Responsivo (clamp)
+ * Peso: 800 (extra bold, muito visível)
+ * Cor: Text principal (varia com tema)
+ */
+.section-title {
+    /**
+     * Font family display (Outfit)
+     * Mais moderno/geométrico que sans-serif padrão
+     */
+    font-family: var(--font-display);
+    
+    /**
+     * Tamanho responsivo com clamp()
+     * NOVA FUNÇÃO CSS: clamp(min, preferido, max)
+     * 
+     * Significado:
+     * - Mínimo: 2.2rem (≈35px)
+     * - Preferido: 5vw (5% da viewport width)
+     * - Máximo: 3.2rem (≈51px)
+     * 
+     * BEHAVIOR:
+     * - Em tlas muito pequeno: 2.2rem
+     * - Em mobile normal: 5vw
+     * - Em desktop grande: máximo 3.2rem (não fica gigante)
+     * 
+     * VANTAGEM:
+     * Sem clamp, font fica 5vw sempre
+     * Em tela muito grande, título fica absurdo
+     * clamp() garante limite máximo natural
+     */
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    
+    /**
+     * Peso da fonte (espessura)
+     * 800 = Extra Bold (muito pesado)
+     * Valores: 100 (thin) → 900 (black)
+     * 800 é para títulos chamarem atencção
+     */
+    font-weight: 800;
+    
+    /**
+     * Cor do texto (muda com tema)
+     * Dark: #f8fafc (branco)
+     * Light: #0f172a (quase preto)
+     */
+    color: var(--text-main);
+    
+    /**
+     * Espaço embaixo do título
+     * Separa título de subtítulo
+     */
+    margin-bottom: 10px;
+    
+    /**
+     * Reduz espaço entre letras
+     * letter-spacing: -0.02em = 2% menos espaço
+     * Faz texto mais compacto, mais elegant
+     * Usado em headings grandes
+     */
+    letter-spacing: -0.02em;
+}
+
+/**
+ * Subtítulo da seção (descrição pequena)
+ * 
+ * APARÊNCIA:
+ * Menor que título
+ * Cor muted (mais discreto)
+ * Max-width limitado para legibilidade
+ */
+.section-subtitle {
+    /**
+     * Cor muted (gray no dark, gray no light)
+     * Menos prominent que main text
+     * Rol: contexto/descrição
+     */
+    color: var(--text-muted);
+    
+    /**
+     * Tamanho de fonte
+     * 1.1rem ≈ 17-18px (ligeiramente maior que normal)
+     */
+    font-size: 1.1rem;
+    
+    /**
+     * Espaço embaixo do subtítulo
+     * Antes do divisor visual
+     */
+    margin-bottom: 20px;
+    
+    /**
+     * Limita largura máxima
+     * max-width: 600px garante que não fica muito larga
+     * Em tela grande, subtítulo não se estende além
+     * Legibilidade: linhas muito largas são difíceis de ler
+     * 600px é ponto doce para readability
+     */
+    max-width: 600px;
+}
+
+/**
+ * Divisor visual embaixo de seção-header
+ * Linha decorativa entre título e conteúdo
+ * 
+ * VISUAL:
+ * Pequena linha (50px width, 4px height)
+ * Gradient: azul para azul mais escuro
+ * Glow efeito com shadow
+ */
+.section-divider {
+    /**
+     * Largura da linha
+     * 50px: pequena, não domina visual
+     */
+    width: 50px;
+    
+    /**
+     * Altura da linha (espessura)
+     * 4px: delgada mas visível
+     */
+    height: 4px;
+    
+    /**
+     * Cor com gradient
+     * De primary (#3b82f6) para blue mais escuro (#2563eb)
+     * Sutil: mesma família de cor, só matiz diferente
+     */
+    background: linear-gradient(to right, var(--primary), #2563eb);
+    
+    /**
+     * Cantos arredondados (pilule shape)
+     * border-radius: 99px funciona como 50% em retângulo
+     * (altura é 4px, 99px é muito maior, fica arredondado)
+     */
+    border-radius: 99px;
+    
+    /**
+     * Efeito brilho embaixo da linha
+     * box-shadow: 0 0 15px rgba(59, 130, 246, 0.4)
+     * 
+     * Valores:
+     * - 0 0 = sem offset (sombra centrada)
+     * - 15px = blur radius (quão espalhado)
+     * - rgba(59, 130, 246, 0.4) = cor azul com 40% opacity
+     * 
+     * RESULTADO:
+     * Tom azul levemente mais concentrado embaixo
+     * Efeito "glow" como linha está brilhando
+     */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}

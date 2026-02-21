@@ -1,0 +1,151 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/sections/skills.css
+ * 
+ * PROPÓSITO:
+ * Seção de habilidades técnicas
+ * Carousel infinito scrolling (esquerda e direita alternado)
+ * 
+ * LAYOUT:
+ * Linha 1: scroll esquerda (JS, React, TypeScript...)
+ * Linha 2: scroll direita (CSS, HTML, Node...)
+ * Efeito: movimento contínuo, profissional
+ * =====================================
+ */
+
+.skills {
+    position: relative;
+    background: transparent;
+}
+
+/**
+ * .skills-container - Wrapper de carousels
+ */
+.skills-container {
+    padding: 20px 0;
+    overflow: hidden; /* Clipa overflow dos scroll */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaço entre linhas */
+}
+
+/**
+ * .carousel-wrapper - Cada linha de scroll
+ */
+.carousel-wrapper {
+    display: flex;
+    width: fit-content; /* Só ocupa espaço do conteúdo */
+}
+
+/**
+ * Animations de scroll
+ */
+.scroll-left {
+    /* scrollLeft: do base/animations.css */
+    animation: scrollLeft 20s linear infinite;
+}
+
+.scroll-right {
+    /* scrollRight: do base/animations.css */
+    animation: scrollRight 20s linear infinite;
+}
+
+/**
+ * .skill-item - Cada skill (React, Node, etc)
+ */
+.skill-item {
+    /**
+     * flex: 0 0 auto = não cresce nem encolhe
+     * Tamanho fixo 280px width
+     */
+    flex: 0 0 auto;
+    width: 280px;
+    height: 140px;
+    margin: 0 20px; /* Espaço entre items */
+    
+    /**
+     * Flex column: alinha ícone + nome verticalmente
+     */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    transition: all 0.3s ease;
+    padding: 15px;
+    text-align: center;
+}
+
+.skill-item:hover {
+    /**
+     * Levita sutil ao hover
+     */
+    transform: translateY(-5px);
+}
+
+/**
+ * Ícone da skill
+ */
+.skill-item img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.skill-item:hover img {
+    /**
+     * Ícone cresce 10%
+     */
+    transform: scale(1.1);
+}
+
+/**
+ * Nome da skill (React, JavaScript, etc)
+ */
+.skill-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/**
+ * Descrição curta (ex: "Frontend Library")
+ */
+.skill-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: block;
+    max-width: 100%;
+}
+
+/**
+ * ========================================
+ * RESPONSIVE
+ * ========================================
+ */
+@media (max-width: 768px) {
+    .skill-item {
+        /**
+         * Items menores em mobile
+         */
+        width: 120px;
+        height: 120px;
+        margin: 0 10px;
+    }
+
+    .skill-item img {
+        /**
+         * Ícone menor
+         */
+        width: 40px;
+        height: 40px;
+    }
+
+    .skills-container {
+        gap: 20px;
+    }
+}

@@ -1,127 +1,352 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+/**
+ * =====================================
+ * ARQUIVO: assets/css/main.css
+ * 
+ * PROPÓSITO:
+ * Entry point ÚNICO para toda stylesheet do projeto.
+ * Este arquivo NÃO contém CSS direto.
+ * Apenas agregação (@import) de todos os arquivos em ORDEM CORRETA.
+ * 
+ * ARQUIVO OBRIGATÓRIO:
+ * index.html importa APENAS este arquivo:
+ * <link rel="stylesheet" href="assets/css/main.css">
+ * 
+ * Todos outros arquivos CSS são importados DAQUI.
+ * Nunca diretamente em index.html
+ * 
+ * BENEFÍCIOS:
+ * 1. ORDEM GARANTIDA: CSS Cascade funciona se ordem correta
+ * 2. MANUTENÇÃO: 1 arquivo para gerenciar imports
+ * 3. MODULARIZAÇÃO: Cada concern em seu próprio arquivo
+ * 4. ESCALABILIDADE: Novo arquivo? Adicione 1 linha aqui
+ * 5. PERFORMANCE: Navegador faz 1 requisição (cache otimizado)
+ * 
+ * ⚠️ ORDEM IMPORTANTÍSSIMA:
+ * A sequência abaixo é CRÍTICA para CSS Cascade funcionar
+ * Se mudar ordem, styles quebram (specificity wars)
+ * 
+ * ORDEM CORRETA (DO GERAL AO ESPECÍFICO):
+ * 1. Variables (design system)
+ * 2. Reset (normalize)
+ * 3. Base (typography, animations)
+ * 4. Layout (grid, spacing)
+ * 5. Components (buttons, cards)
+ * 6. Sections (page-specific)
+ * 7. Utilities (helpers, overrides finais)
+ * =====================================
+ */
 
-html {
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE/Edge */
-}
+/**
+ * =========================================
+ * NÍVEL 1: DESIGN SYSTEM - VARIÁVEIS
+ * =========================================
+ * ARQUIVO: variables.css
+ * 
+ * PROPÓSITO:
+ * Define TODAS as CSS custom properties
+ * Cores, fonts, tamanhos, tempos, espaçamentos
+ * 
+ * POR QUÊ PRIMEIRO?
+ * Variables precisam estar definidas ANTES de usar
+ * Se reset.css usa var(--font-sans), ele precisa existir
+ * 
+ * CONTEÚDO:
+ * - :root { --primary, --bg-main, --font-sans, etc }
+ * - [data-theme="light"] { overrides light theme }
+ * - [data-theme="dark"] { overrides dark theme }
+ * 
+ * IMPACTO CASCATA:
+ * - Nada pode Override (está no topo)
+ * - Tudo que vem depois ACESSA estas variáveis
+ */
+@import url('./variables.css');
 
-html::-webkit-scrollbar {
-    display: none;
-    /* Chrome/Safari */
-}
+/**
+ * =========================================
+ * NÍVEL 2: RESET E NORMALIZAÇÃO
+ * =========================================
+ * ARQUIVO: reset.css
+ * 
+ * PROPÓSITO:
+ * Reseta estilos padrão do navegador
+ * Começa do "canvas em branco"
+ * 
+ * CONTEÚDO:
+ * - * { margin: 0, padding: 0, box-sizing: border-box }
+ * - body { background, color, font-family }
+ * - a { text-decoration: none, color: inherit }
+ * - img { max-width: 100% }
+ * - section { min-height: 100vh, flexbox centered }
+ * 
+ * POR QUÊ SEGUNDO?
+ * Reset define baseline para tudo depois
+ * Especificidade Reset < Base/Layout/Components
+ * Então arquivos depois conseguem Override (intencionalmente)
+ * 
+ * IMPACTO CASCATA:
+ * - Pode ser Override pelos próximos
+ * - Base/Layout/Components sobreescrevem quando específicas
+ */
+@import url('./reset.css');
 
-body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    transition: background-color var(--transition-base), color var(--transition-base);
-    overflow-x: hidden;
-}
+/**
+ * =========================================
+ * NÍVEL 3: BASE STYLES - GLOBAL FUNDAMENTALS
+ * =========================================
+ * ARQUIVOS:
+ * - base/typography.css → classes para headings, text
+ * - base/animations.css → @keyframes globais
+ * 
+ * PROPÓSITO:
+ * Estilos globais que se aplicam broadly
+ * Não específicos a componentes ou seções
+ * Qualquer elemento pode usar essas classes
+ * 
+ * EXEMPLOS:
+ * .h1, .h2, .h3 { estilos heading }
+ * .text-lg, .text-sm { tamanhos texto }
+ * @keyframes slideUp { animação global }
+ * 
+ * POR QUÊ TERCEIRO?
+ * Base implementa estilos que Layout/Components vão usar
+ * Se layout não encontra classe .container definida em base
+ * Layout precisa fazer a definição
+ * 
+ * IMPACTO CASCATA:
+ * - Mais specific que Reset
+ * - Menos specific que Components/Sections
+ * - Layout/Components conseguem Override
+ */
+@import url('./base/typography.css');
+@import url('./base/animations.css');
 
-ul {
-    list-style: none;
-}
+/**
+ * =========================================
+ * NÍVEL 4: LAYOUT - ESTRUTURA DE PÁGINA
+ * =========================================
+ * ARQUIVOS:
+ * - layout/grid.css → sistema grid, container, cols
+ * - layout/spacing.css → utilidades spacing
+ * 
+ * PROPÓSITO:
+ * Define estrutura de layout global
+ * Container padrão, grid system, espaçamento
+ * 
+ * EXEMPLOS:
+ * .container { max-width: 1200px, margin: 0 auto }
+ * .grid { display: grid, gap, etc }
+ * .my-4, .px-2 { margin/padding utilities }
+ * 
+ * POR QUÊ QUARTO?
+ * Construído SOBRE Base (usa classes base)
+ * Usado POR Components/Sections
+ * Components vão usar .container, .grid, espaçamento
+ * 
+ * IMPACTO CASCATA:
+ * - Mais specific que Base
+ * - Menos specific que Components/Sections
+ * - Sections conseguem Override .container se não entra na caixa
+ */
+@import url('./layout/grid.css');
+@import url('./layout/spacing.css');
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition-fast);
-}
+/**
+ * =========================================
+ * NÍVEL 5: COMPONENTS - ELEMENTOS REUTILIZÁVEIS
+ * =========================================
+ * ARQUIVO:
+ * - components/button.css → styles de Button
+ * 
+ * PROPÓSITO:
+ * Componentes reutilizáveis em toda página
+ * Button aparece em hero, contact, etc
+ * Estilo consistente definido UMA VEZ
+ * 
+ * EXEMPLOS:
+ * .btn { padding, background, border, transition }
+ * .btn:hover { color change, shadow }
+ * .btn.primary { background color override }
+ * 
+ * POR QUÊ QUINTO?
+ * Construído SOBRE Layout/Base
+ * Precisa usar .container, spacing classes, etc
+ * Components são específicos (high specificity)
+ * 
+ * IMPACTO CASCATA:
+ * - Mais specific que Layout/Base
+ * - Menos specific que Sections (section-specific vence)
+ * - Sections conseguem Override buttons em seu contexto
+ */
+@import url('./components/button.css');
 
-img {
-    max-width: 100%;
-    display: block;
-    content-visibility: auto;
-    contain: paint;
-}
+/**
+ * =========================================
+ * NÍVEL 6: SECTIONS - PÁGINA-ESPECÍFICA
+ * =========================================
+ * ARQUIVOS:
+ * - sections/header.css → estilo navigation
+ * - sections/hero.css → hero, typing effect
+ * - sections/about.css → seção sobre
+ * - sections/skills.css → seção habilidades
+ * - sections/projects.css → seção projetos
+ * - sections/contact.css → seção contato
+ * - sections/footer.css → footer
+ * 
+ * PROPÓSITO:
+ * Estilos ESPECÍFICOS de cada seção
+ * Cada <section id="about"> tem seu arquivo
+ * 
+ * EXEMPLOS:
+ * #hero { background-image, height }
+ * .project-card { grid, gap, border }
+ * .skill-badge { display, background }
+ * footer { background color, text-align }
+ * 
+ * POR QUÊ SEXTO (PENÚLTIMO)?
+ * Construído SOBRE Components/Layout/Base
+ * Usa buttons, containers, grids de arquivos anteriores
+ * Tem especificidade ALTA (IDs, classes nested)
+ * 
+ * ORDEM IMPORTA:
+ * header.css → hero.css → about/skills/projects → contact → footer
+ * Senão, especificidade do footer override do header
+ * 
+ * IMPACTO CASCATA:
+ * - MUITO specific (IDs, deep nesting)
+ * - Override casi tudo que vem antes
+ * - Só som Override por Utilities (próximo)
+ */
+@import url('./sections/header.css');
+@import url('./sections/hero.css');
+@import url('./sections/about.css');
+@import url('./sections/skills.css');
+@import url('./sections/projects.css');
+@import url('./sections/contact.css');
+@import url('./sections/footer.css');
 
-section {
-    padding: 100px 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    contain: content;
-}
+/**
+ * =========================================
+ * NÍVEL 7: UTILITIES - HELPERS E OVERRIDES FINAIS
+ * =========================================
+ * ARQUIVOS (COMENTADOS AGORA, HABILITÁVEIS NO FUTURO):
+ * - utilities/display.css → .hidden, .flex, .grid utils
+ * - utilities/typography.css → .text-center, .bold
+ * - utilities/visibility.css → .sr-only, .show-on-mobile
+ * 
+ * PROPÓSITO:
+ * CSS helper classes para ajustes rápidos
+ * Overrides finais quando nada mais funciona
+ * 
+ * CARACTERÍSTICAS:
+ * Geralmente usa !important (porque é último)
+ * Um propósito: ser override final
+ * 
+ * EXEMPLOS (SE FOSSEM HABILITADAS):
+ * .hidden { display: none !important }
+ * .flex { display: flex !important }
+ * .mt-4 { margin-top: 1rem !important }
+ * 
+ * POR QUÊ SÉTIMO (ÚLTIMO)?
+ * Deve ter MÁXIMA especificidade
+ * Último recurso quando design precisa quebrar regra
+ * 
+ * IMPACTO CASCATA:
+ * - EXTREMAMENTE specific
+ * - Usa !important (override garantido)
+ * - Nada depois dele (é o último)
+ * 
+ * PADRÃO CSS CLÁSSICO ("ITCSS"):
+ * Inverted Triangle CSS (mais geral → mais específico)
+ * Reduz conflitos de specificity naturalmente
+ * Este arquivo segue ITCSS: Variables → Reset → Base → Layout → Components → Sections → Utilities
+ */
+/* @import url('./utilities/display.css'); */
+/* @import url('./utilities/typography.css'); */
+/* @import url('./utilities/visibility.css'); */
 
-/* Container */
-.container {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    width: 100%;
-}
-
-/* Utility Classes */
-.text-gradient {
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.font-display {
-    font-family: var(--font-display);
-}
-
-.font-mono {
-    font-family: var(--font-mono);
-}
-
-/* Background Grid Pattern */
-.bg-grid {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-size: 20px 20px;
-    background-image:
-        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-    pointer-events: none;
-}
-
-/* --- Standardized Section Headers --- */
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 10px;
-    letter-spacing: -0.02em;
-}
-
-.section-subtitle {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    max-width: 600px;
-}
-
-.section-divider {
-    width: 50px;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary), #2563eb);
-    border-radius: 99px;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-}
+/**
+ * =====================================
+ * CSS CASCADE FLOW (o que acontece quando 2+ regras afetam 1 elemento)
+ * =====================================
+ * 
+ * EXEMPLO: Botão em hero section
+ * 
+ * 1. VARIABLES.css
+ *    ---
+ *    :root { --primary: #3b82f6; }
+ *    [data-theme="dark"] { --primary: #3b82f6; }
+ *
+ * 2. RESET.css
+ *    ---
+ *    a { color: inherit; transition: 0.2s; }
+ *
+ * 3. BASE/typography.css
+ *    ---
+ *    .text-lg { font-size: 1.125rem; }
+ *
+ * 4. LAYOUT/spacing.css
+ *    ---
+ *    .px-4 { padding: 0 1rem; }
+ *
+ * 5. COMPONENTS/button.css
+ *    ---
+ *    .btn { 
+ *        padding: 12px 24px;
+ *        background: var(--primary);
+ *        border-radius: 8px;
+ *        transition: all 0.3s;
+ *    }
+ *    .btn:hover { 
+ *        background: var(--primary);
+ *        opacity: 0.8;
+ *    }
+ *
+ * 6. SECTIONS/hero.css
+ *    ---
+ *    #hero .btn {
+ *        width: 200px;
+ *        background: white;  ← OVERRIDE de button.css
+ *        color: var(--primary);
+ *    }
+ *
+ * RESULTADO FINAL:
+ * Hero button: background branco, não azul
+ * Porque #hero .btn é mais specific que .btn
+ * Hero seção pode customizar sobre componentes globais
+ * 
+ * =====================================
+ * COMO ADICIONAR NOVO ARQUIVO
+ * =====================================
+ * 
+ * 1. Crie arquivo em pasta apropriada:
+ *    src/css/components/card.css
+ * 
+ * 2. Adicione @import aqui:
+ *    @import url('./components/card.css');
+ * 
+ * 3. POSIÇÃO IMPORTA:
+ *    - Se é novo componente: após components/, antes de sections/
+ *    - Se é novo helper: ao final, em utilities/
+ *    - Nunca mude a ordem acima (quebra cascade)
+ * 
+ * =====================================
+ * DEBUGGING: "Por que meu CSS não funciona?"
+ * =====================================
+ * 
+ * A: Ordem de imports está errada
+ * → Arquivo posterior não consegue Override anterior
+ * → Reordene conforme ITCSS acima
+ * 
+ * B: Especificidade muito baixa
+ * → .btn {} não consegue vencer #hero .btn {}
+ * → Use mais specificity ou !important (último recurso)
+ * 
+ * C: Variável não definida
+ * → Arquivo usa var(--custom) mas variables.css não define
+ * → Adicione variável em variables.css
+ * 
+ * D: Arquivo não é carregado
+ * → HTML importa main.css
+ * → main.css não importa seu arquivo.css
+ * → Adicione @import url('./seu-arquivo.css');
+ */

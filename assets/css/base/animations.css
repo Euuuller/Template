@@ -1,0 +1,479 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/base/animations.css
+ * 
+ * PROPÓSITO:
+ * Centraliza TODAS as @keyframes animações do projeto.
+ * Em vez de espalhadas por vários arquivos,
+ * todas as animações globais estão aqui.
+ * 
+ * BENEFÍCIOS:
+ * 1. Fácil localizar qual animação usar
+ * 2. Reutilizável em múltiplas seções
+ * 3. Manutenção centralizada
+ * 4. Entender como animar certos elementos
+ * 
+ * COMO USAR:
+ * animation: pulse 2s infinite;
+ * animation: bounce 1.5s ease-in-out infinite;
+ * 
+ * ESTRUTURA:
+ * @keyframes nome { 
+ *     0% { estilos iniciais }
+ *     50% { estilos meio }
+ *     100% { estilos finais }
+ * }
+ * 
+ * Timing: Vai de 0% → 100% durante duração especificada
+ * Infinite = loop contínuo, ou play uma vez
+ * =====================================
+ */
+
+/**
+ * ========================================
+ * 1. PULSE - Pulsação (cresce e encolhe)
+ * ========================================
+ * Onde usa: Hero badge, elementos destacados
+ * Efeito: Elemento cresce + desaparece, volta ao normal
+ * Duração típica: 2s infinite
+ * 
+ * VISUAL:
+ * [Tamanho 1x] → [1.5x, meia transparência] → [1x novamente]
+ */
+@keyframes pulse {
+    /**
+     * 0% - Estado inicial
+     * Tamanho normal, opacidade total
+     */
+    0% {
+        transform: scale(1);      /* Tamanho: 100% */
+        opacity: 1;               /* Transparência: 0% */
+    }
+
+    /**
+     * 50% - Meio da animação
+     * Elemento cresce para 1.5x e fica semi-transparente
+     */
+    50% {
+        transform: scale(1.5);    /* Tamanho: 150% */
+        opacity: 0.5;             /* Transparência: 50% */
+    }
+
+    /**
+     * 100% - Estado final (volta ao inicio)
+     * Volta para tamanho normal
+     */
+    100% {
+        transform: scale(1);      /* Tamanho: 100% */
+        opacity: 1;               /* Transparência: 0% */
+    }
+}
+
+/**
+ * ========================================
+ * 2. BLINK - Piscar (on/off)
+ * ========================================
+ * Onde usa: Cursor de digitação (typing effect)
+ * Efeito: Desaparece e reaparece
+ * Duração típica: 0.7s infinite
+ * 
+ * VISUAL:
+ * [Visível] ...pausa... [Invisível] ...pausa...
+ */
+@keyframes blink {
+    /**
+     * 0% e 100% - Visível
+     * Início e fim da animação mostram elemento
+     */
+    0%,
+    100% {
+        opacity: 1;               /* Visível */
+    }
+
+    /**
+     * 50% - Invisível
+     * Meio da animação o elemento desaparece
+     */
+    50% {
+        opacity: 0;               /* Invisível */
+    }
+}
+
+/**
+ * ========================================
+ * 3. BOUNCE - Pulo (bounce up/down)
+ * ========================================
+ * Onde usa: Indicador de scroll (seta embaixo)
+ * Efeito: Elemento pula para cima e desce
+ * Duração típica: 1.5s ease-in-out infinite
+ * 
+ * VISUAL:
+ * [Normal] ↑ [Sobe 10px] → [Sobe 5px] → [Normal]
+ */
+@keyframes bounce {
+    /**
+     * Múltiplos pontos: 0%, 20%, 50%, 80%, 100%
+     * Esses pontos têm mesmo valor (posição normal)
+     * Elemento fica parado nesses momentos
+     */
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0); /* Y normal */
+    }
+
+    /**
+     * 40% - Sobe muito
+     * Pico do pulo
+     */
+    40% {
+        transform: translateY(-10px); /* Sobe 10px */
+    }
+
+    /**
+     * 60% - Sobe pouco
+     * Segundo pulo (menor que o primeiro)
+     */
+    60% {
+        transform: translateY(-5px);  /* Sobe 5px */
+    }
+}
+
+/**
+ * ========================================
+ * 4. FADE IN UP - Desbotamento + Subida
+ * ========================================
+ * Onde usa: Elementos aparecendo ao scroll (intersection observer)
+ * Efeito: Elemento aparece (fade) enquanto sobe
+ * Duração típica: 0.6s ease-out
+ * 
+ * VISUAL:
+ * [Invisível, 10px abaixo] ↑ [Visível, posição correta]
+ */
+@keyframes fadeInUp {
+    /**
+     * from - Estado inicial (atalho para 0%)
+     * Invisível e ligeiramente abaixo
+     */
+    from {
+        opacity: 0;              /* Invisível */
+        transform: translateY(10px); /* 10px mais baixo */
+    }
+
+    /**
+     * to - Estado final (atalho para 100%)
+     * Totalmente visível e posição correta
+     */
+    to {
+        opacity: 1;              /* Visível */
+        transform: translateY(0); /* Posição normal */
+    }
+}
+
+/**
+ * ========================================
+ * 5. ROTATE SCALE - Rotação + Escala
+ * ========================================
+ * Onde usa: Theme toggle (mudança luz/escuro)
+ * Efeito: Ícone gira enquanto desaparece e reaparece
+ * Duração típica: 0.6s ease-in-out
+ * 
+ * VISUAL:
+ * [Ícone visível] ↻ [Gira 180°, desaparece] 
+ *    ↻ [Gira 360°, reaparece com novo ícone]
+ */
+@keyframes rotateScale {
+    /**
+     * 0% - Início
+     * Ícone normal, visível
+     */
+    0% {
+        transform: rotate(0) scale(1); /* Sem rotação, normal */
+        opacity: 1;                    /* Visível */
+    }
+
+    /**
+     * 50% - Meio
+     * Ícone gira 180°, meia volta e some
+     */
+    50% {
+        transform: rotate(180deg) scale(0); /* 180° + reduz */
+        opacity: 0;                         /* Invisível */
+    }
+
+    /**
+     * 100% - Fim
+     * Ícone completa 360° (volta), reaparece
+     * Novo ícone (sol/lua) aparece após animação
+     */
+    100% {
+        transform: rotate(360deg) scale(1); /* 360° completo */
+        opacity: 1;                         /* Visível */
+    }
+}
+
+/**
+ * ========================================
+ * 6. GLOW PULSE - Brilho Pulsante
+ * ========================================
+ * Onde usa: Botão "Download CV" (call-to-action)
+ * Efeito: Aura de brilho pulsante ao redor
+ * Duração típica: 2s infinite
+ * 
+ * VISUAL:
+ * [Aura pequena] ↪ [Aura grande, transparente] ↪ [Pequena]
+ */
+@keyframes glowPulse {
+    /**
+     * 0% - Início
+     * Aura começando (0.1 opacity, escala normal)
+     */
+    0% {
+        transform: scale(1);      /* Aura tamanho 1x */
+        opacity: 0.1;             /* Muito fraca */
+    }
+
+    /**
+     * 50% - Meio
+     * Aura expandindo e mais visível
+     */
+    50% {
+        transform: scale(1.5);    /* Aura 1.5x (expandida) */
+        opacity: 0.2;             /* Um pouco mais forte */
+    }
+
+    /**
+     * 100% - Fim (volta ao início)
+     * Aura recolhe
+     */
+    100% {
+        transform: scale(1);      /* Aura volta 1x */
+        opacity: 0.1;             /* Volta fraca */
+    }
+}
+
+/**
+ * ========================================
+ * 7. TEXT SHIMMER - Brilho em Texto
+ * ========================================
+ * Onde usa: Seção About (efeito shimmer em background)
+ * Efeito: Luz se move da esquerda para a direita em texto
+ * Duração típica: 3s infinite linear
+ * 
+ * VISUAL:
+ * [Luz na esquerda] → [Luz no meio] → [Luz na direita]
+ */
+@keyframes textShimmer {
+    /**
+     * to - Estado final (animação de 0% para 100%)
+     * Background-position se move para a direita
+     * 
+     * USO COMBINADO:
+     * background: linear-gradient(...)
+     * background-size: 200% auto (cria espaço extra)
+     * animation: textShimmer move a luz
+     */
+    to {
+        background-position: 200% center; /* Move 200% para direita */
+    }
+}
+
+/**
+ * ========================================
+ * 8. SCROLL LEFT - Movimento Esquerda
+ * ========================================
+ * Onde usa: Lista de skills (scrolling infinito)
+ * Efeito: Elemento se move para esquerda, sai da tela
+ * Duração típica: 20s linear infinite
+ * 
+ * VISUAL:
+ * [Item 1] [Item 2] [Item 3] →
+ *             → [Item 1] [Item 2] [Item 3]
+ */
+@keyframes scrollLeft {
+    /**
+     * 0% - Início
+     * Elemento em posição normal (X = 0)
+     */
+    0% {
+        transform: translateX(0); /* Posição inicial */
+    }
+
+    /**
+     * 100% - Fim
+     * Elemento moved 50% para esquerda (sai de tela)
+     * Porque há duplicação em HTML (loop infinito)
+     */
+    100% {
+        transform: translateX(-50%); /* Moved 50% esquerda */
+    }
+}
+
+/**
+ * ========================================
+ * 9. SCROLL RIGHT - Movimento Direita
+ * ========================================
+ * Onde usa: Lista de skills (scrolling reverso)
+ * Efeito: Elemento se move para direita
+ * Duração típica: 20s linear infinite
+ * 
+ * VISUAL (oposto de scrollLeft):
+ * ← [Item 3] [Item 2] [Item 1]
+ */
+@keyframes scrollRight {
+    /**
+     * 0% - Início
+     * Elemento começando 50% para esquerda
+     */
+    0% {
+        transform: translateX(-50%); /* Começa deslocado */
+    }
+
+    /**
+     * 100% - Fim
+     * Elemento volta para posição normal
+     */
+    100% {
+        transform: translateX(0); /* Volta para 0 */
+    }
+}
+
+/**
+ * ========================================
+ * 10. COFFEE STEAM - Vapor de Café
+ * ========================================
+ * Onde usa: Footer (ícone de café)
+ * Efeito: Movimento suave para cima + rotação
+ * Duração típica: 1.5s ease-in-out infinite
+ * 
+ * VISUAL:
+ * Ícone coffee sobe levemente enquanto rotaciona
+ * Suaviza movimento, parece vapor subindo
+ */
+@keyframes coffeeSteam {
+    /**
+     * 0% - Início
+     * Ícone em posição normal, não rotacionado
+     */
+    0% {
+        transform: translateY(0) rotate(0);  /* Y normal, sem rotação */
+    }
+
+    /**
+     * 50% - Meio
+     * Ícone subiu um pouco, rodou 5°
+     */
+    50% {
+        transform: translateY(-3px) rotate(5deg); /* Sobe 3px, roda 5° */
+    }
+
+    /**
+     * 100% - Fim (volta ao início)
+     * Volta para posição original
+     */
+    100% {
+        transform: translateY(0) rotate(0);  /* Volta normal */
+    }
+}
+
+/**
+ * ========================================
+ * 11. HEART BEAT - Batida de Coração
+ * ========================================
+ * Onde usa: Footer (ícone de coração)
+ * Efeito: Cresce e encolhe ritmicamente
+ * Duração típica: 1.3s ease-in-out infinite
+ * 
+ * VISUAL:
+ * [❤️ Normal] → [❤️ Maior] → [❤️ Normal] 
+ *              (simulando batida)
+ */
+@keyframes heartBeat {
+    /**
+     * 0% - Inicial
+     * Coração tamanho normal
+     */
+    0% {
+        transform: scale(1);      /* Tamanho 1x */
+    }
+
+    /**
+     * 14% - Primeiro batimento
+     * Cresce para 1.3x
+     */
+    14% {
+        transform: scale(1.3);    /* 130% tamanho */
+    }
+
+    /**
+     * 28% - Volta ao normal
+     * Após primeiro batimento
+     */
+    28% {
+        transform: scale(1);      /* Volta 1x */
+    }
+
+    /**
+     * 42% - Segundo batimento
+     * Cresce novamente (pum-pum, dois batidas)
+     */
+    42% {
+        transform: scale(1.3);    /* 130% tamanho */
+    }
+
+    /**
+     * 70% - Fim (pausa até restart)
+     * Volta ao normal
+     * Pausa de 30% permite respiração antes de restart
+     */
+    70% {
+        transform: scale(1);      /* Volta 1x */
+    }
+}
+
+/**
+ * =====================================
+ * GUIA DE USO DAS ANIMAÇÕES
+ * =====================================
+ * 
+ * SINTAXE COMPLETA:
+ * animation: 
+ *     nome-keyframes        → qual @keyframes usar
+ *     duração              → quanto tempo leva (2s, 500ms)
+ *     timing-function      → ease-in, linear, ease-out
+ *     delay                → quando começa (opcional)
+ *     iteration-count      → quantas vezes (1, infinite)
+ *     direction            → forward, reverse, alternate
+ *     fill-mode            → forwards, backwards, both
+ * 
+ * EXEMPLOS DE USO:
+ * 
+ * 1. Pulsação contínua:
+ *    animation: pulse 2s ease-in-out infinite;
+ * 
+ * 2. Piscar cursor:
+ *    animation: blink 0.7s infinite;
+ * 
+ * 3. Pular scroll:
+ *    animation: bounce 1.5s ease-in-out infinite;
+ * 
+ * 4. Desbotamento entrada:
+ *    animation: fadeInUp 0.6s ease-out;
+ * 
+ * 5. Toggle tema:
+ *    animation: rotateScale 0.6s ease-in-out;
+ * 
+ * 6. Brilho botão:
+ *    animation: glowPulse 2s ease-in-out infinite;
+ * 
+ * 7. Scroll skills:
+ *    animation: scrollLeft 20s linear infinite;
+ * 
+ * 8. Vapor café:
+ *    animation: coffeeSteam 1.5s ease-in-out infinite;
+ * 
+ * 9. Coração flutua:
+ *    animation: heartBeat 1.3s ease-in-out infinite;
+ */

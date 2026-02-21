@@ -2,37 +2,60 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- ========================================
+         META TAGS E CONFIGURAÇÕES
+         ======================================== -->
     <meta charset="UTF-8">
+    <!-- Define o conjunto de caracteres para suportar caracteres especiais em português -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configuração de responsividade para dispositivos móveis -->
     <title>Euller Duarte | Portfolio</title>
+    <!-- Título da página exibido na aba do navegador -->
 
-    <!-- Google Fonts -->
+    <!-- ========================================
+         GOOGLE FONTS
+         Importa fontes personalizadas do Google Fonts
+         - Inter: Fonte corpo principal (sans-serif)
+         - JetBrains Mono: Fonte monospaced para código
+         - Outfit: Fonte display para títulos
+         ======================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/image/favicon.svg">
+    <!-- ========================================
+         FAVICON E ÍCONES
+         ======================================== -->
+    <!-- Favicon: ícone exibido na aba do navegador -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
-    <!-- Icons (Remix Icon & Lucide) -->
+    <!-- Icons: Bibliotecas de ícones para uso em toda a página -->
+    <!-- Remix Icon: ícones adicionais em diversos estilos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Lucide: ícones modernos e customizáveis (moon, sun, github, etc) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- CSS Dependencies -->
+    <!-- ========================================
+         ESTILOS CSS
+         Ordem de importação:
+         1. Variables: Sistema de design (cores, fonts, variáveis)
+         2. Main: Arquivo de entrada que importa todos os CSS modulares
+         ======================================== -->
     <link rel="stylesheet" href="assets/css/variables.css">
+    <!-- Sistema de design centralizado com variáveis CSS (cores, fontes, transitções) -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/hero.css">
-    <link rel="stylesheet" href="assets/css/about.css">
-    <link rel="stylesheet" href="assets/css/skills.css">
-    <link rel="stylesheet" href="assets/css/projects.css">
-    <link rel="stylesheet" href="assets/css/contact.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <!-- Entrada principal que importa todos os CSS: reset, base, layout, components, sections -->
 
+    <!-- ========================================
+         ESTILOS INLINE (Tweaks pequenos)
+         Estilos específicos que não valem a pena
+         colocar em arquivo separado
+         ======================================== -->
     <style>
-        /* Small layout tweaks */
+        /* Margem superior no elemento #inicio para compensar header fixed */
+        /* Necessário para scroll-to-anchor não ficar debaixo do header */
         #inicio {
             scroll-margin-top: var(--header-height);
         }
@@ -40,18 +63,31 @@
 </head>
 
 <body>
-    <!-- Background grid -->
+    <!-- ========================================
+         BACKGROUND GRID PATTERN
+         Grade visual de fundo (efeito estético)
+         ======================================== -->
     <div class="bg-grid"></div>
 
-    <!-- Header Section -->
+    <!-- ========================================
+         HEADER / NAVEGAÇÃO
+         Cabeçalho fixo com:
+         - Logo/Branding
+         - Menu de navegação
+         - Botões de ação (tema, CV, GitHub)
+         ======================================== -->
     <header class="header">
         <div class="container">
+            <!-- Logo da página -->
             <a href="#" class="logo">
                 <span>>_</span> Euller Duarte
+                <!-- >_ em cor primária como estilização -->
             </a>
 
+            <!-- Menu de navegação principal -->
             <nav class="nav">
                 <ul class="nav-list">
+                    <!-- Links para diferentes seções da página -->
                     <li><a href="#inicio" class="nav-link">Inicio</a></li>
                     <li><a href="#sobre" class="nav-link">Sobre</a></li>
                     <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
@@ -60,13 +96,18 @@
                 </ul>
             </nav>
 
+            <!-- Botões de ação no canto superior direito -->
             <div class="header-actions">
+                <!-- Botão de alternância de tema (dark/light) -->
+                <!-- data-lucide: especifica qual ícone Lucide usar -->
                 <button class="action-btn theme-toggle" aria-label="Alterar Tema">
                     <i data-lucide="moon" class="theme-icon"></i>
                 </button>
+                <!-- Botão para baixar currículo -->
                 <a href="assets/cv.pdf" target="_blank" class="action-btn cv-btn" aria-label="Ver Currículo">
                     <i data-lucide="file-text"></i>
                 </a>
+                <!-- Link para GitHub -->
                 <a href="https://github.com/euuuller" target="_blank" class="action-btn github-btn" aria-label="GitHub">
                     <i data-lucide="github"></i>
                 </a>
@@ -74,66 +115,98 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+         ======================================== -->
     <main>
-        <!-- Hero Section -->
+        <!-- ========================================
+             HERO SECTION
+             Seção de introdução com:
+             - Badge de disponibilidade
+             - Título principal
+             - Efeito de digitação
+             - CTA (Call-To-Action) buttons
+             - Scroll indicator
+             ======================================== -->
         <section id="inicio" class="hero">
             <div class="container">
+                <!-- Badge indicando disponibilidade -->
+                <!-- .hero-badge span é animado com pulse -->
                 <div class="hero-badge">
                     <span></span> Disponivel para projetos
                 </div>
 
+                <!-- Título principal -->
+                <!-- <span> em color primária para destaque -->
                 <h1 class="hero-title">
                     Euller <span>Duarte</span>
                 </h1>
 
+                <!-- Efeito de digitação com cursor animado -->
+                <!-- JavaScript (typing.js) preenche este elemento dinamicamente -->
                 <div class="hero-typing">
-                    <!-- Loaded by JS -->
+                    <!-- Carregado por JS -->
                 </div>
 
+                <!-- Descrição e links internos -->
                 <p class="hero-description">
                     Olá, seja muito bem-vindo ao meu portfólio de projetos!
                     Fique à vontade para explorar o <a href="#projetos">portfólio</a> e entrar em <a
                         href="#contato">contato</a> pelos links ao final da página.
                 </p>
 
+                <!-- Botões de ação (CTA) -->
                 <div class="hero-actions">
+                    <!-- Botão primário: Ver Projetos -->
                     <button class="btn btn-primary">
                         Ver Projetos <i class="ri-arrow-right-line"></i>
                     </button>
+                    <!-- Botão secundário: Contato -->
                     <button class="btn btn-secondary">
                         Entrar em Contato
                     </button>
                 </div>
 
+                <!-- Indicador de scroll (seta para baixo animada) -->
                 <a href="#sobre" class="scroll-indicator">
                     <i class="ri-arrow-down-s-line ri-2x"></i>
                 </a>
             </div>
         </section>
 
-        <!-- Sobre Mim Section -->
+        <!-- ========================================
+             SEÇÃO SOBRE MIM
+             Apresenta informações pessoais com:
+             - Foto de perfil
+             - Descrição profissional
+             - Cards de estatísticas
+             ======================================== -->
         <section id="sobre" class="about">
             <div class="container">
-                <!-- Section Header -->
+                <!-- Cabeçalho da seção (reutilizável em todas as seções) -->
                 <div class="section-header">
                     <h2 class="section-title">Sobre Mim</h2>
                     <p class="section-subtitle">Minha jornada profissional e acadêmica</p>
+                    <!-- Divisor decorativo -->
                     <div class="section-divider"></div>
                 </div>
 
+                <!-- Grid com 2 colunas: Imagem + Conteúdo -->
                 <div class="about-grid">
-                    <!-- Profile Image -->
+                    <!-- Coluna 1: Foto de perfil -->
                     <div class="about-image">
                         <div class="image-container">
+                            <!-- GitHub avatar do usuário -->
                             <img src="https://github.com/Euuuller.png" alt="Euller Duarte">
                         </div>
                     </div>
 
-                    <!-- Profile Info -->
+                    <!-- Coluna 2: Conteúdo sobre mim -->
                     <div class="about-content">
+                        <!-- Headline/subtitle -->
                         <h3 class="about-headline">Analista de Dados & Graduando em Engenharia</h3>
 
+                        <!-- Descrição com formatações especiais -->
                         <div class="about-description">
                             <p>Graduando em Engenharia Elétrica (IFMA) com forte base analítica voltada para Ciência de
                                 Dados. <span class="highlight-shimmer">Transformo dados brutos em inteligência de
@@ -146,20 +219,23 @@
                                 otimização de resultados.</p>
                         </div>
 
-                        <!-- Stats/Cards Grid -->
+                        <!-- Cards de estatísticas (3 colunas) -->
                         <div class="about-stats">
+                            <!-- Card 1: Repositórios -->
                             <div class="stat-card">
                                 <div class="stat-icon icon-blue"><i class="ri-code-s-slash-line"></i></div>
                                 <h4 class="stat-title">Repositórios</h4>
                                 <p class="stat-value">5+ Projetos Públicos</p>
                             </div>
 
+                            <!-- Card 2: Foco principal -->
                             <div class="stat-card">
                                 <div class="stat-icon icon-teal"><i class="ri-focus-2-line"></i></div>
                                 <h4 class="stat-title">Foco Principal</h4>
                                 <p class="stat-value">Análise de Dados & BI</p>
                             </div>
 
+                            <!-- Card 3: Formação -->
                             <div class="stat-card">
                                 <div class="stat-icon icon-purple"><i class="ri-graduation-cap-line"></i></div>
                                 <h4 class="stat-title">Formação</h4>
@@ -173,10 +249,14 @@
         </section>
 
 
-        <!-- Habilidades Técnicas Section -->
+        <!-- ========================================
+             SEÇÃO HABILIDADES TÉCNICAS
+             Carrossel infinito com ícones de tecnologias
+             2 carrosséis animados em direções opostas
+             ======================================== -->
         <section id="habilidades" class="skills">
             <div class="container">
-                <!-- Section Header -->
+                <!-- Cabeçalho da seção -->
                 <div class="section-header">
                     <h2 class="section-title">Habilidades Técnicas</h2>
                     <p class="section-subtitle">Stack tecnológica otimizada para análise de dados e desenvolvimento de
@@ -184,10 +264,11 @@
                     <div class="section-divider"></div>
                 </div>
 
+                <!-- Container com carrosséis -->
                 <div class="skills-container">
-                    <!-- Carousel Left to Right -->
+                    <!-- Carrossel 1: Esquerda para direita (scroll-left) -->
                     <div class="carousel-wrapper scroll-left">
-                        <!-- Group 1 -->
+                        <!-- Grupo 1 de skills (repetido 2x para efeito infinito) -->
                         <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
                                 alt="Python">
@@ -229,7 +310,7 @@
                             <span class="skill-name">MySQL</span>
                             <span class="skill-desc">Gestão de Dados</span>
                         </div>
-                        <!-- Repeat for infinite effect -->
+                        <!-- Repetição para efeito infinito (JavaScript não necessário para CSS animation) -->
                         <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
                                 alt="Python">
@@ -273,9 +354,9 @@
                         </div>
                     </div>
 
-                    <!-- Carousel Right to Left -->
+                    <!-- Carrossel 2: Direita para esquerda (scroll-right) -->
                     <div class="carousel-wrapper scroll-right">
-                        <!-- Group 2 -->
+                        <!-- Grupo 2 de skills (repetido 2x para efeito infinito) -->
                         <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
                                 alt="Pandas">
@@ -318,7 +399,7 @@
                             <span class="skill-name">GCP</span>
                             <span class="skill-desc">Cloud Computing</span>
                         </div>
-                        <!-- Repeat for infinite effect -->
+                        <!-- Repetição para efeito infinito -->
                         <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
                                 alt="Pandas">
@@ -366,10 +447,18 @@
             </div>
         </section>
 
-        <!-- Projetos em Destaque Section -->
+        <!-- ========================================
+             SEÇÃO PROJETOS EM DESTAQUE
+             Grid de cards de projetos com:
+             - Imagem de capa
+             - Overlay com ícones de ação
+             - Descrição e tags
+             - Estatísticas
+             - Botões de ação (GitHub, Demo)
+             ======================================== -->
         <section id="projetos" class="projects">
             <div class="container">
-                <!-- Section Header -->
+                <!-- Cabeçalho da seção -->
                 <div class="section-header">
                     <h2 class="section-title">Projetos em Destaque</h2>
                     <p class="section-subtitle">Aplicações reais desenvolvidas com foco em Ciência de Dados e Business
@@ -377,29 +466,45 @@
                     <div class="section-divider"></div>
                 </div>
 
+                <!-- Grid responsivo de cards (auto-adapt para 280px mínimo) -->
                 <div class="projects-grid">
-                    <!-- Projeto 1: RFM -->
+                    <!-- ========================================
+                         PROJETO 1: RFM Analysis
+                         ======================================== -->
                     <article class="project-card">
+                        <!-- Área de imagem com overlay -->
                         <div class="project-image-container">
+                            <!-- Badge de categoria -->
                             <span class="project-category">Analytics</span>
+                            <!-- Imagem de capa -->
                             <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
                                 alt="Segmentação de Clientes">
+                            <!-- Overlay com ícones (aparece no hover) -->
                             <div class="project-overlay">
+                                <!-- Ícones de ação -->
                                 <div class="overlay-icons">
-                                    <a href="#" class="overlay-icon"><i class="ri-maximize-line"></i></a>
-                                    <a href="#" class="overlay-icon"><i class="ri-github-line"></i></a>
-                                    <a href="#" class="overlay-icon"><i class="ri-external-link-line"></i></a>
+                                    <a href="#" class="overlay-icon" title="Visualizar Projeto">
+                                        <i class="ri-external-link-line"></i>
+                                    </a>
+                                    <a href="https://github.com" class="overlay-icon" title="Ver Código">
+                                        <i class="ri-github-line"></i>
+                                    </a>
                                 </div>
+                                <!-- Texto no overlay -->
                                 <span class="overlay-text">Ver Detalhes do Projeto</span>
                             </div>
                         </div>
 
+                        <!-- Conteúdo do card -->
                         <div class="project-content">
+                            <!-- Título do projeto -->
                             <h3 class="project-title">Segmentação de Clientes (RFM)</h3>
+                            <!-- Descrição breve -->
                             <p class="project-description">
                                 Análise de Clusterização para classificar clientes com base em Recência, Frequência e
                                 Valor Monetário.
                             </p>
+                            <!-- Tags com tecnologias usadas -->
                             <div class="project-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">Pandas</span>
@@ -407,24 +512,31 @@
                             </div>
                         </div>
 
+                        <!-- Footer com estatísticas e botões -->
                         <div class="project-footer">
+                            <!-- Estatísticas do projeto -->
                             <div class="project-stats">
                                 <span class="stat-item"><i class="ri-database-2-line"></i> 1.5k Registros</span>
                                 <span class="stat-item"><i class="ri-group-line"></i> 5 Segmentos</span>
                             </div>
+                            <!-- Botões de ação -->
                             <div class="project-actions">
+                                <!-- Link GitHub -->
                                 <a href="https://github.com/euller-ds" target="_blank"
                                     class="btn-project btn-github-ghost">
-                                    <i class="ri-github-line"></i> GitHub
+                                    <i class="ri-github-line"></i> Código
                                 </a>
+                                <!-- Link Demo -->
                                 <a href="#" class="btn-project btn-demo">
-                                    <i class="ri-external-link-line"></i> Ver Demo
+                                    <i class="ri-play-circle-line"></i> Demo
                                 </a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Projeto 2: Sales Dashboard -->
+                    <!-- ========================================
+                         PROJETO 2: Dashboard de Vendas
+                         ======================================== -->
                     <article class="project-card">
                         <div class="project-image-container">
                             <span class="project-category">Dashboards</span>
@@ -432,9 +544,12 @@
                                 alt="Dashboard de Vendas">
                             <div class="project-overlay">
                                 <div class="overlay-icons">
-                                    <a href="#" class="overlay-icon"><i class="ri-maximize-line"></i></a>
-                                    <a href="#" class="overlay-icon"><i class="ri-github-line"></i></a>
-                                    <a href="#" class="overlay-icon"><i class="ri-external-link-line"></i></a>
+                                    <a href="#" class="overlay-icon" title="Visualizar Projeto">
+                                        <i class="ri-external-link-line"></i>
+                                    </a>
+                                    <a href="https://github.com" class="overlay-icon" title="Ver Código">
+                                        <i class="ri-github-line"></i>
+                                    </a>
                                 </div>
                                 <span class="overlay-text">Ver Detalhes do Projeto</span>
                             </div>
@@ -460,16 +575,18 @@
                             <div class="project-actions">
                                 <a href="https://github.com/euller-ds" target="_blank"
                                     class="btn-project btn-github-ghost">
-                                    <i class="ri-github-line"></i> GitHub
+                                    <i class="ri-github-line"></i> Código
                                 </a>
                                 <a href="#" class="btn-project btn-demo">
-                                    <i class="ri-external-link-line"></i> Ver Demo
+                                    <i class="ri-play-circle-line"></i> Demo
                                 </a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Projeto 3: Fraud Detection (ML) -->
+                    <!-- ========================================
+                         PROJETO 3: Detecção de Fraudes (ML)
+                         ======================================== -->
                     <article class="project-card">
                         <div class="project-image-container">
                             <span class="project-category">Machine Learning</span>
@@ -477,9 +594,12 @@
                                 alt="Detecção de Fraudes">
                             <div class="project-overlay">
                                 <div class="overlay-icons">
-                                    <a href="#" class="overlay-icon"><i class="ri-maximize-line"></i></a>
-                                    <a href="#" class="overlay-icon"><i class="ri-github-line"></i></a>
-                                    <a href="#" class="overlay-icon"><i class="ri-external-link-line"></i></a>
+                                    <a href="#" class="overlay-icon" title="Visualizar Projeto">
+                                        <i class="ri-external-link-line"></i>
+                                    </a>
+                                    <a href="https://github.com" class="overlay-icon" title="Ver Código">
+                                        <i class="ri-github-line"></i>
+                                    </a>
                                 </div>
                                 <span class="overlay-text">Ver Detalhes do Projeto</span>
                             </div>
@@ -506,10 +626,10 @@
                             <div class="project-actions">
                                 <a href="https://github.com/euller-ds" target="_blank"
                                     class="btn-project btn-github-ghost">
-                                    <i class="ri-github-line"></i> GitHub
+                                    <i class="ri-github-line"></i> Código
                                 </a>
                                 <a href="#" class="btn-project btn-demo">
-                                    <i class="ri-external-link-line"></i> Ver Demo
+                                    <i class="ri-play-circle-line"></i> Demo
                                 </a>
                             </div>
                         </div>
@@ -518,25 +638,34 @@
             </div>
         </section>
 
-        <!-- Seção de Contatos -->
+        <!-- ========================================
+             SEÇÃO CONTATO
+             Formulário de contato com links sociais
+             Layout: 2 colunas (esquerda: links, direita: form)
+             ======================================== -->
         <section id="contato" class="contact">
             <div class="container">
-                <!-- Section Header -->
+                <!-- Cabeçalho da seção -->
                 <div class="section-header">
                     <h2 class="section-title">Vamos Conversar?</h2>
                     <p class="section-subtitle">Estou disponível para novas oportunidades e colaborações</p>
                     <div class="section-divider"></div>
                 </div>
 
+                <!-- Grid 2 colunas: Links sociais + Formulário -->
                 <div class="contact-container">
-                    <!-- Left Side: Links -->
+                    <!-- ========================================
+                         COLUNA ESQUERDA: Links de contato
+                         ======================================== -->
                     <div class="contact-info">
+                        <!-- Texto introdutório -->
                         <div class="contact-text">
                             <h3>Canais de Contato</h3>
                             <p>Sinta-se à vontade para me adicionar nas redes ou enviar um email direto. Será um prazer
                                 entrar em contato com você!</p>
                         </div>
 
+                        <!-- Lista de contatos com ícones -->
                         <div class="contact-list">
                             <!-- Email -->
                             <a href="mailto:euller.santos.duarte@email.com" class="contact-item">
@@ -545,18 +674,18 @@
                                 </div>
                                 <div class="contact-details">
                                     <span>Email</span>
-                                    <strong>euller.santos.duarte</strong>
+                                    <strong>euller.santos.duarte@email.com</strong>
                                 </div>
                             </a>
 
                             <!-- LinkedIn -->
                             <a href="https://linkedin.com/in/euuuller" target="_blank" class="contact-item">
                                 <div class="contact-icon icon-linkedin">
-                                    <i class="ri-linkedin-box-line"></i>
+                                    <i class="ri-linkedin-line"></i>
                                 </div>
                                 <div class="contact-details">
                                     <span>LinkedIn</span>
-                                    <strong>/in/euuuller</strong>
+                                    <strong>Faça uma conexão comigo</strong>
                                 </div>
                             </a>
 
@@ -567,7 +696,7 @@
                                 </div>
                                 <div class="contact-details">
                                     <span>GitHub</span>
-                                    <strong>@euuuller</strong>
+                                    <strong>Veja meus projetos</strong>
                                 </div>
                             </a>
 
@@ -578,35 +707,43 @@
                                 </div>
                                 <div class="contact-details">
                                     <span>Medium</span>
-                                    <strong>@euller.duarte</strong>
+                                    <strong>Leia meus artigos</strong>
                                 </div>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Right Side: Form -->
+                    <!-- ========================================
+                         COLUNA DIREITA: Formulário de contato
+                         ======================================== -->
                     <form class="contact-form">
+                        <!-- Row 1: Nome + Email -->
                         <div class="form-row">
+                            <!-- Input de nome -->
                             <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" id="nome" placeholder="Seu nome" required>
+                                <input type="text" id="nome" placeholder="Seu nome..." required>
                             </div>
+                            <!-- Input de email -->
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" placeholder="seu@email.com" required>
                             </div>
                         </div>
 
+                        <!-- Assunto -->
                         <div class="form-group">
                             <label for="assunto">Assunto</label>
                             <input type="text" id="assunto" placeholder="Sobre o projeto..." required>
                         </div>
 
+                        <!-- Mensagem -->
                         <div class="form-group">
                             <label for="mensagem">Mensagem</label>
                             <textarea id="mensagem" placeholder="Como posso ajudar?" required></textarea>
                         </div>
 
+                        <!-- Botão de submissão -->
                         <button type="submit" class="btn-submit">
                             Enviar Mensagem <i class="ri-send-plane-fill"></i>
                         </button>
@@ -616,21 +753,35 @@
         </section>
     </main>
 
-    <!-- Footer Section -->
+    <!-- ========================================
+         FOOTER
+         Rodapé com copyright e créditos
+         ======================================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
+                <!-- Copyright -->
                 <p>&copy; 2026 Euller dos Santos Rodrigues Duarte. Todos os direitos reservados.</p>
-                <p class="footer-credits">Feito com muito amor <i class="ri-heart-fill"></i> e café <i
-                        class="ri-cup-line"></i></p>
+                <!-- Créditos com ícones animados -->
+                <p class="footer-credits">
+                    Feito com muito amor <i class="ri-heart-fill"></i>
+                    e café <i class="ri-cup-line"></i>
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ========================================
+         SCRIPTS
+         ======================================== -->
+    <!-- Script Lucide para renderizar ícones -->
+    <!-- Necessário ser executado após o DOM estar pronto -->
     <script>
         lucide.createIcons();
     </script>
+
+    <!-- Script principal JavaScript em ES6 modules -->
+    <!-- Carrega main.js que importa e inicializa todos os módulos -->
     <script type="module" src="assets/js/main.js"></script>
 </body>
 

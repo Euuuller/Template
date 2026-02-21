@@ -1,0 +1,387 @@
+/**
+ * =====================================
+ * ARQUIVO: assets/css/sections/hero.css
+ * 
+ * PROPÓSITO:
+ * Estilos da seção hero (primeiro que vê ao abrir página)
+ * Contém: badge, grande título, typing effect, CTA buttons
+ * 
+ * COMPONENTES:
+ * - .hero-badge → "Bem-vindo" com pulsating dot
+ * - .hero-title → Título grande responsivo
+ * - .hero-typing → Efeito de digitação com gradient
+ * - .hero-description → Descrição subtítulo
+ * - .hero-actions → Botões CTA
+ * - .scroll-indicator → Seta de scroll embaixo
+ * =====================================
+ */
+
+/**
+ * .hero - Container principal
+ */
+.hero {
+    /**
+     * Altura mínima = 1 viewport
+     * Seção inteira ocupa a tela
+     */
+    min-height: 100vh;
+    
+    /**
+     * Flex centraliza conteúdo
+     */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /**
+     * Offset para ficar abaixo do header fixo
+     * var(--header-height) = 70px
+     * Evita sobreposição com header
+     */
+    padding-top: var(--header-height);
+    
+    /**
+     * position: relative para posicionar scroll-indicator
+     */
+    position: relative;
+}
+
+/**
+ * .hero .container - Layout flexbox
+ */
+.hero .container {
+    /**
+     * Flex column: tudo em coluna
+     * Badge
+     * Título
+     * Typing effect
+     * Descrição
+     * Botões
+     */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/**
+ * .hero-badge - Pequeno badge "Bem-vindo"
+ */
+.hero-badge {
+    /**
+     * Background azul muito fraco (5% opacity)
+     */
+    background: rgba(59, 130, 246, 0.1);
+    
+    /**
+     * Cor azul primária
+     */
+    color: var(--primary);
+    
+    /**
+     * Padding pilule-style
+     */
+    padding: 0.5rem 1.2rem;
+    
+    /**
+     * Cantos ultra arredondados (99px)
+     */
+    border-radius: 99px;
+    
+    /**
+     * Fonte muito pequena
+     * 0.75rem ≈ 12px (tag-like)
+     */
+    font-size: 0.75rem;
+    
+    /**
+     * Font weight
+     */
+    font-weight: 600;
+    
+    /**
+     * Espaço embaixo
+     */
+    margin-bottom: 2rem;
+    
+    /**
+     * Borda azul muito fraca
+     */
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    
+    /**
+     * Flex para alinhar ponto pulsante
+     */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    /**
+     * Tamanho automático baseado em conteúdo
+     */
+    width: fit-content;
+}
+
+/**
+ * .hero-badge span - Ponto pulsante
+ */
+.hero-badge span {
+    /**
+     * Tamanho pequeno do ponto
+     */
+    width: 8px;
+    height: 8px;
+    
+    /**
+     * Cor azul primária
+     */
+    background: var(--primary);
+    
+    /**
+     * Circular
+     */
+    border-radius: 50%;
+    
+    /**
+     * Inline-block para flex funcionar
+     */
+    display: inline-block;
+    
+    /**
+     * Glow effect ao redor do ponto
+     */
+    box-shadow: 0 0 10px var(--primary);
+    
+    /**
+     * Animation pulsante
+     * pulse = (crescimento + opacidade) repetindo
+     * base/animations.css
+     */
+    animation: pulse 2s infinite;
+}
+
+/**
+ * .hero-title - Título grande
+ */
+.hero-title {
+    /**
+     * Tamanho absolutamente responsivo
+     * clamp(min, preferido, max)
+     * Desktop: até 5rem (80px)
+     * Mobile: mínimo 3rem (48px)
+     * Meio-termo: 10vw
+     */
+    font-size: clamp(3rem, 10vw, 5rem);
+    
+    /**
+     * Extra bold para destaque máximo
+     */
+    font-weight: 800;
+    
+    /**
+     * Altura linha compacta
+     * 1.1 = de uma linha para outra próxima
+     * Títulos geralmente precisam ser compactos
+     */
+    line-height: 1.1;
+    
+    /**
+     * Espaço embaixo do título
+     */
+    margin-bottom: 1rem;
+    
+    /**
+     * Font display (Outfit, moderno)
+     */
+    font-family: var(--font-display);
+}
+
+/**
+ * .hero-title span - Primeira palavra em cor
+ */
+.hero-title span {
+    /**
+     * <h1><span>Eu</span>lle</h1>
+     * "Eu" fica em azul, resto em branco
+     */
+    color: var(--primary);
+}
+
+/**
+ * .hero-typing - Seção de typing effect
+ */
+.hero-typing {
+    /**
+     * Responsivo também
+     * Menor que título mas grande
+     */
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    
+    /**
+     * Peso: bold
+     */
+    font-weight: 700;
+    
+    /**
+     * Espaço embaixo
+     */
+    margin-bottom: 2rem;
+    
+    /**
+     * Font monospace para código-like feel
+     */
+    font-family: var(--font-mono);
+    
+    /**
+     * min-height garante espaço mesmo com texto vazio
+     * 1.2em = um pouco maior que linha de texto
+     * Previne "jumping" quando digitando
+     */
+    min-height: 1.2em;
+    
+    /**
+     * Flex para centralizar texto + cursor
+     */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/**
+ * .hero-typing .text - Texto digitado
+ */
+.hero-typing .text {
+    /**
+     * Gradient de 3 cores
+     * Rosa → Roxo → Azul
+     * Efeito rainbow colorido
+     */
+    background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+    
+    /**
+     * Clipa o gradient às letras
+     * Truque de CSS para text com cor gradient
+     */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/**
+ * .hero-typing .cursor - Cursor piscante
+ */
+.hero-typing .cursor {
+    /**
+     * Espaço entre texto e cursor
+     */
+    margin-left: 2px;
+    
+    /**
+     * Cursor azul
+     */
+    color: var(--primary);
+    
+    /**
+     * Animation blink
+     * Piscar 0.8s infinito
+     */
+    animation: blink 0.8s infinite;
+}
+
+/**
+ * .hero-description - Descrição subtítulo
+ */
+.hero-description {
+    /**
+     * Limite de largura para readability
+     */
+    max-width: 600px;
+    
+    /**
+     * Tamanho um pouco maior
+     */
+    font-size: 1.1rem;
+    
+    /**
+     * Cor muted (menos proeminente)
+     */
+    color: var(--text-muted);
+    
+    /**
+     * Espaço antes dos botões
+     */
+    margin-bottom: 3rem;
+    
+    /**
+     * Padding horizontal em telas pequenas
+     */
+    padding: 0 1rem;
+}
+
+/**
+ * Links dentro da descrição
+ */
+.hero-description a {
+    /**
+     * Destaque em cor primária
+     */
+    color: var(--primary);
+    
+    /**
+     * Underline para indicar link
+     */
+    text-decoration: underline;
+}
+
+/**
+ * .hero-actions - Botões CTA
+ */
+.hero-actions {
+    /**
+     * Flex para alinhar botões lado a lado
+     */
+    display: flex;
+    
+    /**
+     * Espaço entre botões
+     */
+    gap: 1rem;
+    
+    /**
+     * Quebra em telas pequenas
+     */
+    flex-wrap: wrap;
+    
+    /**
+     * Centraliza botões
+     */
+    justify-content: center;
+}
+
+/**
+ * .scroll-indicator - Seta "scroll para baixo"
+ */
+.scroll-indicator {
+    /**
+     * Posicionado no fundo da seção
+     */
+    position: absolute;
+    bottom: 2rem;
+    
+    /**
+     * Cor subtil
+     */
+    color: var(--text-muted);
+    
+    /**
+     * Animation bounce
+     * Pula repetidamente, indicativo
+     */
+    animation: bounce 2s infinite;
+    
+    /**
+     * Clicável
+     */
+    cursor: pointer;
+}
