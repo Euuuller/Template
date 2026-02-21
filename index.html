@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euller Duarte | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Remix Icon) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/skills.css">
+    <link rel="stylesheet" href="assets/css/projects.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+
+    <style>
+        /* Small layout tweaks */
+        #inicio {
+            scroll-margin-top: var(--header-height);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background grid -->
+    <div class="bg-grid"></div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <span>>_</span> Euller Duarte
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                    <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" aria-label="Alterar Tema">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                    <a href="https://github.com/euller-ds" target="_blank" class="btn-github">
+                        GitHub
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <span></span> Disponivel para projetos
+                </div>
+
+                <h1 class="hero-title">
+                    Euller <span>Duarte</span>
+                </h1>
+
+                <div class="hero-typing">
+                    <!-- Loaded by JS -->
+                </div>
+
+                <p class="hero-description">
+                    Olá, seja muito bem-vindo ao meu portfólio de projetos!
+                    Fique à vontade para explorar o <a href="#projetos">portfólio</a> e entrar em <a
+                        href="#contato">contato</a> pelos links ao final da página.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary">
+                        Ver Projetos <i class="ri-arrow-right-line"></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        Entrar em Contato
+                    </button>
+                </div>
+
+                <a href="#sobre" class="scroll-indicator">
+                    <i class="ri-arrow-down-s-line ri-2x"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Sobre Mim Section -->
+        <section id="sobre" class="about">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">Sobre Mim</h2>
+                    <p class="section-subtitle">Minha jornada profissional e acadêmica</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Profile Image -->
+                    <div class="about-image">
+                        <div class="image-container">
+                            <img src="https://github.com/Euuuller.png" alt="Euller Duarte">
+                        </div>
+                    </div>
+
+                    <!-- Profile Info -->
+                    <div class="about-content">
+                        <h3 class="about-headline">Analista de Dados & Graduando em Engenharia</h3>
+
+                        <div class="about-description">
+                            <p>Graduando em Engenharia Elétrica (IFMA) com forte base analítica voltada para Ciência de
+                                Dados. <span class="highlight-shimmer">Transformo dados brutos em inteligência de
+                                    negócio</span>, dominando SQL, Python, Power BI e Estatística aplicada à resolução
+                                de problemas reais.</p>
+
+                            <p>Desenvolvo soluções de <span class="highlight-text">Business Intelligence</span> com foco
+                                em impacto, incluindo Segmentação de Clientes (RFM), Análise de Cohort e Modelagem
+                                Preditiva. Busco Estágio em Dados para aplicar rigor matemático e visão estratégica na
+                                otimização de resultados.</p>
+                        </div>
+
+                        <!-- Stats/Cards Grid -->
+                        <div class="about-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon icon-blue"><i class="ri-code-s-slash-line"></i></div>
+                                <h4 class="stat-title">Repositórios</h4>
+                                <p class="stat-value">5+ Projetos Públicos</p>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon icon-teal"><i class="ri-focus-2-line"></i></div>
+                                <h4 class="stat-title">Foco Principal</h4>
+                                <p class="stat-value">Análise de Dados & BI</p>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon icon-purple"><i class="ri-graduation-cap-line"></i></div>
+                                <h4 class="stat-title">Formação</h4>
+                                <p class="stat-value">Eng. Elétrica (IFMA)</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Habilidades Técnicas Section -->
+        <section id="habilidades" class="skills">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">Habilidades Técnicas</h2>
+                    <p class="section-subtitle">Stack tecnológica otimizada para análise de dados e desenvolvimento de
+                        soluções escaláveis.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="skills-container">
+                    <!-- Carousel Left to Right -->
+                    <div class="carousel-wrapper scroll-left">
+                        <!-- Group 1 -->
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Python">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-desc">Data Science & Automação</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                                alt="PostgreSQL">
+                            <span class="skill-name">PostgreSQL</span>
+                            <span class="skill-desc">Banco de Dados Relacional</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                                alt="MongoDB">
+                            <span class="skill-name">MongoDB</span>
+                            <span class="skill-desc">Banco NoSQL para Big Data</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R">
+                            <span class="skill-name">R</span>
+                            <span class="skill-desc">Estatística Avançada</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                alt="JavaScript">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-desc">Dashboards Interativos</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+                                alt="SQLite">
+                            <span class="skill-name">SQLite</span>
+                            <span class="skill-desc">Banco Leve e Embutido</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                alt="MySQL">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-desc">Gestão de Dados</span>
+                        </div>
+                        <!-- Repeat for infinite effect -->
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Python">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-desc">Data Science & Automação</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                                alt="PostgreSQL">
+                            <span class="skill-name">PostgreSQL</span>
+                            <span class="skill-desc">Banco de Dados Relacional</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                                alt="MongoDB">
+                            <span class="skill-name">MongoDB</span>
+                            <span class="skill-desc">Banco NoSQL para Big Data</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R">
+                            <span class="skill-name">R</span>
+                            <span class="skill-desc">Estatística Avançada</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                alt="JavaScript">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-desc">Dashboards Interativos</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+                                alt="SQLite">
+                            <span class="skill-name">SQLite</span>
+                            <span class="skill-desc">Banco Leve e Embutido</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                alt="MySQL">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-desc">Gestão de Dados</span>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Right to Left -->
+                    <div class="carousel-wrapper scroll-right">
+                        <!-- Group 2 -->
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                                alt="Pandas">
+                            <span class="skill-name">Pandas</span>
+                            <span class="skill-desc">Manipulação de Dados</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
+                                alt="NumPy">
+                            <span class="skill-name">NumPy</span>
+                            <span class="skill-desc">Computação Numérica</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                                alt="TensorFlow">
+                            <span class="skill-name">TensorFlow</span>
+                            <span class="skill-desc">Deep Learning</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                alt="Docker">
+                            <span class="skill-name">Docker</span>
+                            <span class="skill-desc">Containerização</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                alt="Git">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-desc">Controle de Versão</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                alt="Linux">
+                            <span class="skill-name">Linux</span>
+                            <span class="skill-desc">Sistemas Operacionais</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                                alt="GCP">
+                            <span class="skill-name">GCP</span>
+                            <span class="skill-desc">Cloud Computing</span>
+                        </div>
+                        <!-- Repeat for infinite effect -->
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                                alt="Pandas">
+                            <span class="skill-name">Pandas</span>
+                            <span class="skill-desc">Manipulação de Dados</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
+                                alt="NumPy">
+                            <span class="skill-name">NumPy</span>
+                            <span class="skill-desc">Computação Numérica</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                                alt="TensorFlow">
+                            <span class="skill-name">TensorFlow</span>
+                            <span class="skill-desc">Deep Learning</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                alt="Docker">
+                            <span class="skill-name">Docker</span>
+                            <span class="skill-desc">Containerização</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                alt="Git">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-desc">Controle de Versão</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                alt="Linux">
+                            <span class="skill-name">Linux</span>
+                            <span class="skill-desc">Sistemas Operacionais</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                                alt="GCP">
+                            <span class="skill-name">GCP</span>
+                            <span class="skill-desc">Cloud Computing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos em Destaque Section -->
+        <section id="projetos" class="projects">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">Projetos em Destaque</h2>
+                    <p class="section-subtitle">Aplicações reais desenvolvidas com foco em Ciência de Dados e Business
+                        Intelligence.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Projeto 1: RFM -->
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <span class="project-category">Analytics</span>
+                            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
+                                alt="Segmentação de Clientes">
+                            <div class="project-overlay">
+                                <div class="overlay-icons">
+                                    <a href="#" class="overlay-icon"><i class="ri-maximize-line"></i></a>
+                                    <a href="#" class="overlay-icon"><i class="ri-github-line"></i></a>
+                                    <a href="#" class="overlay-icon"><i class="ri-external-link-line"></i></a>
+                                </div>
+                                <span class="overlay-text">Ver Detalhes do Projeto</span>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <h3 class="project-title">Segmentação de Clientes (RFM)</h3>
+                            <p class="project-description">
+                                Análise de Clusterização para classificar clientes com base em Recência, Frequência e
+                                Valor Monetário.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Pandas</span>
+                                <span class="tag">Power BI</span>
+                            </div>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-stats">
+                                <span class="stat-item"><i class="ri-database-2-line"></i> 1.5k Registros</span>
+                                <span class="stat-item"><i class="ri-group-line"></i> 5 Segmentos</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/euller-ds" target="_blank"
+                                    class="btn-project btn-github-ghost">
+                                    <i class="ri-github-line"></i> GitHub
+                                </a>
+                                <a href="#" class="btn-project btn-demo">
+                                    <i class="ri-external-link-line"></i> Ver Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 2: Sales Dashboard -->
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <span class="project-category">Dashboards</span>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+                                alt="Dashboard de Vendas">
+                            <div class="project-overlay">
+                                <div class="overlay-icons">
+                                    <a href="#" class="overlay-icon"><i class="ri-maximize-line"></i></a>
+                                    <a href="#" class="overlay-icon"><i class="ri-github-line"></i></a>
+                                    <a href="#" class="overlay-icon"><i class="ri-external-link-line"></i></a>
+                                </div>
+                                <span class="overlay-text">Ver Detalhes do Projeto</span>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <h3 class="project-title">Dashboard de Vendas</h3>
+                            <p class="project-description">
+                                Dashboard interativo para monitoramento de KPIs de vendas, análise geográfica e
+                                tendências mensais.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Power BI</span>
+                                <span class="tag">DAX</span>
+                                <span class="tag">SQL</span>
+                            </div>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-stats">
+                                <span class="stat-item"><i class="ri-bar-chart-2-line"></i> KPIs em Tempo Real</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/euller-ds" target="_blank"
+                                    class="btn-project btn-github-ghost">
+                                    <i class="ri-github-line"></i> GitHub
+                                </a>
+                                <a href="#" class="btn-project btn-demo">
+                                    <i class="ri-external-link-line"></i> Ver Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 3: Fraud Detection (ML) -->
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <span class="project-category">Machine Learning</span>
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+                                alt="Detecção de Fraudes">
+                            <div class="project-overlay">
+                                <div class="overlay-icons">
+                                    <a href="#" class="overlay-icon"><i class="ri-maximize-line"></i></a>
+                                    <a href="#" class="overlay-icon"><i class="ri-github-line"></i></a>
+                                    <a href="#" class="overlay-icon"><i class="ri-external-link-line"></i></a>
+                                </div>
+                                <span class="overlay-text">Ver Detalhes do Projeto</span>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <h3 class="project-title">Detecção de Fraudes (ML)</h3>
+                            <p class="project-description">
+                                Modelo de Machine Learning para identificar transações fraudulentas em tempo real com
+                                alta precisão.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Scikit-Learn</span>
+                                <span class="tag">XGBoost</span>
+                            </div>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-stats">
+                                <span class="stat-item"><i class="ri-checkbox-circle-line"></i> 95% Precisão</span>
+                                <span class="stat-item"><i class="ri-error-warning-line"></i> 2% Falsos Positivos</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/euller-ds" target="_blank"
+                                    class="btn-project btn-github-ghost">
+                                    <i class="ri-github-line"></i> GitHub
+                                </a>
+                                <a href="#" class="btn-project btn-demo">
+                                    <i class="ri-external-link-line"></i> Ver Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contatos -->
+        <section id="contato" class="contact">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">Vamos Conversar?</h2>
+                    <p class="section-subtitle">Estou disponível para novas oportunidades e colaborações</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="contact-container">
+                    <!-- Left Side: Links -->
+                    <div class="contact-info">
+                        <div class="contact-text">
+                            <h3>Canais de Contato</h3>
+                            <p>Sinta-se à vontade para me adicionar nas redes ou enviar um email direto.</p>
+                        </div>
+
+                        <div class="contact-list">
+                            <!-- Email -->
+                            <a href="mailto:euller.santos.duarte@email.com" class="contact-item">
+                                <div class="contact-icon icon-email">
+                                    <i class="ri-mail-line"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span>Email</span>
+                                    <strong>euller.santos.duarte</strong>
+                                </div>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a href="https://linkedin.com/in/euuuller" target="_blank" class="contact-item">
+                                <div class="contact-icon icon-linkedin">
+                                    <i class="ri-linkedin-box-line"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span>LinkedIn</span>
+                                    <strong>/in/euuuller</strong>
+                                </div>
+                            </a>
+
+                            <!-- GitHub -->
+                            <a href="https://github.com/euuuller" target="_blank" class="contact-item">
+                                <div class="contact-icon icon-github">
+                                    <i class="ri-github-line"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span>GitHub</span>
+                                    <strong>@euuuller</strong>
+                                </div>
+                            </a>
+
+                            <!-- Medium -->
+                            <a href="https://medium.com/@euller.duarte" target="_blank" class="contact-item">
+                                <div class="contact-icon icon-medium">
+                                    <i class="ri-medium-line"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span>Medium</span>
+                                    <strong>@euller.duarte</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Form -->
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" placeholder="Sobre o projeto..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" placeholder="Como posso ajudar?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            Enviar Mensagem <i class="ri-send-plane-fill"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>

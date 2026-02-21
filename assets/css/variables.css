@@ -1,0 +1,58 @@
+:root {
+    /* Colors - Derived from Reference */
+    --primary: #3b82f6;
+    /* Blue 500 */
+    --secondary: #10b981;
+    /* Emerald 500 */
+    --success: #10b981;
+
+    /* Dark Theme (Default) */
+    --bg-dark: #020617;
+    /* Slate 950 */
+    --bg-dark-secondary: #0f172a;
+    /* Slate 900 */
+    --text-dark: #f8fafc;
+    /* Slate 50 */
+    --text-dark-muted: #94a3b8;
+    /* Slate 400 */
+
+    /* Light Theme */
+    --bg-light: #f8fafc;
+    --bg-light-secondary: #ffffff;
+    --text-light: #0f172a;
+    --text-light-muted: #475569;
+
+    /* Fonts */
+    --font-sans: 'Inter', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Spacing */
+    --header-height: 70px;
+    --container-max-width: 1200px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.4s ease;
+}
+
+[data-theme="light"] {
+    --bg-main: var(--bg-light);
+    --bg-surface: var(--bg-light-secondary);
+    --text-main: var(--text-light);
+    --text-muted: var(--text-light-muted);
+    --grid-color: rgba(59, 130, 246, 0.05);
+    /* Blue subtle grid */
+    --border-color: rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="dark"],
+:root:not([data-theme="light"]) {
+    --bg-main: var(--bg-dark);
+    --bg-surface: var(--bg-dark-secondary);
+    --text-main: var(--text-dark);
+    --text-muted: var(--text-dark-muted);
+    --grid-color: rgba(255, 255, 255, 0.03);
+    /* Very subtle white grid */
+    --border-color: rgba(255, 255, 255, 0.1);
+}
