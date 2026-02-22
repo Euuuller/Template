@@ -25,7 +25,7 @@
      * Seção inteira ocupa a tela
      */
     min-height: 100vh;
-    
+
     /**
      * Flex centraliza conteúdo
      */
@@ -34,14 +34,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    
+
     /**
      * Offset para ficar abaixo do header fixo
      * var(--header-height) = 70px
      * Evita sobreposição com header
      */
     padding-top: var(--header-height);
-    
+
     /**
      * position: relative para posicionar scroll-indicator
      */
@@ -73,50 +73,50 @@
      * Background azul muito fraco (5% opacity)
      */
     background: rgba(59, 130, 246, 0.1);
-    
+
     /**
      * Cor azul primária
      */
     color: var(--primary);
-    
+
     /**
      * Padding pilule-style
      */
     padding: 0.5rem 1.2rem;
-    
+
     /**
      * Cantos ultra arredondados (99px)
      */
     border-radius: 99px;
-    
+
     /**
      * Fonte muito pequena
      * 0.75rem ≈ 12px (tag-like)
      */
     font-size: 0.75rem;
-    
+
     /**
      * Font weight
      */
     font-weight: 600;
-    
+
     /**
      * Espaço embaixo
      */
     margin-bottom: 2rem;
-    
+
     /**
      * Borda azul muito fraca
      */
     border: 1px solid rgba(59, 130, 246, 0.2);
-    
+
     /**
      * Flex para alinhar ponto pulsante
      */
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    
+
     /**
      * Tamanho automático baseado em conteúdo
      */
@@ -132,27 +132,27 @@
      */
     width: 8px;
     height: 8px;
-    
+
     /**
      * Cor azul primária
      */
     background: var(--primary);
-    
+
     /**
      * Circular
      */
     border-radius: 50%;
-    
+
     /**
      * Inline-block para flex funcionar
      */
     display: inline-block;
-    
+
     /**
      * Glow effect ao redor do ponto
      */
     box-shadow: 0 0 10px var(--primary);
-    
+
     /**
      * Animation pulsante
      * pulse = (crescimento + opacidade) repetindo
@@ -173,24 +173,24 @@
      * Meio-termo: 10vw
      */
     font-size: clamp(3rem, 10vw, 5rem);
-    
+
     /**
      * Extra bold para destaque máximo
      */
     font-weight: 800;
-    
+
     /**
      * Altura linha compacta
      * 1.1 = de uma linha para outra próxima
      * Títulos geralmente precisam ser compactos
      */
     line-height: 1.1;
-    
+
     /**
      * Espaço embaixo do título
      */
     margin-bottom: 1rem;
-    
+
     /**
      * Font display (Outfit, moderno)
      */
@@ -217,29 +217,29 @@
      * Menor que título mas grande
      */
     font-size: clamp(1.8rem, 6vw, 3rem);
-    
+
     /**
      * Peso: bold
      */
     font-weight: 700;
-    
+
     /**
      * Espaço embaixo
      */
     margin-bottom: 2rem;
-    
+
     /**
      * Font monospace para código-like feel
      */
     font-family: var(--font-mono);
-    
+
     /**
      * min-height garante espaço mesmo com texto vazio
      * 1.2em = um pouco maior que linha de texto
      * Previne "jumping" quando digitando
      */
     min-height: 1.2em;
-    
+
     /**
      * Flex para centralizar texto + cursor
      */
@@ -253,19 +253,40 @@
  */
 .hero-typing .text {
     /**
-     * Gradient de 3 cores
-     * Rosa → Roxo → Azul
-     * Efeito rainbow colorido
+     * Gradient dinâmico de 5 cores
+     * Ciano → Azul (Primary) → Roxo → Rosa → Fuchsia
      */
-    background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
-    
+    background: linear-gradient(to right,
+            #06b6d4,
+            var(--primary),
+            #8b5cf6,
+            #ec4899,
+            #c026d3,
+            #06b6d4,
+            #FF2C2C,
+            #FFA500);
+
+    /**
+     * Background expandido para permitir movimento
+     */
+    background-size: 300% auto;
+
+    /**
+     * Animação rainbowWave (animations.css)
+     */
+    animation: rainbowWave 5s linear infinite;
+
     /**
      * Clipa o gradient às letras
-     * Truque de CSS para text com cor gradient
      */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+
+    /**
+     * Glow premium (filtro para não interferir no clipping)
+     */
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
 }
 
 /**
@@ -276,12 +297,12 @@
      * Espaço entre texto e cursor
      */
     margin-left: 2px;
-    
+
     /**
      * Cursor azul
      */
     color: var(--primary);
-    
+
     /**
      * Animation blink
      * Piscar 0.8s infinito
@@ -297,22 +318,22 @@
      * Limite de largura para readability
      */
     max-width: 600px;
-    
+
     /**
      * Tamanho um pouco maior
      */
     font-size: 1.1rem;
-    
+
     /**
      * Cor muted (menos proeminente)
      */
     color: var(--text-muted);
-    
+
     /**
      * Espaço antes dos botões
      */
     margin-bottom: 3rem;
-    
+
     /**
      * Padding horizontal em telas pequenas
      */
@@ -322,16 +343,16 @@
 /**
  * Links dentro da descrição
  */
-.hero-description a {
+.hero-description .highlight-text {
     /**
      * Destaque em cor primária
      */
     color: var(--primary);
-    
+
     /**
-     * Underline para indicar link
+     * Peso da fonte para destaque
      */
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 /**
@@ -342,17 +363,17 @@
      * Flex para alinhar botões lado a lado
      */
     display: flex;
-    
+
     /**
      * Espaço entre botões
      */
     gap: 1rem;
-    
+
     /**
      * Quebra em telas pequenas
      */
     flex-wrap: wrap;
-    
+
     /**
      * Centraliza botões
      */
@@ -368,18 +389,18 @@
      */
     position: absolute;
     bottom: 2rem;
-    
+
     /**
      * Cor subtil
      */
     color: var(--text-muted);
-    
+
     /**
      * Animation bounce
      * Pula repetidamente, indicativo
      */
     animation: bounce 2s infinite;
-    
+
     /**
      * Clicável
      */

@@ -41,50 +41,50 @@
      * 2rem ≈ 32px (sem text muito perto da borda)
      */
     padding: 0.8rem 2rem;
-    
+
     /**
      * Cantos arredondados
      * 10px: suave, não extremo
      */
     border-radius: 10px;
-    
+
     /**
      * Peso da fonte para destaque
      * 700 = bold (botão precisa se destacar)
      */
     font-weight: 700;
-    
+
     /**
      * Tamanho fonte
      * 1rem = tamanho padrão (16px geralmente)
      */
     font-size: 1rem;
-    
+
     /**
      * Cursor de ponteiro
      * Indica ao user que é clicável
      */
     cursor: pointer;
-    
+
     /**
      * Flexbox para alinhar ícone + texto
      * Se botão tem <i class="icon"> + texto
      * Flexbox alinha lado a lado
      */
     display: flex;
-    
+
     /**
      * Alinha items verticalmente no centro
      * Ícone fica alinhado com texto
      */
     align-items: center;
-    
+
     /**
      * Espaço entre ícone e texto
      * 0.5rem ≈ 8px de gap
      */
     gap: 0.5rem;
-    
+
     /**
      * Transições suaves
      * transform: escala em active
@@ -123,17 +123,17 @@
      * var(--primary) = #3b82f6 (azul)
      */
     background: var(--primary);
-    
+
     /**
      * Texto branco para contraste máximo
      */
     color: white;
-    
+
     /**
      * Sem borda (botão sólido)
      */
     border: none;
-    
+
     /**
      * Sombra inicial
      * Cria depth, indica que é clicável
@@ -173,14 +173,14 @@
      * Deixa ver o background atrás
      */
     background: transparent;
-    
+
     /**
      * Texto muda cor com tema
      * Dark: branco
      * Light: preto
      */
     color: var(--text-main);
-    
+
     /**
      * Borda fina de cor sutil
      * rgba(255, 255, 255, 0.1) = branco muito fraco
@@ -212,7 +212,7 @@
      * Background cinzento muito translúcido
      */
     background: rgba(255, 255, 255, 0.05);
-    
+
     /**
      * Borda fica mais visível (muda para primary color)
      */
@@ -233,42 +233,42 @@
      * Compacto para card
      */
     padding: 10px 20px;
-    
+
     /**
      * Cantos menos arredondados
      */
     border-radius: 10px;
-    
+
     /**
      * Fonte menor
      * 0.9rem ≈ 14px (um pouco menor)
      */
     font-size: 0.9rem;
-    
+
     /**
      * Font weight
      * 600 = semibold (menos que bold 700)
      */
     font-weight: 600;
-    
+
     /**
      * Flex para ícone + texto
      */
     display: flex;
     align-items: center;
-    
+
     /**
      * Espaço entre ícone e texto
      */
     gap: 0.5rem;
-    
+
     /**
      * Transição rápida
      * all significa: todas propriedades
      * 0.3s ease = um pouco mais lento que .btn base
      */
     transition: all 0.3s ease;
-    
+
     /**
      * Cursor indica clicável
      */
@@ -287,13 +287,13 @@
      * Totalmente transparente
      */
     background: transparent;
-    
+
     /**
      * Borda fina
      * rgba(255, 255, 255, 0.1) = branco muito fraco
      */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    
+
     /**
      * Cor texto principal
      */
@@ -308,7 +308,7 @@
      * Levemente mais visível
      */
     background: rgba(255, 255, 255, 0.05);
-    
+
     /**
      * Borda fica mais proeminente
      */
@@ -327,12 +327,12 @@
      * Background azul primário
      */
     background: var(--primary);
-    
+
     /**
      * Texto branco
      */
     color: white;
-    
+
     /**
      * Sem borda
      */
@@ -348,13 +348,13 @@
      * #2563eb = Tailwind blue-600 (mais escuro que 500)
      */
     background: #2563eb;
-    
+
     /**
      * Sobe 2px (levita)
      * Indica interatividade
      */
     transform: translateY(-2px);
-    
+
     /**
      * Sombra ao levantar
      */
@@ -373,24 +373,24 @@
      * Espaço acima do form
      */
     margin-top: 1rem;
-    
+
     /**
      * Padding grande (botão destaca)
      * 1.2rem top/bottom ≈ 19px
      * Altura confortável para click
      */
     padding: 1.2rem;
-    
+
     /**
      * Cantos bem arredondados
      */
     border-radius: 14px;
-    
+
     /**
      * Sem borda
      */
     border: none;
-    
+
     /**
      * Gradient background
      * De roxo (#4f46e5) para ciano (#0ea5e9)
@@ -398,51 +398,51 @@
      * Muito visual, premium feel
      */
     background: linear-gradient(135deg, #4f46e5, #0ea5e9);
-    
+
     /**
      * Texto branco para contraste
      */
     color: white;
-    
+
     /**
      * Font family padrão
      */
     font-family: var(--font-sans);
-    
+
     /**
      * Tamanho fonte
      */
     font-size: 1rem;
-    
+
     /**
      * Font weight
      * 600 = semibold
      */
     font-weight: 600;
-    
+
     /**
      * Flex para aligning ícone + texto
      */
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     /**
      * Espaço entre elementos
      */
     gap: 0.8rem;
-    
+
     /**
      * Pointer cursor
      */
     cursor: pointer;
-    
+
     /**
      * Transição suave para todas propriedades
      * var(--transition-base) = 0.4s ease
      */
     transition: all var(--transition-base);
-    
+
     /**
      * Sombra inicial (depth/elevation)
      */
@@ -458,12 +458,12 @@
      * 3px subida
      */
     transform: translateY(-3px);
-    
+
     /**
      * Sombra aumenta
      */
     box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6);
-    
+
     /**
      * Brilho aumenta
      * brightness(1.1) = 10% mais brilhante
@@ -497,56 +497,56 @@
      */
     width: 40px;
     height: 40px;
-    
+
     /**
      * Flex: centralizar ícone
      */
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     /**
      * Cantos bem arredondados
      * Quase circular
      */
     border-radius: 12px;
-    
+
     /**
      * Background super translúcido
      * rgba(255, 255, 255, 0.03) = branco 3% opacity
      * Muito sutil, quase invisível
      */
     background: rgba(255, 255, 255, 0.03);
-    
+
     /**
      * Borda muito sutil
      * rgba(255, 255, 255, 0.1) = branco 10% opacity
      */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    
+
     /**
      * Cor ícone (muted)
      * Desaturado, não destaca muito
      */
     color: var(--text-dark-muted);
-    
+
     /**
      * Tamanho ícone
      */
     font-size: 1.2rem;
-    
+
     /**
      * Transição smooth (cubic-bezier custom)
      * cubic-bezier(0.4, 0, 0.2, 1) = "material design" easing
      * Algo entre ease e linear, muito fluído
      */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     /**
      * Pointer cursor
      */
     cursor: pointer;
-    
+
     /**
      * Remove underline se é <a>
      */
@@ -573,22 +573,22 @@
      * Background mais visível
      */
     background: rgba(255, 255, 255, 0.08);
-    
+
     /**
      * Borda mais proeminente
      */
     border-color: rgba(255, 255, 255, 0.2);
-    
+
     /**
      * Cor ícone muda para mais visível
      */
     color: var(--text-dark);
-    
+
     /**
      * Sobe levemente (levita)
      */
     transform: translateY(-3px);
-    
+
     /**
      * Sombra
      */
@@ -607,24 +607,24 @@
      * Cor do texto (azul primário)
      */
     color: var(--primary);
-    
+
     /**
      * Borda azul muito translúcida
      */
     border-color: rgba(59, 130, 246, 0.3);
-    
+
     /**
      * Background azul bem fraco
      * rgba(59, 130, 246, 0.05) = 5% opacity
      * Quase invisível, só sugerindo cor
      */
     background: rgba(59, 130, 246, 0.05);
-    
+
     /**
      * position: relative para ::after overlay
      */
     position: relative;
-    
+
     /**
      * Clipa conteúdo que sai da borda
      */
@@ -639,28 +639,28 @@
      * Necessário para pseudo-elemento
      */
     content: '';
-    
+
     /**
      * Position: absolute faz ficar sobre o botão
      */
     position: absolute;
-    
+
     /**
      * Ocupa todo espaço do botão
      */
     width: 100%;
     height: 100%;
-    
+
     /**
      * Radial gradient: brilho no centro
      */
     background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-    
+
     /**
      * Inicialmente invisível
      */
     opacity: 0;
-    
+
     /**
      * Transição smooth de opacidade
      */
@@ -676,7 +676,7 @@
      * Brilho central azul
      */
     opacity: 0.15;
-    
+
     /**
      * Animation glow: do base/animations.css
      * Faz aura pulsar
@@ -695,7 +695,7 @@
      * Cor do ícone GitHub
      */
     color: var(--text-dark);
-    
+
     /**
      * Borda muito sutil
      * rgba(255, 255, 255, 0.1) = branco 10%
@@ -720,12 +720,12 @@
      * Quase invisível
      */
     background: rgba(0, 0, 0, 0.02);
-    
+
     /**
      * Borda preta muito fraca
      */
     border-color: rgba(0, 0, 0, 0.1);
-    
+
     /**
      * Cor ícone muted (cinza)
      */
@@ -741,14 +741,41 @@
      * rgba(0, 0, 0, 0.05) = preto 5% opacity
      */
     background: rgba(0, 0, 0, 0.05);
-    
+
     /**
      * Borda mais visível
      */
     border-color: rgba(0, 0, 0, 0.2);
-    
+
     /**
      * Ícone fica escuro
      */
     color: var(--text-light);
+}
+
+/**
+ * CV Button em light theme (Red)
+ */
+[data-theme="light"] .cv-btn {
+    /**
+     * Cor do texto (vermelho)
+     */
+    color: #ef4444;
+
+    /**
+     * Borda vermelha translúcida
+     */
+    border-color: rgba(239, 68, 68, 0.3);
+
+    /**
+     * Background vermelho bem fraco
+     */
+    background: rgba(239, 68, 68, 0.05);
+}
+
+/**
+ * Glow effect em light theme (Red)
+ */
+[data-theme="light"] .cv-btn::after {
+    background: radial-gradient(circle, #ef4444 0%, transparent 70%);
 }
