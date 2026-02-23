@@ -13,7 +13,7 @@
        └── .project-card (card individual)
            ├── .project-image-container (imagem com zoom)
            │   └── .project-category (badge de categoria)
-           │   └── .project-overlay (ícones de ação)
+           │   └── .project-overlay (texto informativo)
            └── .project-content (conteúdo textual)
    
    BENEFÍCIOS DO DESIGN:
@@ -167,8 +167,8 @@
    filter: blur(4px) brightness(0.6);
 
    /* EFEITO VISUAL GERAL:
-       Imagem cresce, desfoca e escurece para destacar overlay com ícones.
-       Mantém foco nos botões de ação (demo/github).
+       Imagem cresce, desfoca e escurece para destacar overlay com texto.
+       Mantém foco no componente central.
     */
 }
 
@@ -228,7 +228,7 @@
 }
 
 /* ================================
-   PROJECT OVERLAY - ÍCONES DE AÇÃO
+   PROJECT OVERLAY - INFORMAÇÃO AO HOVER
    ================================ */
 
 .project-overlay {
@@ -237,16 +237,15 @@
    inset: 0;
    /* Shorthand para top/right/bottom/left: 0 (cobre 100%) */
 
-   /* Flexbox para centrar ícones */
+   /* Flexbox para centrar o conteúdo */
    display: flex;
-   flex-direction: column;
-   /* Ícones em coluna, texto abaixo */
+   /* Centraliza verticalmente e horizontalmente */
    align-items: center;
    /* Centraliza horizontalmente */
    justify-content: center;
    /* Centraliza verticalmente */
    gap: 1.5rem;
-   /* 24px entre ícones e texto */
+   /* 24px de espaço entre os elementos */
 
    /* Invisível por padrão */
    opacity: 0;
@@ -276,66 +275,7 @@
    /* Recebe eventos de mouse */
 }
 
-/* CONTAINER DOS ÍCONE */
-.overlay-icons {
-   /* Layout flexbox para botões lado a lado */
-   display: flex;
-   gap: 1rem;
-   /* 16px entre cada ícone */
 
-   /* EFEITO VISUAL:
-       [DEMO] ⟡ [GITHUB]
-       Com 16px de espaço entre eles
-    */
-}
-
-/* ÍCONE INDIVIDUAL (BOTÃO CIRCULAR) */
-.overlay-icon {
-   /* Dimensões quadradas para criar círculo */
-   width: 45px;
-   height: 45px;
-
-   /* Cor de fundo = cor primária (azul) */
-   background: var(--primary);
-   /* #3B82F6 em dark mode */
-
-   /* Torna quadrado em círculo */
-   border-radius: 50%;
-
-   /* Centraliza ícone dentro do círculo */
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
-   /* Texto/ícone branco */
-   color: white;
-   font-size: 1.2rem;
-   /* Ícone de 19.2px (lucide icons) */
-
-   /* Transição para hover */
-   transition: all 0.3s ease;
-   /* background-color, transform */
-
-   /* ESTRUTURA:
-       Botão circular de 45x45px com ícone centralizado
-       Ícones típicos: demonstração (play) e GitHub (github icon)
-    */
-}
-
-.overlay-icon:hover {
-   /* Aumenta ícone ao passar mouse */
-   transform: scale(1.1);
-   /* 10% maior */
-
-   /* Muda cor de fundo para secundária */
-   background: var(--secondary);
-   /* Cor variável secundária */
-
-   /* EFEITO:
-       Ícone fica um pouco maior e muda de cor quando hover
-       Feedback visual que é clicável
-    */
-}
 
 /* TEXTO ABAIXO DOS ÍCONES */
 .overlay-text {

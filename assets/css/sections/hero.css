@@ -124,14 +124,14 @@
 }
 
 /**
- * .hero-badge span - Ponto pulsante
+ * .hero-badge span:first-child - Ponto pulsante
  */
-.hero-badge span {
+.hero-badge span:first-child {
     /**
      * Tamanho pequeno do ponto
      */
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
 
     /**
      * Cor azul primária
@@ -158,7 +158,7 @@
      * pulse = (crescimento + opacidade) repetindo
      * base/animations.css
      */
-    animation: pulse 2s infinite;
+    animation: pulse 1s infinite;
 }
 
 /**

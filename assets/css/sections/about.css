@@ -204,12 +204,36 @@
     animation: textShimmer 3s linear infinite;
 }
 
-/**
- * .highlight-text - Texto destacado (simples)
- */
 .highlight-text {
     color: var(--primary);
     font-weight: 600;
+}
+
+/**
+ * .tech-highlight - Cores de teconologias específicas
+ */
+.tech-highlight {
+    font-weight: 600;
+}
+
+.tech-excel {
+    color: #217346;
+}
+
+.tech-powerbi {
+    color: #F2C811;
+}
+
+.tech-sql {
+    color: #00758F;
+}
+
+.tech-python {
+    background: linear-gradient(90deg, #3776AB, #FFD343);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 /**

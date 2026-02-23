@@ -1,0 +1,527 @@
+/* =======================================
+   PROJECT MODAL - REFINED VERSION 2 (Refatorado)
+   ======================================= */
+
+.modal-overlay {
+    /* ----- Variáveis Locais do Modal (Dark Mode Padrão) ----- */
+    --modal-overlay-bg: rgba(4, 7, 13, 0.9);
+    --modal-bg: #000000;
+    --modal-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    --modal-footer-bg: #070a13;
+
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --card-border: rgba(255, 255, 255, 0.05);
+
+    --btn-close-bg: rgba(255, 255, 255, 0.04);
+    --btn-close-hover: rgba(255, 255, 255, 0.1);
+    --btn-close-text: rgba(255, 255, 255, 0.5);
+    --btn-close-text-hover: #fff;
+
+    --sidebar-btn-bg: rgba(255, 255, 255, 0.03);
+    --sidebar-btn-border: rgba(255, 255, 255, 0.08);
+    --sidebar-btn-hover-bg: rgba(129, 140, 248, 0.1);
+    --sidebar-btn-hover-border: rgba(129, 140, 248, 0.3);
+
+    --tag-bg: rgba(255, 255, 255, 0.03);
+    --tag-border: rgba(255, 255, 255, 0.1);
+
+    --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+
+    position: fixed;
+    inset: 0;
+    background: var(--modal-overlay-bg);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ----- Overrides Light Mode (Mantemos no Root do Modal) ----- */
+[data-theme="light"] .modal-overlay {
+    --modal-overlay-bg: rgba(255, 255, 255, 0.85);
+    --modal-bg: #ffffff;
+    --modal-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --modal-footer-bg: #f3f4f6;
+
+    --card-bg: #f9fafb;
+    --card-border: rgba(0, 0, 0, 0.05);
+
+    --btn-close-bg: rgba(0, 0, 0, 0.05);
+    --btn-close-hover: rgba(0, 0, 0, 0.1);
+    --btn-close-text: #4b5563;
+    --btn-close-text-hover: #111827;
+
+    --sidebar-btn-bg: #f3f4f6;
+    --sidebar-btn-border: #e5e7eb;
+    --sidebar-btn-hover-bg: #e0e7ff;
+    --sidebar-btn-hover-border: #c7d2fe;
+
+    --tag-bg: #ffffff;
+    --tag-border: #e5e7eb;
+
+    --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    background: var(--modal-bg);
+    width: 95%;
+    max-width: 900px;
+    max-height: 85vh;
+    border-radius: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--modal-shadow);
+    transform: scale(0.95) translateY(10px);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: var(--btn-close-bg);
+    border: none;
+    color: var(--btn-close-text);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.modal-close:hover {
+    background: var(--btn-close-hover);
+    color: var(--btn-close-text-hover);
+    transform: rotate(90deg);
+}
+
+/* Body / Scrolling Area */
+.modal-body {
+    padding: 2.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Badge */
+.modal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+[data-theme="light"] .modal-badge {
+    color: #2563eb;
+}
+
+.modal-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: currentColor;
+    border-radius: 50%;
+}
+
+/* Header */
+.modal-header {
+    margin-bottom: 1.5rem;
+}
+
+.modal-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.modal-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 85%;
+}
+
+/* Grid Layout */
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Left Column: Cards */
+.modal-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+}
+
+.info-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    /* Somente dark tem bg no ícone, light usa a cor na section setup */
+    background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="light"] .info-icon {
+    background: transparent;
+}
+
+.info-content h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.info-content p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Section Colors - Dynamic */
+.card-desafio {
+    border-color: rgba(244, 63, 94, 0.15);
+    background: rgba(244, 63, 94, 0.03);
+}
+
+.card-desafio .info-icon {
+    color: #f43f5e;
+    background: rgba(244, 63, 94, 0.1);
+}
+
+.card-solucao {
+    border-color: rgba(59, 130, 246, 0.15);
+    background: rgba(59, 130, 246, 0.03);
+}
+
+.card-solucao .info-icon {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.card-impacto {
+    border-color: rgba(16, 185, 129, 0.15);
+    background: rgba(16, 185, 129, 0.03);
+}
+
+.card-impacto .info-icon {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+[data-theme="light"] .card-desafio {
+    border-color: rgba(244, 63, 94, 0.2);
+    background: rgba(244, 63, 94, 0.05);
+}
+
+[data-theme="light"] .card-desafio .info-icon {
+    background: rgba(244, 63, 94, 0.15);
+    color: #e11d48;
+}
+
+[data-theme="light"] .card-solucao {
+    border-color: rgba(59, 130, 246, 0.2);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+[data-theme="light"] .card-solucao .info-icon {
+    background: rgba(59, 130, 246, 0.15);
+    color: #2563eb;
+}
+
+[data-theme="light"] .card-impacto {
+    border-color: rgba(16, 185, 129, 0.2);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+[data-theme="light"] .card-impacto .info-icon {
+    background: rgba(16, 185, 129, 0.15);
+    color: #059669;
+}
+
+/* Right Column */
+.modal-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Action Buttons Container */
+.modal-actions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Demo Button */
+.demo-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #6366f1, #06b6d4);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.25);
+}
+
+.demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+    color: #fff;
+}
+
+/* Sidebar Button */
+.sidebar-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--sidebar-btn-bg);
+    border: 1px solid var(--sidebar-btn-border);
+    border-radius: 10px;
+    color: #818cf8;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .sidebar-btn {
+    color: #4f46e5;
+}
+
+.sidebar-btn:hover {
+    background: var(--sidebar-btn-hover-bg);
+    border-color: var(--sidebar-btn-hover-border);
+}
+
+/* Sidebar Sections */
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sidebar-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar-label::after {
+    content: '';
+    height: 1px;
+    background: var(--border-color);
+    flex-grow: 1;
+}
+
+/* Stack Tags Styles */
+.stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.stack-tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+
+.tag-python {
+    color: #60a5fa;
+    border-color: rgba(96, 165, 250, 0.2);
+}
+
+[data-theme="light"] .tag-python {
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.tag-xgboost {
+    color: #a855f7;
+    border-color: rgba(168, 85, 247, 0.2);
+}
+
+[data-theme="light"] .tag-xgboost {
+    color: #9333ea;
+    border-color: rgba(147, 51, 234, 0.2);
+}
+
+.tag-pandas {
+    color: #06b6d4;
+    border-color: rgba(6, 182, 212, 0.2);
+}
+
+[data-theme="light"] .tag-pandas {
+    color: #0891b2;
+    border-color: rgba(8, 145, 178, 0.2);
+}
+
+/* Metrics List */
+.metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.metric-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-main);
+}
+
+.metric-dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Footer */
+.modal-footer {
+    background: transparent;
+    padding: 1rem 2.5rem;
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-credits,
+.footer-year {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.footer-year {
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Scrollbar */
+.modal-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-right {
+        order: -1;
+    }
+
+    .modal-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-footer {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}

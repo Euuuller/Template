@@ -39,6 +39,12 @@ import { initGithubStats } from './modules/github.js';
 // Importa a função que gerencia as habilidades técnicas via JSON
 import { initSkills } from './modules/skills.js';
 
+// Importa a função que gerencia o modal de detalhes do projeto
+import { initProjectModal } from './modules/modal.js';
+
+// Importa a função que injeta dados estruturais no HTML (Data-Driven)
+import { initDataBinder } from './modules/binder.js';
+
 /**
  * Event Listener: DOMContentLoaded
  * 
@@ -61,6 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // - Adicionar listener ao botão de toggle
     // - Animar transição entre temas
     initTheme();
+
+    // ========================================
+    // 2. INJETAR DADOS NO HTML (Data-Driven Architecture)
+    // ========================================
+    // Responsável por capturar <tags data-bind>
+    // Injeta os dados vindos de portfolio.js antes das animações
+    initDataBinder();
 
     // ========================================
     // 2. INICIALIZAR EFEITO DE DIGITAÇÃO
@@ -88,6 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. INICIALIZAR HABILIDADES TÉCNICAS (JSON)
     // ========================================
     initSkills();
+
+    // ========================================
+    // 6. INICIALIZAR MODAL DE PROJETOS
+    // ========================================
+    initProjectModal();
 
     // ========================================
     // LOG DE INICIALIZAÇÃO (OPCIONAL)

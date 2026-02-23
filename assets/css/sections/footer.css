@@ -31,22 +31,25 @@
    ================================ */
 
 .footer {
-    /* Contexto para positioned elements */
-    position: relative;
-    
-    /* Padding reduzido (footer compacto) */
-    padding: 2rem 0; /* 32px top/bottom, 0 left/right (gerenciado por .container) */
-    
-    /* Fundo secundário (ligeiramente mais escuro que main) */
-    background: var(--bg-secondary); /* hsl(0, 0%, 10%) em dark mode */
-    
-    /* Borda divisória acima do footer */
-    border-top: 1px solid var(--border-color); /* hsl(0, 0%, 18%) */
-    
-    /* Garante que nada transborda */
-    overflow: hidden;
-    
-    /* CONTEXTO VISUAL:
+   /* Contexto para positioned elements */
+   position: relative;
+
+   /* Padding reduzido (footer compacto) */
+   padding: 1rem 0;
+   /* 32px top/bottom, 0 left/right (gerenciado por .container) */
+
+   /* Fundo secundário (ligeiramente mais escuro que main) */
+   background: var(--bg-secondary);
+   /* hsl(0, 0%, 10%) em dark mode */
+
+   /* Borda divisória acima do footer */
+   border-top: 1px solid var(--border-color);
+   /* hsl(0, 0%, 18%) */
+
+   /* Garante que nada transborda */
+   overflow: hidden;
+
+   /* CONTEXTO VISUAL:
        Seção final separada por borda
        Fundo mais escuro diferencia footer do restante
        Padding compacto mantém proporção visual
@@ -58,43 +61,38 @@
    ================================ */
 
 .footer-bottom {
-    /* Texto centralizado */
-    text-align: center;
-    
-    /* Cor mutada para footer (menos proeminente) */
-    color: var(--text-secondary); /* hsl(0, 0%, 50%) em dark mode */
-    
-    /* LAYOUT:
+   /* Texto centralizado */
+   text-align: center;
+
+   /* Cor mutada para footer (menos proeminente) */
+   color: var(--text-muted);
+   /* hsl(0, 0%, 50%) em dark mode */
+
+   /* Tamanho de fonte uniforme para copyright e créditos */
+   font-size: 0.95rem;
+
+   /* LAYOUT:
        Texto centralizado com cor discreta
        Permite que footer não compita com conteúdo principal
     */
 }
 
-/* ================================
-   FOOTER CREDITS - CRÉDITOS COM ÍCONES
-   ================================ */
-
-.footer-credits {
-    /* Espaço acima do texto de créditos */
-    margin-top: 0.5rem; /* 8px abaixo do conteúdo anterior */
-    
-    /* Fonte pequena */
-    font-size: 0.9rem; /* 14.4px */
-    
-    /* EXEMPLO DE CONTEÚDO:
-       Feito com ❤️ e ☕ por [Nome]
-       
-       Cada ícone pode ter animação individual
-    */
+.footer-bottom p {
+   margin-bottom: 0.5rem;
 }
 
+/* ================================
+   FOOTER CREDITS - ÍCONES
+   ================================ */
+
 .footer-credits i {
-    /* Ícones (Remix Icons class: .ri-*) */
-    
-    /* Força ícone a ser inline-block */
-    display: inline-block; /* Importante para animations funcionarem */
-    
-    /* NOTA:
+   /* Ícones (Remix Icons class: .ri-*) */
+
+   /* Força ícone a ser inline-block */
+   display: inline-block;
+   /* Importante para animations funcionarem */
+
+   /* NOTA:
        Cores e animações vêm de seletores mais específicos
        (.ri-heart-fill, .ri-cup-line)
     */
@@ -105,13 +103,14 @@
    ================================ */
 
 .footer-credits .ri-heart-fill {
-    /* Cor vermelha do coração */
-    color: #ef4444; /* Vermelho brilhante */
-    
-    /* Animação de pulso */
-    animation: heartBeat 1.5s ease-in-out infinite;
-    
-    /* EFEITO VISUAL:
+   /* Cor vermelha do coração */
+   color: #ef4444;
+   /* Vermelho brilhante */
+
+   /* Animação de pulso */
+   animation: heartBeat 1s ease-in-out infinite;
+
+   /* EFEITO VISUAL:
        ❤️ (coração) pulsa 1.5 segundos continuamente
        Efeito emocionante que adiciona vida ao footer
        
@@ -130,13 +129,14 @@
    ================================ */
 
 .footer-credits .ri-cup-line {
-    /* Cor marrom do café */
-    color: #92400e; /* Marrom escuro */
-    
-    /* Animação de vapor */
-    animation: coffeeSteam 2s ease-in-out infinite;
-    
-    /* EFEITO VISUAL:
+   /* Cor marrom do café */
+   color: #92400e;
+   /* Marrom escuro */
+
+   /* Animação de vapor */
+   animation: coffeeSteam 1s ease-in-out infinite;
+
+   /* EFEITO VISUAL:
        ☕ (xícara) emite vapor animado
        Anima por 2 segundos continuamente
        
@@ -154,18 +154,19 @@
    ================================ */
 
 @media (max-width: 768px) {
-    .footer {
-        /* Reduz padding em mobile */
-        padding: 1.5rem 0; /* 24px em vez de 32px */
-        
-        /* EFEITO:
+   .footer {
+      /* Reduz padding em mobile */
+      padding: 1.5rem 0;
+      /* 24px em vez de 32px */
+
+      /* EFEITO:
            Footer compacto em telas pequenas
            Economiza espaço na página
            Mantém legibilidade
         */
-    }
-    
-    /* NOTA:
+   }
+
+   /* NOTA:
        Footer text, ícones e animações permanecem iguais
        Apenas padding é reduzido
        

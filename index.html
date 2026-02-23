@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="assets/css/variables.css">
     <!-- Sistema de design centralizado com variáveis CSS (cores, fontes, transitções) -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Componente de Modal para detalhes de projetos -->
+    <link rel="stylesheet" href="assets/css/components/modal.css">
     <!-- Entrada principal que importa todos os CSS: reset, base, layout, components, sections -->
 
     <!-- ========================================
@@ -79,9 +81,8 @@
     <header class="header">
         <div class="container">
             <!-- Logo da página -->
-            <a href="#" class="logo">
+            <a href="#" class="logo" data-bind-html="profile.logoHtml">
                 <span>&lt;/</span> E.D
-                <!-- </ em cor primária como estilização -->
             </a>
 
             <!-- Menu de navegação principal -->
@@ -104,12 +105,12 @@
                     <i data-lucide="moon" class="theme-icon"></i>
                 </button>
                 <!-- Botão para baixar currículo automático -->
-                <a href="assets/docs/Vitae.pdf" download="Currículo.pdf" class="action-btn cv-btn"
+                <a data-bind-href="profile.cvLink" download="Currículo.pdf" class="action-btn cv-btn"
                     aria-label="Baixar Currículo">
                     <i data-lucide="file-text"></i>
                 </a>
                 <!-- Link para GitHub -->
-                <a href="https://github.com/euuuller" target="_blank" class="action-btn github-btn" aria-label="GitHub">
+                <a data-bind-href="profile.github" target="_blank" class="action-btn github-btn" aria-label="GitHub">
                     <i data-lucide="github"></i>
                 </a>
             </div>
@@ -134,12 +135,12 @@
                 <!-- Badge indicando disponibilidade -->
                 <!-- .hero-badge span é animado com pulse -->
                 <div class="hero-badge">
-                    <span></span> Disponivel para projetos
+                    <span></span> <span data-bind="profile.availability">Disponível para projetos</span>
                 </div>
 
                 <!-- Título principal -->
                 <!-- <span> em color primária para destaque -->
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-bind-html="hero.titleHtml">
                     Euller <span>Duarte</span>
                 </h1>
 
@@ -150,10 +151,8 @@
                 </div>
 
                 <!-- Descrição e links internos -->
-                <p class="hero-description">
-                    Olá, seja muito bem-vindo ao meu portfólio de projetos!
-                    Fique à vontade para explorar o <span class="highlight-text">portfólio</span> e entrar em <span
-                        class="highlight-text">contato</span> pelos links ao final da página.
+                <p class="hero-description" data-bind-html="hero.descriptionHtml">
+                    Aguardando dados...
                 </p>
 
                 <!-- Botões de ação (CTA) -->
@@ -186,8 +185,8 @@
             <div class="container">
                 <!-- Cabeçalho da seção (reutilizável em todas as seções) -->
                 <div class="section-header">
-                    <h2 class="section-title">Sobre Mim</h2>
-                    <p class="section-subtitle">Minha jornada profissional e acadêmica</p>
+                    <h2 class="section-title" data-bind="about.title">Sobre Mim</h2>
+                    <p class="section-subtitle" data-bind="about.subtitle">Carregando...</p>
                     <!-- Divisor decorativo -->
                     <div class="section-divider"></div>
                 </div>
@@ -198,7 +197,7 @@
                     <div class="about-image">
                         <div class="image-container">
                             <!-- GitHub avatar do usuário -->
-                            <img src="https://github.com/Euuuller.png" alt="Euller Duarte">
+                            <img data-bind-src="profile.avatar" alt="Euller Duarte">
                             <!-- GitHub Badge -->
                             <div class="github-badge" title="Visite meu GitHub">
                                 <i class="ri-github-fill"></i>
@@ -209,31 +208,20 @@
                     <!-- Coluna 2: Conteúdo sobre mim -->
                     <div class="about-content">
                         <!-- Headline/subtitle -->
-                        <h3 class="about-headline">Analista de Dados & Graduando em Engenharia</h3>
+                        <h3 class="about-headline" data-bind="profile.role">Analista de Dados & Graduando em Engenharia
+                        </h3>
 
                         <!-- Descrição com formatações especiais -->
                         <div class="about-description">
-                            <p>Graduando em <span class="highlight-text">Engenharia Elétrica</span> pelo Instituto
-                                Federal do Maranhão (IFMA), com foco em <span class="highlight-text">Análise de
-                                    Dados</span>. Possuo experiência prática com <span
-                                    style="color: #217346; font-weight: 600;">Excel</span>, <span
-                                    style="color: #F2C811; font-weight: 600;">Power BI</span>, <span
-                                    style="color: #00758F; font-weight: 600;">SQL</span> e <span
-                                    style="background: linear-gradient(90deg, #3776AB, #FFD343); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; font-weight: 600;">Python</span>,
-                                aplicando conceitos de Estatística e os principais tipos de análise de dados Descritiva,
-                                Diagnóstica, Preditiva e Prescritiva para resolver problemas de negócio.</p>
-
-                            <p>Desenvolvi projetos completos utilizando dados públicos, incluindo segmentação de
-                                clientes (RFM), análise de retenção por cohort, diagnóstico de queda de vendas, criação
-                                de dashboards gerenciais e previsão do número de pedidos, transformando dados em tomada
-                                de decisão orientada a dados.</p>
+                            <p data-bind-html="about.descriptionHtml1">Carregando dados...</p>
+                            <p data-bind-html="about.descriptionHtml2"></p>
                         </div>
 
                         <!-- Cards de estatísticas (3 colunas) -->
                         <div class="about-stats">
                             <!-- Card 1: Repositórios -->
-                            <a href="https://github.com/Euuuller" target="_blank" class="stat-card github-stats-link"
-                                style="text-decoration: none; transition: transform 0.3s ease;">
+                            <a data-bind-href="profile.github" target="_blank"
+                                class="stat-card github-stats-link stat-link">
                                 <div class="stat-icon icon-blue"><i class="ri-code-s-slash-line"></i></div>
                                 <h4 class="stat-title">Repositórios</h4>
                                 <p class="stat-value" id="github-repos">Carregando...</p>
@@ -242,15 +230,15 @@
                             <!-- Card 2: Foco principal -->
                             <div class="stat-card">
                                 <div class="stat-icon icon-teal"><i class="ri-focus-2-line"></i></div>
-                                <h4 class="stat-title">Foco Principal</h4>
-                                <p class="stat-value">Análise de Dados & BI</p>
+                                <h4 class="stat-title" data-bind="about.stats.focusTitle">Foco Principal</h4>
+                                <p class="stat-value" data-bind="about.stats.focusValue">Carregando...</p>
                             </div>
 
                             <!-- Card 3: Formação -->
                             <div class="stat-card">
                                 <div class="stat-icon icon-purple"><i class="ri-graduation-cap-line"></i></div>
-                                <h4 class="stat-title">Formação</h4>
-                                <p class="stat-value">Eng. Elétrica (IFMA)</p>
+                                <h4 class="stat-title" data-bind="about.stats.educationTitle">Formação</h4>
+                                <p class="stat-value" data-bind="about.stats.educationValue">Carregando...</p>
                             </div>
                         </div>
 
@@ -269,9 +257,8 @@
             <div class="container">
                 <!-- Cabeçalho da seção -->
                 <div class="section-header">
-                    <h2 class="section-title">Habilidades Técnicas</h2>
-                    <p class="section-subtitle">Stack tecnológica otimizada para análise de dados e desenvolvimento de
-                        soluções escaláveis.</p>
+                    <h2 class="section-title" data-bind="skills.title">Habilidades Técnicas</h2>
+                    <p class="section-subtitle" data-bind="skills.subtitle">Carregando...</p>
                     <div class="section-divider"></div>
                 </div>
 
@@ -303,9 +290,8 @@
             <div class="container">
                 <!-- Cabeçalho da seção -->
                 <div class="section-header">
-                    <h2 class="section-title">Projetos em Destaque</h2>
-                    <p class="section-subtitle">Aplicações reais desenvolvidas com foco em Ciência de Dados e Business
-                        Intelligence.</p>
+                    <h2 class="section-title" data-bind="projectsList.title">Projetos em Destaque</h2>
+                    <p class="section-subtitle" data-bind="projectsList.subtitle">Carregando...</p>
                     <div class="section-divider"></div>
                 </div>
 
@@ -324,17 +310,11 @@
                                 alt="Segmentação de Clientes">
                             <!-- Overlay com ícones (aparece no hover) -->
                             <div class="project-overlay">
-                                <!-- Ícones de ação -->
-                                <div class="overlay-icons">
-                                    <a href="#" class="overlay-icon" title="Visualizar Projeto">
-                                        <i class="ri-external-link-line"></i>
-                                    </a>
-                                    <a href="https://github.com" class="overlay-icon" title="Ver Código">
-                                        <i class="ri-github-line"></i>
-                                    </a>
-                                </div>
+
                                 <!-- Texto no overlay -->
-                                <span class="overlay-text">Ver Detalhes do Projeto</span>
+                                <span class="overlay-text" tabindex="0" role="button"
+                                    aria-label="Ver detalhes do projeto" data-project-id="rfm-analysis">Ver Detalhes do
+                                    Projeto</span>
                             </div>
                         </div>
 
@@ -386,15 +366,10 @@
                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
                                 alt="Dashboard de Vendas">
                             <div class="project-overlay">
-                                <div class="overlay-icons">
-                                    <a href="#" class="overlay-icon" title="Visualizar Projeto">
-                                        <i class="ri-external-link-line"></i>
-                                    </a>
-                                    <a href="https://github.com" class="overlay-icon" title="Ver Código">
-                                        <i class="ri-github-line"></i>
-                                    </a>
-                                </div>
-                                <span class="overlay-text">Ver Detalhes do Projeto</span>
+
+                                <span class="overlay-text" tabindex="0" role="button"
+                                    aria-label="Ver detalhes do projeto" >Projeto em
+                                    Andamento</span>
                             </div>
                         </div>
 
@@ -436,15 +411,10 @@
                             <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
                                 alt="Detecção de Fraudes">
                             <div class="project-overlay">
-                                <div class="overlay-icons">
-                                    <a href="#" class="overlay-icon" title="Visualizar Projeto">
-                                        <i class="ri-external-link-line"></i>
-                                    </a>
-                                    <a href="https://github.com" class="overlay-icon" title="Ver Código">
-                                        <i class="ri-github-line"></i>
-                                    </a>
-                                </div>
-                                <span class="overlay-text">Ver Detalhes do Projeto</span>
+
+                                <span class="overlay-text" tabindex="0" role="button"
+                                    aria-label="Ver detalhes do projeto" >Projeto em
+                                    Andamento</span>
                             </div>
                         </div>
 
@@ -490,8 +460,8 @@
             <div class="container">
                 <!-- Cabeçalho da seção -->
                 <div class="section-header">
-                    <h2 class="section-title">Vamos Conversar?</h2>
-                    <p class="section-subtitle">Estou disponível para novas oportunidades e colaborações</p>
+                    <h2 class="section-title" data-bind="contact.title">Vamos Conversar?</h2>
+                    <p class="section-subtitle" data-bind="contact.subtitle">Carregando...</p>
                     <div class="section-divider"></div>
                 </div>
 
@@ -503,54 +473,53 @@
                     <div class="contact-info">
                         <!-- Texto introdutório -->
                         <div class="contact-text">
-                            <h3>Canais de Contato</h3>
-                            <p>Sinta-se à vontade para me adicionar nas redes ou enviar um email direto. Será um prazer
-                                entrar em contato com você!</p>
+                            <h3 data-bind="contact.introTitle">Canais de Contato</h3>
+                            <p data-bind="contact.introText">Carregando...</p>
                         </div>
 
                         <!-- Lista de contatos com ícones -->
                         <div class="contact-list">
                             <!-- Email -->
-                            <a href="mailto:euller.santos.duarte@email.com" class="contact-item">
+                            <a data-bind-href="profile.email" class="contact-item">
                                 <div class="contact-icon icon-email">
                                     <i class="ri-mail-line"></i>
                                 </div>
                                 <div class="contact-details">
                                     <span>Email</span>
-                                    <strong>euller.santos.duarte@email.com</strong>
+                                    <strong data-bind="profile.email">euller...</strong>
                                 </div>
                             </a>
 
                             <!-- LinkedIn -->
-                            <a href="https://linkedin.com/in/euuuller" target="_blank" class="contact-item">
+                            <a data-bind-href="profile.linkedin" target="_blank" class="contact-item">
                                 <div class="contact-icon icon-linkedin">
                                     <i class="ri-linkedin-line"></i>
                                 </div>
                                 <div class="contact-details">
                                     <span>LinkedIn</span>
-                                    <strong>Faça uma conexão comigo</strong>
+                                    <strong data-bind="contact.details.linkedin">Carregando...</strong>
                                 </div>
                             </a>
 
                             <!-- GitHub -->
-                            <a href="https://github.com/euuuller" target="_blank" class="contact-item">
+                            <a data-bind-href="profile.github" target="_blank" class="contact-item">
                                 <div class="contact-icon icon-github">
                                     <i class="ri-github-line"></i>
                                 </div>
                                 <div class="contact-details">
                                     <span>GitHub</span>
-                                    <strong>Veja meus projetos</strong>
+                                    <strong data-bind="contact.details.github">Carregando...</strong>
                                 </div>
                             </a>
 
                             <!-- Medium -->
-                            <a href="https://medium.com/@euller.duarte" target="_blank" class="contact-item">
+                            <a data-bind-href="profile.medium" target="_blank" class="contact-item">
                                 <div class="contact-icon icon-medium">
                                     <i class="ri-medium-line"></i>
                                 </div>
                                 <div class="contact-details">
                                     <span>Medium</span>
-                                    <strong>Leia meus artigos</strong>
+                                    <strong data-bind="contact.details.medium">Carregando...</strong>
                                 </div>
                             </a>
                         </div>
@@ -604,7 +573,8 @@
         <div class="container">
             <div class="footer-bottom">
                 <!-- Copyright -->
-                <p>&copy; 2026 Euller dos Santos Rodrigues Duarte. Todos os direitos reservados.</p>
+                <p data-bind="footer.copyright">&copy; 2026 Euller dos Santos Rodrigues Duarte. Todos os direitos
+                    reservados.</p>
                 <!-- Créditos com ícones animados -->
                 <p class="footer-credits">
                     Feito com muito amor <i class="ri-heart-fill"></i>
@@ -622,6 +592,93 @@
     <script>
         lucide.createIcons();
     </script>
+
+    <!-- ========================================
+         PROJECT MODAL
+         ======================================== -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-container">
+            <!-- Close Button -->
+            <button class="modal-close" aria-label="Fechar Modal">
+                <i class="ri-close-line"></i>
+            </button>
+
+            <!-- Scrollable Body -->
+            <div class="modal-body">
+                <!-- Badge & Header -->
+                <div class="modal-badge"></div>
+                <div class="modal-header">
+                    <h2 class="modal-title"></h2>
+                    <p class="modal-subtitle"></p>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="modal-grid">
+                    <!-- Left Column: Key Cards -->
+                    <div class="modal-left">
+                        <div class="info-card card-desafio">
+                            <div class="info-icon"><i class=""></i></div>
+                            <div class="info-content">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+
+                        <div class="info-card card-solucao">
+                            <div class="info-icon"><i class=""></i></div>
+                            <div class="info-content">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+
+                        <div class="info-card card-impacto">
+                            <div class="info-icon"><i class=""></i></div>
+                            <div class="info-content">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Stats & Sidebar -->
+                    <div class="modal-right">
+                        <!-- Action Buttons -->
+                        <div class="modal-actions-container">
+                            <a href="#" class="demo-btn" target="_blank">
+                                Ver Demo <i class="ri-external-link-line"></i>
+                            </a>
+                            <a href="#" class="sidebar-btn" target="_blank">
+                                Código <i class="ri-github-line"></i>
+                            </a>
+                        </div>
+
+                        <!-- Stack Section -->
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Stack</div>
+                            <div class="stack-list">
+                                <!-- Tags injetadas via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Metrics Section -->
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Métricas</div>
+                            <div class="metrics-list">
+                                <!-- Metricas injetadas via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <span class="footer-credits">Projeto desenvolvido por Euller Duarte</span>
+                    <span class="footer-year">2026 <i class="ri-calendar-line"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Script principal JavaScript em ES6 modules -->
     <!-- Carrega main.js que importa e inicializa todos os módulos -->
