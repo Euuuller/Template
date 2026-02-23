@@ -1,0 +1,134 @@
+[
+  {
+    "name": "HTML5",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    "description": "Estrutura Web",
+    "carousel": 1
+  },
+  {
+    "name": "CSS3",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    "description": "Design Responsivo",
+    "carousel": 1
+  },
+  {
+    "name": "JavaScript",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    "description": "Interatividade Web",
+    "carousel": 1
+  },
+  {
+    "name": "Python",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "description": "Data Science & Automação",
+    "carousel": 1
+  },
+  {
+    "name": "SQL Server",
+    "iconUrl": "assets/images/icons/custom/Server.svg",
+    "description": "Banco Corporativo",
+    "carousel": 1
+  },
+  {
+    "name": "MySQL",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    "description": "Banco Relacional",
+    "carousel": 1
+  },
+  {
+    "name": "PostgreSQL",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    "description": "Queries Avançadas",
+    "carousel": 1
+  },
+  {
+    "name": "SQLite",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+    "description": "Banco Leve",
+    "carousel": 1
+  },
+  {
+    "name": "Git",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    "description": "Versionamento",
+    "carousel": 1
+  },
+  {
+    "name": "GitHub",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    "description": "Colaboração",
+    "carousel": 1
+  },
+  {
+    "name": "VS Code",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+    "description": "Desenvolvimento",
+    "carousel": 1
+  },
+  {
+    "name": "Pandas",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+    "description": "Manipulação",
+    "carousel": 2
+  },
+  {
+    "name": "NumPy",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
+    "description": "Computação Numérica",
+    "carousel": 2
+  },
+  {
+    "name": "Matplotlib",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
+    "description": "Visualização de Dados",
+    "carousel": 2
+  },
+  {
+    "name": "Plotly",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/plotly/plotly-original.svg",
+    "description": "Dashboards Interativos",
+    "carousel": 2
+  },
+  {
+    "name": "Power BI",
+    "iconUrl": "assets/images/icons/custom/PowerBI.svg",
+    "description": "Analytics Gerencial",
+    "carousel": 2
+  },
+  {
+    "name": "Excel",
+    "iconUrl": "assets/images/icons/custom/Excel.svg",
+    "description": "Análise de Negócio",
+    "carousel": 2
+  },
+  {
+    "name": "Jupyter",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg",
+    "description": "Ciência de Dados",
+    "carousel": 2
+  },
+  {
+    "name": "UV",
+    "iconUrl": "assets/images/icons/custom/UV.svg",
+    "description": "Python Package Manager",
+    "carousel": 2
+  },
+  {
+    "name": "Figma",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    "description": "Prototipagem UI/UX",
+    "carousel": 2
+  },
+  {
+    "name": "LaTeX",
+    "iconUrl": "assets/images/icons/custom/LaTeX.svg",
+    "description": "Redação Técnica",
+    "carousel": 2
+  },
+  {
+    "name": "Looker",
+    "iconUrl": "assets/images/icons/custom/looker.svg",
+    "description": "Data Visualization",
+    "carousel": 2
+  }
+]

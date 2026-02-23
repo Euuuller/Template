@@ -34,8 +34,10 @@ import { initTypingEffect } from './modules/typing.js';
 import { initNavigation } from './modules/navigation.js';
 
 // Importa a função que integra estatísticas do GitHub
-// Localizado em: assets/js/modules/github.js
 import { initGithubStats } from './modules/github.js';
+
+// Importa a função que gerencia as habilidades técnicas via JSON
+import { initSkills } from './modules/skills.js';
 
 /**
  * Event Listener: DOMContentLoaded
@@ -80,10 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================================
     // 4. INICIALIZAR ESTATÍSTICAS DO GITHUB
     // ========================================
-    // Responsável por:
-    // - Buscar quantidade de repositórios públicos
-    // - Atualizar o card de estatísticas dinamicamente
     initGithubStats();
+
+    // ========================================
+    // 5. INICIALIZAR HABILIDADES TÉCNICAS (JSON)
+    // ========================================
+    initSkills();
 
     // ========================================
     // LOG DE INICIALIZAÇÃO (OPCIONAL)
