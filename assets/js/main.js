@@ -33,6 +33,10 @@ import { initTypingEffect } from './modules/typing.js';
 // Localizado em: assets/js/modules/navigation.js
 import { initNavigation } from './modules/navigation.js';
 
+// Importa a função que integra estatísticas do GitHub
+// Localizado em: assets/js/modules/github.js
+import { initGithubStats } from './modules/github.js';
+
 /**
  * Event Listener: DOMContentLoaded
  * 
@@ -69,11 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================================
     // 3. INICIALIZAR NAVEGAÇÃO
     // ========================================
-    // Responsável por:
-    // - Detectar cliques em links âncora (#seção)
-    // - Realizar scroll suave até a seção
-    // - Previne comportamento padrão do navegador
+    // Realizar scroll suave até a seção
+    // Previne comportamento padrão do navegador
     initNavigation();
+
+    // ========================================
+    // 4. INICIALIZAR ESTATÍSTICAS DO GITHUB
+    // ========================================
+    // Responsável por:
+    // - Buscar quantidade de repositórios públicos
+    // - Atualizar o card de estatísticas dinamicamente
+    initGithubStats();
 
     // ========================================
     // LOG DE INICIALIZAÇÃO (OPCIONAL)

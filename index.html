@@ -199,6 +199,10 @@
                         <div class="image-container">
                             <!-- GitHub avatar do usuário -->
                             <img src="https://github.com/Euuuller.png" alt="Euller Duarte">
+                            <!-- GitHub Badge -->
+                            <div class="github-badge" title="Visite meu GitHub">
+                                <i class="ri-github-fill"></i>
+                            </div>
                         </div>
                     </div>
 
@@ -209,25 +213,31 @@
 
                         <!-- Descrição com formatações especiais -->
                         <div class="about-description">
-                            <p>Graduando em Engenharia Elétrica (IFMA) com forte base analítica voltada para Ciência de
-                                Dados. <span class="highlight-shimmer">Transformo dados brutos em inteligência de
-                                    negócio</span>, dominando SQL, Python, Power BI e Estatística aplicada à resolução
-                                de problemas reais.</p>
+                            <p>Graduando em <span class="highlight-text">Engenharia Elétrica</span> pelo Instituto
+                                Federal do Maranhão (IFMA), com foco em <span class="highlight-text">Análise de
+                                    Dados</span>. Possuo experiência prática com <span
+                                    style="color: #217346; font-weight: 600;">Excel</span>, <span
+                                    style="color: #F2C811; font-weight: 600;">Power BI</span>, <span
+                                    style="color: #00758F; font-weight: 600;">SQL</span> e <span
+                                    style="background: linear-gradient(90deg, #3776AB, #FFD343); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; font-weight: 600;">Python</span>,
+                                aplicando conceitos de Estatística e os principais tipos de análise de dados Descritiva,
+                                Diagnóstica, Preditiva e Prescritiva para resolver problemas de negócio.</p>
 
-                            <p>Desenvolvo soluções de <span class="highlight-text">Business Intelligence</span> com foco
-                                em impacto, incluindo Segmentação de Clientes (RFM), Análise de Cohort e Modelagem
-                                Preditiva. Busco Estágio em Dados para aplicar rigor matemático e visão estratégica na
-                                otimização de resultados.</p>
+                            <p>Desenvolvi projetos completos utilizando dados públicos, incluindo segmentação de
+                                clientes (RFM), análise de retenção por cohort, diagnóstico de queda de vendas, criação
+                                de dashboards gerenciais e previsão do número de pedidos, transformando dados em tomada
+                                de decisão orientada a dados.</p>
                         </div>
 
                         <!-- Cards de estatísticas (3 colunas) -->
                         <div class="about-stats">
                             <!-- Card 1: Repositórios -->
-                            <div class="stat-card">
+                            <a href="https://github.com/Euuuller" target="_blank" class="stat-card github-stats-link"
+                                style="text-decoration: none; transition: transform 0.3s ease;">
                                 <div class="stat-icon icon-blue"><i class="ri-code-s-slash-line"></i></div>
                                 <h4 class="stat-title">Repositórios</h4>
-                                <p class="stat-value">5+ Projetos Públicos</p>
-                            </div>
+                                <p class="stat-value" id="github-repos">Carregando...</p>
+                            </a>
 
                             <!-- Card 2: Foco principal -->
                             <div class="stat-card">
