@@ -339,8 +339,9 @@
                         <div class="project-footer">
                             <!-- Estatísticas do projeto -->
                             <div class="project-stats">
-                                <span class="stat-item"><i class="ri-database-2-line"></i> 1.5k Registros</span>
-                                <span class="stat-item"><i class="ri-group-line"></i> 5 Segmentos</span>
+                                <span class="stat-item stat-blue"><i class="ri-database-2-line"></i> 1.5k
+                                    Registros</span>
+                                <span class="stat-item stat-red"><i class="ri-group-line"></i> 5 Segmentos</span>
                             </div>
                             <!-- Botões de ação -->
                             <div class="project-actions">
@@ -368,7 +369,7 @@
                             <div class="project-overlay">
 
                                 <span class="overlay-text" tabindex="0" role="button"
-                                    aria-label="Ver detalhes do projeto" >Projeto em
+                                    aria-label="Ver detalhes do projeto">Projeto em
                                     Andamento</span>
                             </div>
                         </div>
@@ -388,7 +389,8 @@
 
                         <div class="project-footer">
                             <div class="project-stats">
-                                <span class="stat-item"><i class="ri-bar-chart-2-line"></i> KPIs em Tempo Real</span>
+                                <span class="stat-item stat-blue"><i class="ri-bar-chart-2-line"></i> KPIs em Tempo
+                                    Real</span>
                             </div>
                             <div class="project-actions">
                                 <a href="https://github.com/euller-ds" target="_blank"
@@ -413,7 +415,7 @@
                             <div class="project-overlay">
 
                                 <span class="overlay-text" tabindex="0" role="button"
-                                    aria-label="Ver detalhes do projeto" >Projeto em
+                                    aria-label="Ver detalhes do projeto">Projeto em
                                     Andamento</span>
                             </div>
                         </div>
@@ -433,8 +435,10 @@
 
                         <div class="project-footer">
                             <div class="project-stats">
-                                <span class="stat-item"><i class="ri-checkbox-circle-line"></i> 95% Precisão</span>
-                                <span class="stat-item"><i class="ri-error-warning-line"></i> 2% Falsos Positivos</span>
+                                <span class="stat-item stat-blue"><i class="ri-checkbox-circle-line"></i> 95%
+                                    Precisão</span>
+                                <span class="stat-item stat-red"><i class="ri-error-warning-line"></i> 2% Falsos
+                                    Positivos</span>
                             </div>
                             <div class="project-actions">
                                 <a href="https://github.com/euller-ds" target="_blank"
@@ -528,31 +532,37 @@
                     <!-- ========================================
                          COLUNA DIREITA: Formulário de contato
                          ======================================== -->
-                    <form class="contact-form">
+                    <form class="contact-form" action="https://formsubmit.co/euller.santos.duarte@gmail.com" method="POST">
+                        <!-- Redirecionamento após o envio (opcional, coloque o link do seu portfólio) -->
+                        <input type="hidden" name="_next" value="https://euuuller.vercel.app">
+                        <!-- Desativar o captcha (opcional) -->
+                        <input type="hidden" name="_captcha" value="false">
+
                         <!-- Row 1: Nome + Email -->
                         <div class="form-row">
                             <!-- Input de nome -->
                             <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" id="nome" placeholder="Seu nome..." required>
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome..." required>
                             </div>
                             <!-- Input de email -->
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="seu@email.com" required>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
                             </div>
                         </div>
 
                         <!-- Assunto -->
                         <div class="form-group">
                             <label for="assunto">Assunto</label>
-                            <input type="text" id="assunto" placeholder="Sobre o projeto..." required>
+                            <input type="text" id="assunto" name="assunto" placeholder="Sobre o projeto..." required>
                         </div>
 
                         <!-- Mensagem -->
                         <div class="form-group">
                             <label for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" placeholder="Como posso ajudar?" required></textarea>
+                            <textarea id="mensagem" name="mensagem" placeholder="Como posso ajudar?"
+                                required></textarea>
                         </div>
 
                         <!-- Botão de submissão -->
