@@ -577,11 +577,25 @@
 }
 
 .stat-item i {
-   /* Ícone (de Lucide ou Remix Icons) */
+   /* Ícone base (de Lucide ou Remix Icons) */
+   /* Ícones herdam tamanho de font-size do parent .project-stats (0.85rem) */
+   transition: color var(--transition-base);
+}
+
+/* Modificadores de cor padronizados */
+.stat-item.stat-blue i {
    color: var(--primary);
    /* Azul primário */
+}
 
-   /* Ícones herdam tamanho de font-size do parent .project-stats (0.85rem) */
+.stat-item.stat-red i {
+   color: #175e0d;
+   /* Vermelho vibrante */
+}
+
+/* Fallback: caso o usuário não defina uma cor, usa azul como padrão */
+.stat-item:not(.stat-blue):not(.stat-red) i {
+   color: var(--primary);
 }
 
 /* ================================
