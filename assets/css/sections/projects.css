@@ -90,6 +90,9 @@
    transition: all var(--transition-base);
    /* 0.3s ease (definido em variables.css) */
 
+   /* Indica ao usuário que o card é clicável */
+   cursor: pointer;
+
    /* Layout flexbox para estruturar conteúdo verticalmente */
    display: flex;
    /* Transforma em flex container */
