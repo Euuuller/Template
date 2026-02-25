@@ -20,7 +20,7 @@ export const portfolioData = {
         github: "https://github.com/euuuller",
         linkedin: "https://linkedin.com/in/euuuller",
         medium: "https://medium.com/@euller.santos.duarte",
-        cvLink: "assets/docs/Vitae.pdf",
+        cvLink: "assets/docs/curriculo.pdf",
         availability: "Disponivel para projetos",
         avatar: "https://github.com/Euuuller.png"
     },

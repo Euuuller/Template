@@ -1,17 +1,17 @@
-# 💼 Portfólio de Analista de Dados
+# 💼 Portfólio — Euller Duarte
 
 <div align="center">
 
 ![Portfolio Preview](./assets/images/print.png)
 
-**Um portfólio web moderno e responsivo desenvolvido com HTML5, CSS3 (ITCSS) e JavaScript puro**
+**Um portfólio web moderno e responsivo desenvolvido com HTML5, CSS3 (ITCSS) e JavaScript puro (ES6 Modules)**
 
-[![Status](https://img.shields.io/badge/Status-Ativo-success?style=for-the-badge)](.)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](.)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](.)
+[![Status](https://img.shields.io/badge/Status-Finalizado-success?style=for-the-badge)](.)\
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](.)\
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](.)\
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](.)
 
-[🌐 Demo Ao Vivo](#demo) • [📁 Estrutura](#estrutura-do-projeto) • [🚀 Quick Start](#como-usar) • [📖 Documentação](#documentação-técnica)
+[🌐 Demo Ao Vivo](https://euuuller.vercel.app) • [📁 Estrutura](#-estrutura-do-projeto) • [🚀 Quick Start](#-quick-start) • [📖 Documentação](#-arquitetura)
 
 </div>
 
@@ -30,7 +30,7 @@
 - [🎨 Sistema de Temas](#-sistema-de-temas)
 - [📱 Responsividade](#-responsividade)
 - [♿ Acessibilidade](#-acessibilidade)
-- [🧭 Roadmap](#-roadmap)
+- [👤 Autor](#-autor)
 - [📄 Licença](#-licença)
 
 ---
@@ -38,84 +38,81 @@
 ## ✨ Destaques
 
 - 🎨 **Design ITCSS** com organização modular em 7 níveis de cascata CSS
-- 🌓 **Sistema de Temas** persistente em localStorage (dark/light mode)
+- 🌓 **Sistema de Temas** persistente em `localStorage` (dark/light mode)
 - 📱 **Totalmente Responsivo** com breakpoints otimizados (desktop, tablet, mobile)
-- ⚡ **Zero Dependências** - HTML/CSS/JavaScript puro (vanilla)
-- 🎬 **Animações Fluidas** com 11 @keyframes otimizadas
-- ♿ **Acessível** com HTML semântico, ARIA labels e keyboard navigation
-- 📊 **Documentação Completa** - 3.500+ linhas de comentários em português
-- 🔍 **Otimizado para SEO** com meta tags e Open Graph
+- ⚡ **Zero Dependências de Build** — HTML/CSS/JavaScript puro (vanilla)
+- 🧩 **Arquitetura Data-Driven** — conteúdo centralizado em `portfolio.js`, sem tocar no HTML
+- 🖱️ **Modal de Projetos** com animação e detalhes por projeto
+- 📬 **Formulário de Contato AJAX** via FormSubmit com feedback visual (toast)
+- 🔄 **Carrossel Infinito de Skills** gerado dinamicamente via JSON
+- 📊 **Integração GitHub API** — contagem de repositórios em tempo real
+- 🎬 **Animações Fluidas** com múltiplos `@keyframes` otimizados
+- ♿ **Acessível** com HTML semântico, ARIA labels e navegação por teclado
+- 🔍 **Otimizado para SEO** com meta tags e estrutura de headings correta
 
 ---
 
 ## 🎯 Sobre
 
-Um portfólio profissional focado em **Análise de Dados**, desenvolvido para apresentar projetos, habilidades técnicas e experiência de forma moderna e interativa. 
+Portfólio profissional de **Euller Duarte**, Analista de Dados e Graduando em Engenharia Elétrica no Instituto Federal do Maranhão (IFMA). O projeto foi desenvolvido para apresentar projetos, habilidades técnicas e informações de contato de forma moderna e interativa.
 
-### Por que este projeto?
-
-Este portfólio demonstra não apenas competência em análise de dados, mas também:
-- **Desenvolvimento web full-stack** (estrutura, estilo, interatividade)
-- **Pensamento em arquitetura** (ITCSS, modularização JavaScript)
-- **Domínio de performance e UX** (animações, responsividade, acessibilidade)
-- **Documentação clara** (código altamente comentado)
-
-Ideal para profissionais que desejam um portfólio técnico visualmente atraente e funcional.
+Além de ser um portfólio, este projeto demonstra:
+- **Desenvolvimento web** com HTML5, CSS3 e JavaScript ES6+
+- **Pensamento em arquitetura** com ITCSS e módulos JavaScript
+- **UX consciente** com animações, responsividade e acessibilidade
+- **Dados centralizados** via arquitetura Data-Driven (sem duplicar conteúdo no HTML)
 
 ---
 
 ## 🏗️ Arquitetura
 
-### CSS - ITCSS (Inverted Triangle CSS)
+### CSS — ITCSS (Inverted Triangle CSS)
 
 A estrutura CSS segue o padrão **ITCSS**, dividida em 7 níveis de especificidade crescente:
 
 ```
 📊 ITCSS Cascade (Do Geral para o Específico)
 
-1️⃣  SETTINGS      → variables.css (tokens, cores, tipografia)
-2️⃣  TOOLS         → (mixins, funções - não implementado)
-3️⃣  GENERIC       → reset.css (normalização browser)
-4️⃣  BASE          → typography.css, animations.css (elementos HTML base)
-5️⃣  LAYOUT        → grid.css, spacing.css (estrutura e espaçamento)
-6️⃣  COMPONENTS    → button.css (componentes reutilizáveis)
-7️⃣  SECTIONS      → header.css, hero.css, etc. (seções de página)
-8️⃣  UTILITIES     → (classes utilitárias - reservado)
+1️⃣  VARIABLES   → variables.css         (tokens: cores, fontes, tamanhos)
+2️⃣  RESET       → reset.css             (normalização do browser)
+3️⃣  BASE        → typography.css        (tipografia global)
+                 → animations.css        (@keyframes reutilizáveis)
+4️⃣  LAYOUT      → grid.css              (container, sistema de colunas)
+                 → spacing.css           (espaçamentos responsivos)
+5️⃣  COMPONENTS  → button.css            (botões reutilizáveis)
+                 → modal.css             (modal de projetos)
+6️⃣  SECTIONS    → header / hero / about / skills / projects / contact / footer
+7️⃣  UTILITIES   → (reservado para helpers futuros)
 ```
 
-**Benefícios:**
-- Evita conflitos de especificidade
-- Facilita manutenção e escalabilidade
-- Permite adicionar novos componentes sem quebrar os existentes
-
-### JavaScript - Arquitetura Modular (ES6)
-
-Estrutura em módulos com separação de responsabilidades:
+### JavaScript — Arquitetura Modular (ES6)
 
 ```
-📦 JavaScript Modular
-
 assets/js/
-├── core/                 # Utilidades base
-│   ├── dom.js           # Manipulação de DOM (17 funções)
-│   ├── utils.js         # Helpers (debounce, throttle, storage, viewport)
-│   └── constants.js     # Configurações, seletores e classes
+├── main.js              # Orquestrador (DOMContentLoaded)
 │
-├── config/              # Configurações
-│   └── theme-config.js  # Sistema de temas (cores, preferências)
+├── core/
+│   ├── dom.js           # Utilitários de manipulação DOM
+│   ├── utils.js         # Helpers (debounce, throttle, storage)
+│   └── constants.js     # CONFIG, SELECTORS, CLASSES
 │
-├── modules/             # Funcionalidades
-│   ├── theme.js         # Toggle dark/light mode
-│   ├── typing.js        # Efeito de digitação (hero)
-│   └── navigation.js    # Scroll smooth e navegação
+├── config/
+│   └── theme-config.js  # Sistema de temas (dark/light)
 │
-└── main.js              # Orquestrador (DOMContentLoaded)
+├── data/
+│   ├── portfolio.js     # ⚠️ Fonte única de verdade para textos e links
+│   └── projects.js      # Dados dos projetos para o modal
+│
+└── modules/
+    ├── binder.js        # Motor de data-binding (injeta portfolio.js no HTML)
+    ├── theme.js         # Toggle dark/light com localStorage
+    ├── typing.js        # Efeito de digitação na hero section
+    ├── navigation.js    # Smooth scroll e navegação
+    ├── skills.js        # Carrossel de skills (gerado por JSON)
+    ├── modal.js         # Modal de detalhes de projetos
+    ├── github.js        # Integração com API pública do GitHub
+    └── contact.js       # Envio AJAX do formulário via FormSubmit
 ```
-
-**Padrão:**
-- Entry point único (`main.js`) que inicializa na ordem correta
-- Destruição e reinicialização suportadas
-- Sem dependencies externas
 
 ---
 
@@ -124,58 +121,67 @@ assets/js/
 ```plaintext
 Template/
 │
-├── 📄 index.html                # Página principal (950+ linhas comentadas)
-├── 📄 README.md                 # Este arquivo
-├── 📄 LICENSE                   # MIT License
+├── 📄 index.html                  # Página principal (comentada)
+├── 📄 README.md                   # Este arquivo
+├── 📄 LICENSE                     # MIT License
 │
 └── 📂 assets/
     │
     ├── 📂 css/
-    │   ├── main.css             # Entry point CSS (ITCSS) - 350+ comentários
-    │   ├── variables.css        # CSS Custom Properties - 300+ comentários
-    │   ├── reset.css            # Normalização browser - 250+ comentários
+    │   ├── main.css               # Entry point do CSS (só @imports)
+    │   ├── variables.css          # Tokens do design system
+    │   ├── reset.css              # Normalização de estilos
     │   │
     │   ├── 📂 base/
-    │   │   ├── typography.css   # Tipografia e gradient text - 280+ comentários
-    │   │   └── animations.css   # 11 @keyframes - 400+ comentários
+    │   │   ├── typography.css
+    │   │   └── animations.css
     │   │
     │   ├── 📂 layout/
-    │   │   ├── grid.css         # Sistema de container - 200+ comentários
-    │   │   └── spacing.css      # Responsive padding - 150+ comentários
+    │   │   ├── grid.css
+    │   │   └── spacing.css
     │   │
     │   ├── 📂 components/
-    │   │   └── button.css       # 9 variações de botão - 600+ comentários
+    │   │   ├── button.css
+    │   │   └── modal.css
     │   │
-    │   └── 📂 sections/
-    │       ├── header.css       # Navegação fixa - 200+ comentários
-    │       ├── hero.css         # Seção hero - 250+ comentários
-    │       ├── about.css        # Sobre mim - 200+ comentários
-    │       ├── skills.css       # Carousel de skills - 140+ comentários
-    │       ├── projects.css     # Grid de projetos - 280+ comentários
-    │       ├── contact.css      # Formulário e info - 240+ comentários
-    │       └── footer.css       # Rodapé com animações - 120+ comentários
+    │   ├── 📂 sections/
+    │   │   ├── header.css
+    │   │   ├── hero.css
+    │   │   ├── about.css
+    │   │   ├── skills.css
+    │   │   ├── projects.css
+    │   │   ├── contact.css
+    │   │   └── footer.css
+    │   │
+    │   └── 📂 utilities/          # Reservado para classes utilitárias futuras
     │
     ├── 📂 js/
-    │   ├── main.js              # Orquestrador central
-    │   │
+    │   ├── main.js
     │   ├── 📂 core/
-    │   │   ├── dom.js           # 17 funções de manipulação DOM
-    │   │   ├── utils.js         # Utilitários (debounce, throttle, storage)
-    │   │   └── constants.js     # CONFIG, SELECTORS, CLASSES
-    │   │
+    │   │   ├── dom.js
+    │   │   ├── utils.js
+    │   │   └── constants.js
     │   ├── 📂 config/
-    │   │   └── theme-config.js  # Sistema dual-theme (dark/light)
-    │   │
+    │   │   └── theme-config.js
+    │   ├── 📂 data/
+    │   │   ├── portfolio.js       # ⚠️ Edite aqui para personalizar o portfólio
+    │   │   └── projects.js        # ⚠️ Edite aqui para adicionar/remover projetos
     │   └── 📂 modules/
-    │       ├── theme.js         # Toggle tema com localStorage
-    │       ├── typing.js        # Efeito digitação tipo Watson
-    │       └── navigation.js    # Smooth scroll e menu interativo
+    │       ├── binder.js
+    │       ├── contact.js
+    │       ├── github.js
+    │       ├── modal.js
+    │       ├── navigation.js
+    │       ├── skills.js
+    │       ├── theme.js
+    │       └── typing.js
     │
-    ├── 📂 data/
-    │   └── skills.json          # Dados de habilidades (estruturado)
+    ├── 📂 docs/
+    │   └── curriculo.pdf          # Currículo para download
     │
-    └── 📂 image/                # Imagens do projeto
-        └── *.png/svg            # Assets gráficos
+    └── 📂 images/
+        ├── favicon.svg
+        └── print.png
 ```
 
 ---
@@ -186,23 +192,22 @@ Template/
 | Tecnologia | Versão | Finalidade |
 |-----------|--------|-----------|
 | **HTML5** | Latest | Semântica e estrutura |
-| **CSS3** | Latest | Estilos e animações |
-| **JavaScript (ES6+)** | Vanilla | Interatividade |
-| **Lucide Icons** | Latest | Ícones SVG |
-| **Remix Icon** | Latest | Ícones adicionais |
+| **CSS3** | Latest | Estilos e animações (ITCSS) |
+| **JavaScript ES6+** | Vanilla | Módulos e interatividade |
+| **Lucide Icons** | Latest | Ícones SVG modernos |
+| **Remix Icon** | 3.5.0 | Ícones adicionais |
 
-### Tipografia
-- **Outfit** (Display) - Títulos
-- **Inter** (Sans) - Corpo
-- **JetBrains Mono** (Mono) - Código
+### Tipografia (Google Fonts)
+- **Outfit** (Display) — Títulos
+- **Inter** (Sans-serif) — Corpo
+- **JetBrains Mono** (Monospace) — Destaque de código
 
-### Deploy & Ferramentas
-| Ferramenta | Uso |
-|-----------|------------|
-| **Git** | Versionamento |
-| **GitHub Pages** | Hospedagem estática |
-| **VS Code** | Editor |
-| **LocalStorage** | Persistência de preferências |
+### Serviços Externos
+| Serviço | Uso |
+|---------|-----|
+| **FormSubmit** | Envio do formulário de contato (sem backend) |
+| **GitHub API** | Contagem pública de repositórios |
+| **Vercel** | Deploy e hospedagem |
 
 ---
 
@@ -210,416 +215,194 @@ Template/
 
 ### Pré-requisitos
 - Navegador moderno (Chrome, Firefox, Safari, Edge)
-- VS Code (recomendado)
-- Git instalado
+- VS Code com a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) **(recomendado)**
+
+> ⚠️ O projeto usa **ES6 Modules** (`type="module"`). É necessário servi-lo via servidor HTTP — abrir o `index.html` diretamente pelo sistema de arquivos não funcionará.
 
 ### Instalação
 
-#### 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/Template.git
+# 1. Clone o repositório
+git clone https://github.com/Euuuller/Template.git
 cd Template
 ```
 
-#### 2. Abra localmente
+**Opção A: VS Code Live Server** *(recomendado)*
+- Instale a extensão Live Server
+- Clique em **"Go Live"** no canto inferior direito
 
-**Opção A: Python SimpleHTTPServer**
+**Opção B: Python**
 ```bash
-# Python 3
 python -m http.server 8000
-
-# Python 2
-python -m SimpleHTTPServer 8000
-```
-
-**Opção B: VS Code Live Server**
-- Instale a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-- Clique em "Go Live" no canto inferior direito
-
-**Opção C: Abra direto no navegador**
-```bash
-# Windows
-start index.html
-
-# macOS
-open index.html
-
-# Linux
-xdg-open index.html
-```
-
-#### 3. Navegue para
-```
-http://localhost:8000/
+# Acesse: http://localhost:8000
 ```
 
 ---
 
 ## 📖 Guia de Desenvolvimento
 
-### Adicionando Novo Componente CSS
+### Personalizando o conteúdo
 
-1. **Crie o arquivo** em `assets/css/components/`:
-   ```css
-   /* assets/css/components/card.css */
-   
-   /* =======================================
-      CARD COMPONENT
-      ======================================= */
-   
-   .card {
-       /* estilos base */
-   }
-   ```
+Todo o conteúdo de texto, links e informações pessoais está centralizado em **um único arquivo**:
 
-2. **Importe em** `assets/css/main.css`:
-   ```css
-   /* ... existing imports ... */
-   @import url('./components/button.css');
-   @import url('./components/card.css'); /* ← Nova linha */
-   ```
+```
+assets/js/data/portfolio.js
+```
 
-3. **Use na seção apropriada**:
-   ```html
-   <div class="card">
-       <!-- conteúdo -->
-   </div>
-   ```
+Edite este arquivo para atualizar nome, links de redes sociais, descrições, etc. **sem tocar no HTML.**
 
-### Adicionando Novo Módulo JavaScript
-
-1. **Crie o arquivo** em `assets/js/modules/`:
-   ```javascript
-   // assets/js/modules/carousel.js
-   
-   export const CarouselModule = (() => {
-       // Estado privado
-       let isInitialized = false;
-   
-       const init = () => {
-           // Lógica de inicialização
-           isInitialized = true;
-       };
-   
-       const destroy = () => {
-           // Lógica de destruição
-           isInitialized = false;
-       };
-   
-       return { init, destroy };
-   })();
-   ```
-
-2. **Importe e inicialize em** `assets/js/main.js`:
-   ```javascript
-   import { CarouselModule } from './modules/carousel.js';
-   
-   document.addEventListener('DOMContentLoaded', () => {
-       CarouselModule.init();
-   });
-   ```
-
-### Personalizando Variáveis CSS
-
-Edite `assets/css/variables.css`:
-
-```css
-:root {
-    /* Cores */
-    --primary: #3B82F6;        /* Azul */
-    --secondary: #10B981;      /* Verde */
-    --text-main: #FFFFFF;      /* Branco */
-    --text-muted: #999999;     /* Cinza */
-    
-    /* Tipografia */
-    --font-display: 'Outfit', sans-serif;
-    --font-sans: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    
-    /* Transitions */
-    --transition-base: 0.3s ease;
-    --transition-fast: 0.2s ease;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-main: #0F0F0F;
-        --bg-surface: #1A1A1A;
-    }
+```javascript
+// Exemplo: assets/js/data/portfolio.js
+profile: {
+    fullName: "Seu Nome",
+    role: "Sua Profissão",
+    email: "seu@email.com",
+    github: "https://github.com/seu-usuario",
+    linkedin: "https://linkedin.com/in/seu-usuario",
+    cvLink: "assets/docs/curriculo.pdf",
 }
 ```
+
+### Adicionando projetos
+
+Os projetos exibidos no **modal de detalhes** são gerenciados por:
+
+```
+assets/js/data/projects.js
+```
+
+### Adicionando novo componente CSS
+
+1. Crie `assets/css/components/card.css`
+2. Adicione em `assets/css/main.css`:
+   ```css
+   @import url('./components/card.css');
+   ```
+
+### Adicionando novo módulo JavaScript
+
+1. Crie `assets/js/modules/meumodulo.js` com:
+   ```javascript
+   export function initMeuModulo() { ... }
+   ```
+2. Importe e chame em `assets/js/main.js`:
+   ```javascript
+   import { initMeuModulo } from './modules/meumodulo.js';
+   // dentro do DOMContentLoaded:
+   initMeuModulo();
+   ```
 
 ---
 
 ## 💻 Seções do Site
 
 ### 1. **Header** (`header.css`)
-Navegação fixa com glassmorphism, logo e toggle de tema
-
-**Features:**
-- Navegação sticky com scroll detection
-- Theme toggle com transição suave
-- Menu responsivo em mobile
+Navegação fixa com glassmorphism, logo, menu de seções e botões de ação (tema, currículo, GitHub).
 
 ### 2. **Hero** (`hero.css`)
-Seção inicial com efeito de digitação
+Seção inicial com badge de disponibilidade, título com gradient text, efeito de digitação em loop, botões CTA e scroll indicator.
 
-**Features:**
-- Badge com pulsing animation
-- Título com gradient text
-- Typing effect (muda de profissão em loop)
-- CTA buttons com efeito hover
-- Scroll indicator com bounce animation
+### 3. **Sobre** (`about.css`)
+Foto circular, descrição profissional com texto destacado e cards de estatísticas (Repositórios via API, Foco e Formação).
 
-### 3. **About** (`about.css`)
-Seção "Sobre mim" com layout grid e stats
+### 4. **Habilidades** (`skills.css`)
+Dois carrosséis infinitos e automáticos com ícones das tecnologias, gerados dinamicamente via JSON.
 
-**Features:**
-- Foto circular com shadow
-- Grid 2-coluna (desktop) → 1-coluna (mobile)
-- Cards de estatísticas com number counter
-- Shimmer animation in highlighted text
+### 5. **Projetos** (`projects.css` + `modal.css`)
+Grid responsivo de cards com overlay interativo. Ao clicar em um projeto, abre um modal com detalhes completos (desafio, solução, impacto, stack, métricas).
 
-### 4. **Skills** (`skills.css`)
-Carousel infinito de tecnologias
-
-**Features:**
-- Scroll automático infinito (2 direções alternadas)
-- Hover effect com translateY
-- Responsivo: ajusta tamanho por breakpoint
-
-### 5. **Projects** (`projects.css`)
-Grid de projetos com overlay interativo
-
-**Features:**
-- Auto-fit grid (1-4 colunas conforme tamanho)
-- Hover com zoom+blur de imagem
-- Overlay com ícones de action (Demo/GitHub)
-- Tech tags com destaque no hover
-- Stats de projeto (forks, stars)
-
-### 6. **Contact** (`contact.css`)
-Seção de contato com formulário e informações
-
-**Features:**
-- Layout 2-coluna: Info (esquerda) + Form (direita)
-- Ícones coloridos por tipo de contato
-- Formulário com validação visual (focus states)
-- Inputs com glow effect no focus
+### 6. **Contato** (`contact.css`)
+Layout 2 colunas: canais de contato (Email, LinkedIn, GitHub, Medium) + formulário AJAX com feedback via toast notification.
 
 ### 7. **Footer** (`footer.css`)
-Rodapé minimalista com ícones animados
-
-**Features:**
-- Background secundário distinguido
-- Ícones animados (coração pulsando, café com vapor)
-- Créditos simples e elegantes
+Rodapé com copyright e créditos animados.
 
 ---
 
 ## 🎨 Sistema de Temas
 
-### Como Funciona
+O projeto suporta **dark mode** e **light mode**, com persistência via `localStorage`.
 
-1. **Detecção de Preferência**
-   ```javascript
-   // theme-config.js detecta: prefers-color-scheme media query
-   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-   ```
+```css
+/* variables.css */
+:root {
+    --bg-main: #FFFFFF;      /* Default: light */
+    --text-main: #000000;
+}
 
-2. **Armazenamento Persistente**
-   ```javascript
-   localStorage.setItem('theme', 'dark'); // Salva preferência do usuário
-   ```
-
-3. **Aplicação de Cores**
-   ```css
-   /* variables.css */
-   :root {
-       --bg-main: #FFFFFF;      /* Default: light */
-       --text-main: #000000;
-   }
-   
-   [data-theme="dark"] {
-       --bg-main: #0F0F0F;      /* Override: dark */
-       --text-main: #FFFFFF;
-   }
-   ```
-
-### Temas Disponíveis
-
-| Tema | Palette |
-|------|---------|
-| **Light** | Fundo branco, texto escuro |
-| **Dark** | Fundo #0F0F0F, texto branco |
-
-### Toggle de Tema
-
-```html
-<button class="theme-toggle" id="themeToggle">
-    <i class="ri-moon-line"></i>
-</button>
+[data-theme="dark"] {
+    --bg-main: #0F0F0F;
+    --text-main: #FFFFFF;
+}
 ```
 
-Funcionamento:
-1. Clique no botão
-2. JavaScript alterna `data-theme` no `<html>`
-3. CSS variables mudam automaticamente
-4. localStorage salva preferência
+**Fluxo de funcionamento:**
+1. `theme-config.js` lê o `localStorage` ou detecta `prefers-color-scheme`
+2. Aplica `data-theme` no `<html>`
+3. O botão 🌙/☀️ no header faz o toggle e salva a preferência
 
 ---
 
 ## 📱 Responsividade
 
-### Breakpoints
-
 ```css
-/* Mobile-first approach */
+/* Desktop: 1200px+ — Layout padrão */
+/* Tablet:  até 992px */
+@media (max-width: 992px) { ... }
 
-/* Desktop: 1200px+ */
-.container { max-width: 1200px; }
+/* Mobile:  até 768px */
+@media (max-width: 768px) { ... }
 
-/* Tablet: até 992px */
-@media (max-width: 992px) {
-    .projects-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* Mobile: até 768px */
-@media (max-width: 768px) {
-    .projects-grid { grid-template-columns: 1fr; }
-}
-
-/* Small phones: até 480px */
-@media (max-width: 480px) {
-    font-size: 14px; /* Reduz base font */
-}
+/* Small:   até 480px */
+@media (max-width: 480px) { ... }
 ```
 
-### Técnicas Usadas
-
-- **Fluid Typography**: `clamp()` para fonts responsivas
-- **Auto-fit Grid**: `repeat(auto-fit, minmax())` para layouts adaptáveis
-- **Flexbox & Grid**: Layouts flexíveis
-- **Media Queries**: 3 breakpoints principais
+**Técnicas utilizadas:**
+- `clamp()` para tipografia fluida
+- `repeat(auto-fit, minmax())` para grids adaptáveis
+- Flexbox e CSS Grid
 
 ---
 
 ## ♿ Acessibilidade
 
-Implementação em conformidade com **WCAG 2.1 Level AA**:
-
-### Semântica HTML
-```html
-<header>, <nav>, <main>, <section>, <article>, <footer>
-```
-
-### ARIA Labels
-```html
-<button aria-label="Alternar tema (dark/light)">
-    <i class="ri-moon-line"></i>
-</button>
-```
-
-### Contraste de Cores
-- Razão de contraste ≥ 4.5:1 para texto normal
-- Razão de contraste ≥ 3:1 para texto grande
-
-### Keyboard Navigation
-- Tab para navegar entre botões/links
-- Enter para ativar
-- Escape para fechar modais
-
-### Suporte a Screen Readers
+- HTML semântico (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
+- `aria-label` em todos os botões e ícones
+- Navegação por teclado (Tab, Enter, Escape para fechar modal)
 - Atributos `alt` em imagens
-- `role` attributes quando necessário
-- Estrutura lógica de headings
-
----
-
-## 🧭 Roadmap
-
-### Curto Prazo (v2.0)
-- [ ] Sistema de dark mode com transição suave
-- [ ] Animação de counter para estatísticas
-- [ ] Menu mobile com drawer/hamburger
-- [ ] Scroll-to-top button
-
-### Médio Prazo (v3.0)
-- [ ] Blog integrado para artigos de Data Science
-- [ ] Filtros por categoria/tecnologia nos projetos
-- [ ] Google Analytics integrado
-- [ ] Seção de certificações
-
-### Longo Prazo (v4.0)
-- [ ] Versão em inglês
-- [ ] PWA (Progressive Web App)
-- [ ] Dark/Light/Auto theme modes
-- [ ] Modo alto contraste para acessibilidade avançada
-- [ ] CMS headless para gerenciar conteúdo
-
----
-
-## 🤝 Contribuindo
-
-Este é um projeto pessoal, mas você pode fazer fork e adaptá-lo para seu portfólio!
-
-**Guia rápido:**
-1. Faça um fork
-2. Crie uma branch (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
----
-
-## 📄 Licença
-
-Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-```
-MIT License
-
-Copyright (c) 2024 Euller dos Santos
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software...
-```
+- Estrutura lógica de headings (`h1` → `h2` → `h3`)
+- Contraste de cores em conformidade com **WCAG 2.1**
 
 ---
 
 ## 👤 Autor
 
-**Euller dos Santos**
+**Euller Duarte**
+Analista de Dados | Graduando em Engenharia Elétrica (IFMA)
 
-Analista de Dados em formação | Desenvolvedor Front-End | Apaixonado por dados e web design
-
-### Conectar-se
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/euuuller)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/euuuller)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Euuuller)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:euller.santos.duarte@gmail.com)
+[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@euller.santos.duarte)
 
 ---
 
-## 📚 Recursos Complementares
+## 📄 Licença
 
-- [ITCSS: Scalable and Maintainable CSS Architecture](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
-- [MDN: CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
-- [JavaScript.info - Modules](https://javascript.info/modules)
-- [Web Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/WCAG21/quickref/)
+Este projeto está licenciado sob a **MIT License** — veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+```
+Copyright (c) 2026 Euller dos Santos Rodrigues Duarte
+```
 
 ---
 
 <div align="center">
 
-**Desenvolvido com ❤️ + ☕ por Euller dos Santos**
+**Desenvolvido com ❤️ + ☕ por Euller Duarte**
 
 ⭐ Se este projeto foi útil, considere deixar uma estrela!
 
-![GitHub last commit](https://img.shields.io/github/last-commit/Euuuller/Portfolio?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Euuuller/Template?style=for-the-badge)
 
 </div>
