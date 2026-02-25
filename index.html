@@ -456,6 +456,93 @@
         </section>
 
         <!-- ========================================
+         PROJECT MODAL
+         ======================================== -->
+        <div class="modal-overlay" id="project-modal">
+            <div class="modal-container">
+                <!-- Close Button -->
+                <button class="modal-close" aria-label="Fechar Modal">
+                    <i class="ri-close-line"></i>
+                </button>
+
+                <!-- Scrollable Body -->
+                <div class="modal-body">
+                    <!-- Badge & Header -->
+                    <div class="modal-badge"></div>
+                    <div class="modal-header">
+                        <h2 class="modal-title"></h2>
+                        <p class="modal-subtitle"></p>
+                    </div>
+
+                    <!-- Main Content Grid -->
+                    <div class="modal-grid">
+                        <!-- Left Column: Key Cards -->
+                        <div class="modal-left">
+                            <div class="info-card card-desafio">
+                                <div class="info-icon"><i class=""></i></div>
+                                <div class="info-content">
+                                    <h4></h4>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="info-card card-solucao">
+                                <div class="info-icon"><i class=""></i></div>
+                                <div class="info-content">
+                                    <h4></h4>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="info-card card-impacto">
+                                <div class="info-icon"><i class=""></i></div>
+                                <div class="info-content">
+                                    <h4></h4>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Stats & Sidebar -->
+                        <div class="modal-right">
+                            <!-- Action Buttons -->
+                            <div class="modal-actions-container">
+                                <a href="#" class="demo-btn" target="_blank">
+                                    Ver Demo <i class="ri-external-link-line"></i>
+                                </a>
+                                <a href="#" class="sidebar-btn" target="_blank">
+                                    Código <i class="ri-github-line"></i>
+                                </a>
+                            </div>
+
+                            <!-- Stack Section -->
+                            <div class="sidebar-section">
+                                <div class="sidebar-label">Stack</div>
+                                <div class="stack-list">
+                                    <!-- Tags injetadas via JS -->
+                                </div>
+                            </div>
+
+                            <!-- Metrics Section -->
+                            <div class="sidebar-section">
+                                <div class="sidebar-label">Métricas</div>
+                                <div class="metrics-list">
+                                    <!-- Metricas injetadas via JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="modal-footer">
+                        <span class="footer-credits">Projeto desenvolvido por Euller Duarte</span>
+                        <span class="footer-year">2026 <i class="ri-calendar-line"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
              SEÇÃO CONTATO
              Formulário de contato com links sociais
              Layout: 2 colunas (esquerda: links, direita: form)
@@ -484,7 +571,8 @@
                         <!-- Lista de contatos com ícones -->
                         <div class="contact-list">
                             <!-- Email -->
-                            <a data-bind-href="profile.email" class="contact-item">
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=euller.santos.duarte@gmail.com"
+                                target="_blank" class="contact-item">
                                 <div class="contact-icon icon-email">
                                     <i data-lucide="mail-check"></i>
                                 </div>
@@ -604,92 +692,6 @@
         lucide.createIcons();
     </script>
 
-    <!-- ========================================
-         PROJECT MODAL
-         ======================================== -->
-    <div class="modal-overlay" id="project-modal">
-        <div class="modal-container">
-            <!-- Close Button -->
-            <button class="modal-close" aria-label="Fechar Modal">
-                <i class="ri-close-line"></i>
-            </button>
-
-            <!-- Scrollable Body -->
-            <div class="modal-body">
-                <!-- Badge & Header -->
-                <div class="modal-badge"></div>
-                <div class="modal-header">
-                    <h2 class="modal-title"></h2>
-                    <p class="modal-subtitle"></p>
-                </div>
-
-                <!-- Main Content Grid -->
-                <div class="modal-grid">
-                    <!-- Left Column: Key Cards -->
-                    <div class="modal-left">
-                        <div class="info-card card-desafio">
-                            <div class="info-icon"><i class=""></i></div>
-                            <div class="info-content">
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-
-                        <div class="info-card card-solucao">
-                            <div class="info-icon"><i class=""></i></div>
-                            <div class="info-content">
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-
-                        <div class="info-card card-impacto">
-                            <div class="info-icon"><i class=""></i></div>
-                            <div class="info-content">
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Stats & Sidebar -->
-                    <div class="modal-right">
-                        <!-- Action Buttons -->
-                        <div class="modal-actions-container">
-                            <a href="#" class="demo-btn" target="_blank">
-                                Ver Demo <i class="ri-external-link-line"></i>
-                            </a>
-                            <a href="#" class="sidebar-btn" target="_blank">
-                                Código <i class="ri-github-line"></i>
-                            </a>
-                        </div>
-
-                        <!-- Stack Section -->
-                        <div class="sidebar-section">
-                            <div class="sidebar-label">Stack</div>
-                            <div class="stack-list">
-                                <!-- Tags injetadas via JS -->
-                            </div>
-                        </div>
-
-                        <!-- Metrics Section -->
-                        <div class="sidebar-section">
-                            <div class="sidebar-label">Métricas</div>
-                            <div class="metrics-list">
-                                <!-- Metricas injetadas via JS -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer -->
-                <div class="modal-footer">
-                    <span class="footer-credits">Projeto desenvolvido por Euller Duarte</span>
-                    <span class="footer-year">2026 <i class="ri-calendar-line"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Script principal JavaScript em ES6 modules -->
     <!-- Carrega main.js que importa e inicializa todos os módulos -->

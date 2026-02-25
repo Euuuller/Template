@@ -45,6 +45,9 @@ import { initProjectModal } from './modules/modal.js';
 // Importa a função que injeta dados estruturais no HTML (Data-Driven)
 import { initDataBinder } from './modules/binder.js';
 
+// Importa a função de automação do formulário de contato
+import { initContact } from './modules/contact.js';
+
 /**
  * Event Listener: DOMContentLoaded
  * 
@@ -106,6 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. INICIALIZAR MODAL DE PROJETOS
     // ========================================
     initProjectModal();
+
+    // ========================================
+    // 7. INICIALIZAR AUTOMAÇÃO DE CONTATO
+    // ========================================
+    initContact();
 
     // ========================================
     // LOG DE INICIALIZAÇÃO (OPCIONAL)

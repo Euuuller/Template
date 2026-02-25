@@ -16,10 +16,10 @@ export const portfolioData = {
         lastName: "Duarte",
         fullName: "Euller Duarte",
         role: "Analista de Dados & Graduando em Engenharia",
-        email: "euller.santos.duarte@email.com",
+        email: "euller.santos.duarte@gmail.com",
         github: "https://github.com/euuuller",
         linkedin: "https://linkedin.com/in/euuuller",
-        medium: "https://medium.com/@euller.duarte",
+        medium: "https://medium.com/@euller.santos.duarte",
         cvLink: "assets/docs/Vitae.pdf",
         availability: "Disponivel para projetos",
         avatar: "https://github.com/Euuuller.png"
