@@ -56,9 +56,9 @@
          colocar em arquivo separado
          ======================================== -->
     <style>
-        /* Margem superior no elemento #inicio para compensar header fixed */
-        /* Necessário para scroll-to-anchor não ficar debaixo do header */
-        #inicio {
+        /* Margem superior em TODAS as seções para compensar o header fixo */
+        /* Sem isso, ao clicar num link de nav o título fica escondido atrás do header */
+        section {
             scroll-margin-top: var(--header-height);
         }
     </style>
@@ -100,11 +100,10 @@
             <!-- Botões de ação no canto superior direito -->
             <div class="header-actions">
                 <!-- Botão de alternância de tema (dark/light) -->
-                <!-- data-lucide: especifica qual ícone Lucide usar -->
                 <button class="action-btn theme-toggle" aria-label="Alterar Tema">
                     <i data-lucide="moon" class="theme-icon"></i>
                 </button>
-                <!-- Botão para baixar currículo automático -->
+                <!-- Botão para baixar currículo -->
                 <a data-bind-href="profile.cvLink" download="Currículo.pdf" class="action-btn cv-btn"
                     aria-label="Baixar Currículo">
                     <i data-lucide="file-text"></i>
@@ -113,9 +112,29 @@
                 <a data-bind-href="profile.github" target="_blank" class="action-btn github-btn" aria-label="GitHub">
                     <i data-lucide="github"></i>
                 </a>
+                <!-- Botão hamburger — visível apenas no mobile -->
+                <button class="action-btn hamburger-btn" id="menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- ========================================
+         MENU MOBILE
+         Painel de navegação que aparece ao clicar no hamburger
+         ======================================== -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <nav class="mobile-nav">
+            <a href="#inicio" class="mobile-nav-link">Início</a>
+            <a href="#sobre" class="mobile-nav-link">Sobre</a>
+            <a href="#habilidades" class="mobile-nav-link">Habilidades</a>
+            <a href="#projetos" class="mobile-nav-link">Projetos</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
+        </nav>
+    </div>
 
     <!-- ========================================
          CONTEÚDO PRINCIPAL
@@ -157,12 +176,13 @@
 
                 <!-- Botões de ação (CTA) -->
                 <div class="hero-actions">
-                    <!-- Botão primário: Ver Projetos -->
-                    <button class="btn btn-primary">
+                    <!-- Botão primário: Ver Projetos (link âncora para scroll suave) -->
+                    <a href="#projetos" class="btn btn-primary">
                         Ver Projetos <i class="ri-arrow-right-line"></i>
-                    </button>
+                    </a>
                     <!-- Botão secundário: Baixar CV -->
-                    <a data-bind-href="profile.cvLink" download="Currículo.pdf" class="btn btn-primary" target="_blank">
+                    <a data-bind-href="profile.cvLink" download="Currículo.pdf" class="btn btn-secondary"
+                        target="_blank">
                         Baixar CV
                     </a>
                 </div>

@@ -27,6 +27,54 @@
 import { getElements, smoothScroll } from '../core/dom.js';
 
 /**
+ * Inicializa o menu mobile (hamburger)
+ * - Toggle abrir/fechar ao clicar no botão
+ * - Fechar ao clicar em qualquer link
+ * - Fechar ao redimensionar para desktop
+ */
+function initMobileMenu() {
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (!toggleBtn || !mobileMenu) return;
+
+    /** Abre ou fecha o menu */
+    function toggleMenu(forceClose = false) {
+        const isOpen = toggleBtn.classList.contains('is-open') || forceClose;
+
+        if (isOpen) {
+            // FECHAR
+            toggleBtn.classList.remove('is-open');
+            mobileMenu.classList.remove('is-open');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+        } else {
+            // ABRIR
+            toggleBtn.classList.add('is-open');
+            mobileMenu.classList.add('is-open');
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+        }
+    }
+
+    // Clique no botão hamburger
+    toggleBtn.addEventListener('click', () => toggleMenu());
+
+    // Fechar ao clicar em qualquer link do menu mobile
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMenu(true));
+    });
+
+    // Fechar ao redimensionar para desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            toggleMenu(true);
+        }
+    });
+}
+
+/**
  * Inicializa o sistema de navegação suave
  * 
  * PROCESSO:
@@ -57,15 +105,14 @@ import { getElements, smoothScroll } from '../core/dom.js';
  * </button>
  */
 export function initNavigation() {
+    // Inicializa menu mobile
+    initMobileMenu();
+
     // ========================================
     // 1. ENCONTRAR TODOS OS LINKS COM ÂNCORA
     // ========================================
-    // Seletor CSS: a[href^="#"]
-    // Significado: Encontra todos <a> que tem href começando com #
-    // Exemplos: <a href="#about">, <a href="#projects">
-    // Exceção: <a href="#"> (href vazio) será ignorado depois
     const anchorLinks = getElements('a[href^="#"]');
-    
+
     // ========================================
     // 2. ADICIONAR LISTENER A CADA LINK
     // ========================================
@@ -79,7 +126,7 @@ export function initNavigation() {
             // Pega atributo href do link
             // Exemplo: <a href="#about"> → href = "#about"
             const href = this.getAttribute('href');
-            
+
             // ================================
             // PASSO 2: IGNORAR LINKS ESPECIAIS
             // ================================
@@ -88,7 +135,7 @@ export function initNavigation() {
             // Usado em botões que não são navegação real
             // Exemplo: <a href="#">Novo parágrafo</a> (links sem destino)
             if (href === '#') return;
-            
+
             // ================================
             // PASSO 3: PREVENIR COMPORTAMENTO PADRÃO
             // ================================
@@ -105,7 +152,7 @@ export function initNavigation() {
             // com ID correspondente ao href
             // Exemplo: href="#about" → Procura id="about"
             const target = document.querySelector(href);
-            
+
             // ================================
             // PASSO 5: FAZER SCROLL SE ENCONTROU
             // ================================
@@ -113,7 +160,7 @@ export function initNavigation() {
             if (target) {
                 // Chama smoothScroll() do core/dom.js
                 // smoothScroll(elemento, opções)
-                smoothScroll(target, { 
+                smoothScroll(target, {
                     behavior: 'smooth', // Scroll suave (não instantâneo)
                     block: 'start' // Alinha elemento no topo da viewport
                 });

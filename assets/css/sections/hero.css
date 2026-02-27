@@ -395,6 +395,16 @@
         width: 100%;
         justify-content: center;
     }
+
+    /* Sobe um pouco o scroll-indicator para ficar visível */
+    .scroll-indicator {
+        bottom: 3.5rem;
+    }
+
+    /* Espaço extra abaixo para não cortar o indicador */
+    .hero {
+        padding-bottom: 5rem;
+    }
 }
 
 /**
