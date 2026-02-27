@@ -381,6 +381,23 @@
 }
 
 /**
+ * Ajustes responsivos para telas menores
+ * Garante que botões tenham funcionalidade e bom tamanho
+ */
+@media screen and (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/**
  * .scroll-indicator - Seta "scroll para baixo"
  */
 .scroll-indicator {

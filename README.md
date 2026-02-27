@@ -1,4 +1,4 @@
-# 💼 Portfólio — Euller Duarte
+# 💼 Portfólio de Projetos — Euuuller
 
 <div align="center">
 
@@ -54,13 +54,14 @@
 
 ## 🎯 Sobre
 
-Portfólio profissional de **Euller Duarte**, Analista de Dados e Graduando em Engenharia Elétrica no Instituto Federal do Maranhão (IFMA). O projeto foi desenvolvido para apresentar projetos, habilidades técnicas e informações de contato de forma moderna e interativa.
+Portfólio de Projetos desenvolvido com bastante Carinho por mim **Euller dos Santos Rodrigues Duarte**, Graduando em Engenharia Elétrica no Instituto Federal do Maranhão (IFMA) e Atualmente estudando Análise de Dados. De modo, a finalidade desse portfólio consiste na apresentação de projetos dentro do segmento, apresentar habilidades técnicas e informações de contato de forma moderna e interativa.
 
 Além de ser um portfólio, este projeto demonstra:
 - **Desenvolvimento web** com HTML5, CSS3 e JavaScript ES6+
 - **Pensamento em arquitetura** com ITCSS e módulos JavaScript
 - **UX consciente** com animações, responsividade e acessibilidade
 - **Dados centralizados** via arquitetura Data-Driven (sem duplicar conteúdo no HTML)
+- **Uso de Inteligência Artificial** para delegar atribuições e agilidade no processo de desenvolvimento.
 
 ---
 
@@ -377,7 +378,7 @@ O projeto suporta **dark mode** e **light mode**, com persistência via `localSt
 
 ## 👤 Autor
 
-**Euller Duarte**
+**Euller dos Santos Rodrigues Duarte**
 Analista de Dados | Graduando em Engenharia Elétrica (IFMA)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/euuuller)
