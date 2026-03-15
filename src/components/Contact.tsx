@@ -1,13 +1,14 @@
-import { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 import SectionHeader from './SectionHeader';
 import { SOCIAL_LINKS } from '../data';
-import { CheckCircle2, AlertCircle, ArrowRight, Loader2, Mail, Linkedin, Github, Type } from 'lucide-react';
+import { CheckCircle2, AlertCircle, ArrowRight, Loader2, Mail, Type } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './icons';
 
 const getSocialIcon = (name: string) => {
   switch (name.toLowerCase()) {
     case 'email': return <Mail className="w-6 h-6" />;
-    case 'linkedin': return <Linkedin className="w-6 h-6" />;
-    case 'github': return <Github className="w-6 h-6" />;
+    case 'linkedin': return <LinkedinIcon className="w-6 h-6" />;
+    case 'github': return <GithubIcon className="w-6 h-6" />;
     case 'medium': return <Type className="w-6 h-6" />;
     default: return <Mail className="w-6 h-6" />;
   }
@@ -19,7 +20,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validação
@@ -75,7 +76,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" className="min-h-[100dvh] flex flex-col pt-[120px] pb-[80px]">
+    <section id="contato" className="min-h-dvh flex flex-col pt-[120px] pb-[80px]">
       <div className="max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col">
         <SectionHeader 
           title="Entre em Contato" 

@@ -10,8 +10,12 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-bg-main dark:bg-[#050505] text-slate-900 dark:text-slate-100 transition-colors duration-300;
+    overscroll-behavior: none;
   }
 }
 

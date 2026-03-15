@@ -27,7 +27,7 @@ const TypewriterText = memo(function TypewriterText() {
   }, [currentRole, isDeleting, roleIndex]);
 
   return (
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
+    <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
       {currentRole}
     </span>
   );
@@ -56,7 +56,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="inicio" className="relative h-[100dvh] min-h-[600px] flex flex-col justify-center items-center overflow-hidden pt-16">
+    <section id="inicio" className="relative min-h-svh flex flex-col justify-center items-center overflow-hidden pt-16">
       <motion.div 
         className="max-w-4xl mx-auto px-6 text-center z-10 flex flex-col items-center"
         variants={containerVariants}
@@ -84,7 +84,7 @@ export default function Hero() {
         >
           Euller{' '}
           <span className="relative inline-block">
-            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white">
+            <span className="relative z-10 text-transparent bg-clip-text bg-linear-to-r from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white">
               Duarte
             </span>
             <motion.span 
@@ -123,7 +123,7 @@ export default function Hero() {
             href="#projetos" 
             className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-slate-900/20 dark:hover:shadow-white/20 overflow-hidden flex-1 sm:flex-none"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent dark:via-black/10 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent dark:via-black/10 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
             <span className="whitespace-nowrap">Ver Projetos</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
           </a>

@@ -15,10 +15,10 @@ import {
   ArrowRight,
   X,
   ExternalLink,
-  Github,
   Lightbulb,
   Calendar
 } from 'lucide-react';
+import { GithubIcon } from './icons';
 
 const getTagColor = (tag: string) => {
   const colors: Record<string, string> = {
@@ -78,7 +78,7 @@ export default function Projects() {
   }, [selectedProject]);
 
   return (
-    <section id="projetos" className="min-h-[100dvh] flex flex-col pt-[120px] pb-[80px] relative">
+    <section id="projetos" className="min-h-dvh flex flex-col pt-[120px] pb-[80px] relative">
       <div className="max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col">
         <SectionHeader 
           title="Projetos em Destaque" 
@@ -147,7 +147,7 @@ export default function Projects() {
 
       {/* Modal Overlay */}
       <div 
-        className={`fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${selectedProject ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 z-9999 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${selectedProject ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setSelectedProject(null)}
         aria-hidden={!selectedProject}
       >
@@ -212,13 +212,13 @@ export default function Projects() {
                     <ExternalLink className="w-4 h-4" /> Ver Demo
                   </a>
                   <a href={selectedProject.modal.urlCodigo} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 dark:bg-slate-700 hover:bg-navy dark:hover:bg-slate-600 text-white font-semibold py-3 px-6 rounded-xl transition-colors">
-                    <Github className="w-4 h-4" /> Código
+                    <GithubIcon className="w-4 h-4" /> Código
                   </a>
                 </div>
 
                 {/* Stack */}
                 <div>
-                  <h4 className="font-bold text-navy dark:text-white mb-3 uppercase text-[11px] tracking-wider text-slate-500 dark:text-slate-400">Stack</h4>
+                  <h4 className="font-bold mb-3 uppercase text-[11px] tracking-wider text-slate-500 dark:text-slate-400">Stack</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.modal.stack.map((s: string, i: number) => (
                       <span key={i} className={`text-[11px] font-bold px-2.5 py-1 rounded-md border ${getTagColor(s)}`}>
@@ -230,7 +230,7 @@ export default function Projects() {
 
                 {/* Métricas */}
                 <div>
-                  <h4 className="font-bold text-navy dark:text-white mb-3 uppercase text-[11px] tracking-wider text-slate-500 dark:text-slate-400">Métricas</h4>
+                  <h4 className="font-bold mb-3 uppercase text-[11px] tracking-wider text-slate-500 dark:text-slate-400">Métricas</h4>
                   <ul className="space-y-3">
                     {selectedProject.modal.metricas.map((m: string, i: number) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">

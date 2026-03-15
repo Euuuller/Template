@@ -7,7 +7,7 @@ export default function Skills() {
   const track2 = SKILLS.slice(half);
 
   return (
-    <section id="habilidades" className="min-h-[100dvh] flex flex-col pt-[120px] pb-[80px] overflow-hidden">
+    <section id="habilidades" className="min-h-dvh flex flex-col pt-[120px] pb-[80px] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col">
         <SectionHeader
           title="Habilidades Técnicas"

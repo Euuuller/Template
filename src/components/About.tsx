@@ -1,9 +1,10 @@
 import SectionHeader from './SectionHeader';
-import { Github, FolderOpen, PieChart, GraduationCap } from 'lucide-react';
+import { FolderOpen, PieChart, GraduationCap } from 'lucide-react';
+import { GithubIcon } from './icons';
 
 export default function About() {
   return (
-    <section id="sobre" className="min-h-[100dvh] flex flex-col pt-[120px] pb-[80px]">
+    <section id="sobre" className="min-h-dvh flex flex-col pt-[120px] pb-[80px]">
       <div className="max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col">
         <SectionHeader 
           title="Sobre Mim" 
@@ -29,7 +30,7 @@ export default function About() {
               rel="noopener noreferrer"
               className="absolute bottom-4 right-4 z-20 w-14 h-14 bg-navy dark:bg-slate-800 rounded-full flex items-center justify-center text-white shadow-md hover:scale-110 transition-transform"
             >
-              <Github className="w-7 h-7" />
+              <GithubIcon className="w-7 h-7" />
             </a>
           </div>
 
